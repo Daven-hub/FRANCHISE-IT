@@ -10,7 +10,7 @@ export default function ServicesList({ services }) {
         >
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
-              <div className="text-4xl text-indigo-600 mb-2">
+              <div className="text-4xl text-primary mb-2">
                 {service.icon}
               </div>
               <div className="w-full md:w-40 h-24 rounded-lg overflow-hidden">
@@ -36,7 +36,7 @@ export default function ServicesList({ services }) {
                 {service.features.slice(0, 3).map((feature, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
+                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-primary"
                   >
                     {feature}
                   </span>

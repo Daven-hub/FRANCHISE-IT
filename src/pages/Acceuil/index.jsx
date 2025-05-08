@@ -6,6 +6,7 @@ import servicesData from "../../data/ServiceData/Index";
 import NosServices from "./CarroucelService";
 import RealisationsSection from "./RealisationSection";
 import AnimateOnScroll from '../../components/AnimateOnScroll';
+import NotreEquipeExperimental from '../Equipes';
 
 const service = servicesData.services;
 
@@ -30,6 +31,10 @@ const Accueil = () => {
         <AnimateOnScroll animation="animate__zoomIn">
           <RealisationsSection />
         </AnimateOnScroll>
+
+        {/* <AnimateOnScroll animation="animate__zoomIn">
+          <NotreEquipeExperimental />
+        </AnimateOnScroll> */}
 
         <AnimateOnScroll animation="animate__fadeInUp">
           <FormulaireContact />
