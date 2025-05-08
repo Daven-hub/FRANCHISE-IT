@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaArrowRight, FaPhoneAlt, FaCheckCircle, FaChartLine, FaLightbulb } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ServiceHero = ({ service }) => (
   <motion.div
@@ -117,7 +118,7 @@ const ServiceHero = ({ service }) => (
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        
+        <Link to={'/contact'}>
         <motion.button
           whileHover={{ 
             scale: 1.03, 
@@ -129,6 +130,7 @@ const ServiceHero = ({ service }) => (
         >
           Discutons de votre projet <FaArrowRight />
         </motion.button>
+        </Link>
 
         {/* <motion.a
           href="tel:+1234567890"
