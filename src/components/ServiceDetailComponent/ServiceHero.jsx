@@ -59,7 +59,7 @@ const ServiceHero = ({ service }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="text-2xl sm:text-3xl text-center md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6"
+        className="text-2xl sm:text-3xl  md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6"
       >
         {service.title}
       </motion.h1>
@@ -68,7 +68,7 @@ const ServiceHero = ({ service }) => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="text-base sm:text-lg md:text-xl text-center text-gray-600 mb-6 md:mb-8"
+        className="text-base sm:text-lg md:text-xl  text-gray-600 mb-6 md:mb-8"
       >
         {service.description}
       </motion.p>
