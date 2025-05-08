@@ -19,7 +19,7 @@ export default function ServicesPagination({
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-indigo-600"
+            className="h-6 w-6 text-primary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -51,7 +51,7 @@ export default function ServicesPagination({
               onClick={() => setCurrentPage(pageNum)}
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                 currentPage === pageNum
-                  ? "bg-indigo-600 text-white shadow-md"
+                  ? "bg-primary text-white shadow-md"
                   : "hover:bg-indigo-50 text-gray-700"
               }`}
             >
@@ -69,7 +69,7 @@ export default function ServicesPagination({
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-indigo-600"
+            className="h-6 w-6 text-primary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -86,7 +86,7 @@ export default function ServicesPagination({
 
       <div className="w-full max-w-md bg-indigo-100 rounded-full h-2">
         <motion.div
-          className="bg-indigo-600 h-2 rounded-full"
+          className="bg-primary h-2 rounded-full"
           initial={{ width: 0 }}
           animate={{
             width: `${(currentPage / totalPages) * 100}%`,
