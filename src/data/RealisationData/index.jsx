@@ -26,12 +26,12 @@ export const projets = [
   },
   {
     id: 3,
-    titre: "Faro Passo",
+    titre: "NGK Service Pro",
     description:
-      "Faro Passo est un salon de coiffure moderne qui offre des prestations haut de gamme en coiffure et soins capillaires, avec un accent particulier sur le style, l’expertise et le confort.",
-    image: fp,
-    type: "Beauté",
-    lien: "https://salonfaropasso.ca",
+      "NGK Service Pro accompagne les entreprises dans leurs projets d’expansion à l’international grâce à des services d’ingénierie d’affaires et de représentation stratégique.",
+    image: ngk,
+    type: "Services aux entreprises",
+    lien: "https://NGK-entreprise.com",
   },
   {
     id: 4,
@@ -44,12 +44,12 @@ export const projets = [
   },
   {
     id: 5,
-    titre: "NGK Service Pro",
+    titre: "Faro Passo",
     description:
-      "NGK Service Pro accompagne les entreprises dans leurs projets d’expansion à l’international grâce à des services d’ingénierie d’affaires et de représentation stratégique.",
-    image: ngk,
-    type: "Services aux entreprises",
-    lien: "https://NGK-entreprise.com",
+      "Faro Passo est un salon de coiffure moderne qui offre des prestations haut de gamme en coiffure et soins capillaires, avec un accent particulier sur le style, l’expertise et le confort.",
+    image: fp,
+    type: "Beauté",
+    lien: "https://salonfaropasso.ca",
   },
   {
     id: 6,
