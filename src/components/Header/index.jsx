@@ -86,21 +86,21 @@ export default function Header() {
       subtitle:
         "Entreprises ou particuliers, boostez votre digital avec nos offres sur mesure",
     },
-    {
-      id: "/projects",
-      label: "Projets",
-      banner: bannerProjects,
-      title: "Nos Réalisations - Portfolio de Projets IT Exceptionnels",
-      subtitle: "Des solutions concrètes pour tous types de clients",
-    },
-    {
-      id: "/team",
-      label: "Équipe",
-      banner: bannerTeam,
-      title: "Notre Équipe - Des Experts Passionnés à Votre Service",
-      subtitle:
-        "Une équipe dédiée pour accompagner entreprises et particuliers",
-    },
+    // {
+    //   id: "/projects",
+    //   label: "Projets",
+    //   banner: bannerProjects,
+    //   title: "Nos Réalisations - Portfolio de Projets IT Exceptionnels",
+    //   subtitle: "Des solutions concrètes pour tous types de clients",
+    // },
+    // {
+    //   id: "/team",
+    //   label: "Équipe",
+    //   banner: bannerTeam,
+    //   title: "Notre Équipe - Des Experts Passionnés à Votre Service",
+    //   subtitle:
+    //     "Une équipe dédiée pour accompagner entreprises et particuliers",
+    // },
     {
       id: "/contact",
       label: "Contact",
@@ -134,11 +134,10 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", damping: 25 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
             ? "bg-white/90 backdrop-blur-md py-3 shadow-sm"
             : "bg-transparent py-4"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-3   flex justify-between items-center">
           <motion.div
@@ -147,13 +146,29 @@ export default function Header() {
             className="relative"
           >
             <Link to="/">
-              <img
+            {
+              scrolled ? <img
+              src={logo}
+              alt="Franchise IT"
+              className="h-10 transition-all filter brightness-0"
+            /> : <img
+            src={logo}
+            alt="Franchise IT"
+            className="w-40 h-auto filter brightness-0 invert"
+          />
+            }
+              {/* <img
                 src={logo}
                 alt="Franchise IT"
                 className={`h-10 transition-all ${
                   scrolled ? "filter brightness-0" : ""
                 }`}
-              />
+              /> */}
+              {/* <img
+                src={logo}
+                alt="Franchise IT"
+                className="w-40 h-auto filter brightness-0 invert"
+              /> */}
               {!scrolled && (
                 <motion.div
                   animate={{ opacity: [0.4, 1, 0.4] }}
@@ -174,13 +189,11 @@ export default function Header() {
               >
                 <Link
                   to={item.id}
-                  className={`relative px-1 py-2 text-sm font-medium transition-colors ${
-                    scrolled ? "text-gray-800" : "text-white"
-                  } ${
-                    location.pathname === item.id
-                      ? "text-indigo-500 font-semibold underline underline-offset-4"
+                  className={`relative px-1 py-2 text-sm font-medium transition-colors ${scrolled ? "text-gray-800" : "text-white"
+                    } ${location.pathname === item.id
+                      ? "text-indigo-500 font-semibold  "
                       : ""
-                  }`}
+                    }`}
                 >
                   {item.label}
                   {location.pathname === item.id && (
@@ -212,9 +225,8 @@ export default function Header() {
                   ? { rotate: 45, y: 7, width: 24 }
                   : { rotate: 0, y: 0, width: 24 }
               }
-              className={`block h-0.5 ${
-                scrolled ? "bg-gray-800" : "bg-white"
-              } origin-center`}
+              className={`block h-0.5 ${scrolled ? "bg-gray-800" : "bg-white"
+                } origin-center`}
             />
             <motion.span
               animate={
@@ -230,9 +242,8 @@ export default function Header() {
                   ? { rotate: -45, y: -7, width: 24 }
                   : { rotate: 0, y: 0, width: 24 }
               }
-              className={`block h-0.5 ${
-                scrolled ? "bg-gray-800" : "bg-white"
-              } origin-center`}
+              className={`block h-0.5 ${scrolled ? "bg-gray-800" : "bg-white"
+                } origin-center`}
             />
           </motion.button>
         </div>
@@ -268,11 +279,10 @@ export default function Header() {
                     <Link
                       to={item.id}
                       onClick={() => toggleMobileMenu()}
-                      className={`text-3xl font-bold flex items-center ${
-                        location.pathname === item.id
+                      className={`text-3xl font-bold flex items-center ${location.pathname === item.id
                           ? "text-indigo-300 underline underline-offset-4"
                           : "text-white"
-                      }`}
+                        }`}
                     >
                       <span>{item.label}</span>
                     </Link>

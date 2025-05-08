@@ -120,15 +120,15 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-indigo-400" />
-                <span>123 Avenue des Technologies<br />Yaoundé, Cameroun</span>
+                <span> Carrefour Santa Barbara<br />Douala, Cameroun</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone-alt mr-3 text-indigo-400" />
-                <span>+237 6 90 00 00 00</span>
+                <span>+237 6 95 43 27 99</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope mr-3 text-indigo-400" />
-                <span>contact@franchiseit.com</span>
+                <span>info@franchise-it-tech.com</span>
               </li>
             </ul>
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaArrowRight, FaPhoneAlt, FaCheckCircle, FaChartLine, FaLightbulb } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ServiceHero = ({ service }) => (
   <motion.div
@@ -59,7 +60,7 @@ const ServiceHero = ({ service }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight"
+        className="text-2xl sm:text-3xl  md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6"
       >
         {service.title}
       </motion.h1>
@@ -68,7 +69,7 @@ const ServiceHero = ({ service }) => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="text-xl text-gray-600 mb-6"
+        className="text-base sm:text-lg md:text-xl  text-gray-600 mb-6 md:mb-8"
       >
         {service.description}
       </motion.p>
@@ -117,6 +118,7 @@ const ServiceHero = ({ service }) => (
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
+        <Link to={'/contact'}>
         <motion.button
           whileHover={{ 
             scale: 1.03, 
@@ -128,6 +130,7 @@ const ServiceHero = ({ service }) => (
         >
           Discutons de votre projet <FaArrowRight />
         </motion.button>
+        </Link>
 
         {/* <motion.a
           href="tel:+1234567890"

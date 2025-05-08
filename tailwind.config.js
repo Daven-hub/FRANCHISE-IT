@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1', // indigo-500
-        hover: '#c7d2fe',   // indigo-200
-        'bg-start': '#f9fafb', // gray-50
-        'bg-end': '#eef2ff',   // indigo-50
+        primary: '#000000',
+        hover: '#c7d2fe',
+        'bg-start': '#f9fafb',
+        'bg-end': '#eef2ff',
       },
       animation: {
         logoMotion: "scaleGlow 2.5s ease-in-out forwards",
@@ -25,16 +25,19 @@ export default {
         },
       },
       fontSize: {
-        xs: '0.75rem',     // 12px
-        sm: '0.875rem',    // 14px
-        base: '1rem',      // 16px
-        lg: '1.125rem',    // 18px
-        xl: '1.25rem',     // 20px
-        '2xl': '1.5rem',   // 24px
-        '3xl': '1.875rem', // 30px
-        '4xl': '2.25rem',  // 36px
-        '5xl': '3rem',     // 48px
-        '6xl': '4rem',     // 64px
+        '2xs': '0.625rem',  // 10px
+        xs: '0.75rem',      // 12px
+        sm: '0.875rem',     // 14px
+        base: '1rem',       // 16px
+        lg: '1.125rem',     // 18px
+        xl: '1.25rem',      // 20px
+        '2xl': '1.5rem',    // 24px
+        '3xl': '1.875rem',  // 30px
+        '4xl': '2.25rem',   // 36px
+        '5xl': '3rem',      // 48px
+        '6xl': '4rem',      // 64px
+        '7xl': '5rem',      // 80px
+        '8xl': '6rem',      // 96px
       },
       screens: {
         sm: '640px',
