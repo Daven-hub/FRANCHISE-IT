@@ -1,0 +1,16 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Exo","Orbitron","Raleway","Montserrat","Source Sans 3";
+  overflow-x: hidden;
+}
+
+.font-title{
+  font-family: "Orbitron",sans-serif
+}
+
+
