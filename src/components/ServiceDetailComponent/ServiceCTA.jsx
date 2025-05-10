@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const ServiceCTA = ({ isVisible }) => (
   <motion.div
@@ -13,13 +14,15 @@ const ServiceCTA = ({ isVisible }) => (
     <p className="text-gray-600 mb-4">
       Discutons de votre projet et trouvons la meilleure solution pour vos besoins.
     </p>
-    <motion.button
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-md transition-all animate__animated animate__pulse animate__infinite"
-    >
-      Contactez-nous
-    </motion.button>
+    <Link to={'/contact'}>
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+        className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-md transition-all animate__animated animate__pulse animate__infinite"
+      >
+        Contactez-nous
+      </motion.button>
+    </Link>
   </motion.div>
 );
 

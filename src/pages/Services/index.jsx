@@ -33,16 +33,21 @@ export default function Services() {
   }, []);
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 to-indigo-50"
       ref={ref}
     >
-      <div className="absolute inset-0 opacity-10"
+      <div className=" inset-0 opacity-10 relative overflow-hidden"
         style={{
-          backgroundImage: "radial-gradient(circle at 30% 60%, rgba(99, 102, 241, 0.2) 0%, transparent 50%)",
+          // backgroundImage: "radial-gradient(circle at 30% 60%, rgba(99, 102, 241, 0.2) 0%, transparent 50%)",
         }}
       />
+
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute inset-0 bg-grid-blue-900/[0.02]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2VlZjJmZiIvPjxwYXRoIGQ9Ik0zMCAxMGMyMC4wMDUgMCAzMCA5Ljk5NSAzMCAzMHMtOS45OTUgMzAtMzAgMzBTMCA1MC4wMDUgMCAzMCA5Ljk5NSAxMCAzMCAxMHptMCAyMGMxMS4wNDYgMCAyMCA4Ljk1NCAyMCAyMHMtOC45NTQgMjAtMjAgMjBTMTAgNDEuMDQ2IDEwIDMwczguOTU0LTIwIDIwLTIweiIgZmlsbD0iI2QwZDRmZiIvPjwvZz48L3N2Zz4=')]"></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 relative z-10">
         <ServicesHeader />
@@ -77,7 +82,7 @@ export default function Services() {
             )}
 
             {totalPages > 1 && (
-              <ServicesPagination 
+              <ServicesPagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 setCurrentPage={setCurrentPage}

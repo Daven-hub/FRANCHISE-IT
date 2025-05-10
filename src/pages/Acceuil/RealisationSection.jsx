@@ -1,163 +1,121 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { projets } from "../../data/RealisationData";
 import { motion, AnimatePresence } from "framer-motion";
-import "animate.css";
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 4;
 
 const RealisationsSection = () => {
-  const sectionRef = useRef(null);
   const [page, setPage] = useState(1);
-
   const totalPages = Math.ceil(projets.length / ITEMS_PER_PAGE);
-  const paginatedProjets = projets.slice(
-    (page - 1) * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE
-  );
+  const paginatedProjets = projets.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setPage(newPage);
-      sectionRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-20 overflow-hidden bg-gray-50"
-      id="realisations"
-    >
-      <div className="relative z-10">
+    <section className="pt-8  " id="realisations">
+      <div className="container">
         {/* Titre */}
         <motion.div
-          className="text-center mb-16 animate__animated animate__fadeIn"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
-          <span className="inline-block mb-3 text-sm font-semibold text-blue-600 tracking-widest uppercase animate__animated animate__fadeIn animate__delay-1s">
-            Notre Portfolio
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-6 animate__animated animate__fadeInUp animate__fast">
-            Créations <span className="text-primary">Mémorables</span>
+          {/* <span className="block mb-2 text-xs sm:text-sm md:text-base uppercase tracking-wider text-primary font-medium">
+            Nos Projets
+          </span> */}
+          <h2 className="text-2xl sm:text-3xl text-center md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6">
+            Découvrez nos <span className="text-primary">réalisations</span>
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 bg-primary rounded-full animate__animated animate__zoomIn animate__delay-1s" />
         </motion.div>
 
-        {/* Projets */}
+        {/* Liste de projets */}
         <AnimatePresence mode="wait">
-          <motion.div
-            key={page}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 gap-14"
-          >
-            {paginatedProjets.map((projet, index) => {
-              const direction = index % 2 === 0 ? 1 : -1;
-
-              return (
-                <motion.div
-                  key={projet.id}
-                  className="relative group animate__animated animate__fadeIn"
-                  initial={{ opacity: 0, y: 80 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    type: "spring",
-                    stiffness: 50,
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  <motion.div
-                    className={`absolute -z-10 w-full h-full rounded-xl blur-sm ${
-                      projet.type === "Entreprise"
-                        ? "bg-blue-100/40"
-                        : "bg-green-100/40"
-                    } animate__animated animate__pulse animate__infinite animate__slower`}
-                    animate={{ rotate: direction * 3 }}
-                    transition={{ duration: 1 }}
+          {paginatedProjets.map((projet, index) => (
+            <motion.div
+              key={projet.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-4 sm:gap-6 items-center mb-6`}
+            >
+              {/* Carte image */}
+              <div className="w-full md:w-2/5 max-w-md overflow-hidden rounded-lg bg-white/80 border border-white shadow-xs hover:shadow-sm transition-all">
+                <div className="w-full h-auto">
+                  <img
+                    src={projet.image}
+                    alt={projet.titre}
+                    className="w-full h-auto max-h-48 sm:max-h-56 md:max-h-60 object-contain p-1"
                   />
+                </div>
+                <span className={`inline-block m-2 px-2 py-0.5 text-xs sm:text-sm font-medium rounded-full 
+                  ${projet.type === "Entreprise" ? 'bg-indigo-100 text-indigo-800' : 'bg-emerald-100 text-emerald-800'}`}>
+                  {projet.type}
+                </span>
+              </div>
 
-                  <div
-                    className={`flex flex-col md:flex-row ${
-                      index % 2 !== 0 ? "md:flex-row-reverse" : ""
-                    } gap-6 items-center`}
-                  >
-                    {/* Image */}
-                    <div className="w-full md:w-[40%] max-w-sm overflow-hidden rounded-xl shadow-md border border-gray-200 relative group-hover:animate__animated group-hover:animate__pulse">
-                      <div className="aspect-[3/2]">
-                        <img
-                          src={projet.image}
-                          alt={projet.titre}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                      </div>
-                      <div className="absolute top-3 left-3 bg-black/60 text-white px-2 py-0.5 rounded-full text-xs font-medium animate__animated animate__bounceIn animate__delay-1s">
-                        {projet.type}
-                      </div>
-                    </div>
-
-                    {/* Texte */}
-                    <div className="w-full md:w-1/2 animate__animated animate__fadeInRight animate__fast">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                        {projet.titre}
-                      </h3>
-                      <p className="text-lg text-gray-600">
-                        {projet.description}
-                      </p>
-                      <a
-                        href={projet.lien}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center px-4 py-2 text-sm bg-primary text-white rounded-full transition hover:animate__animated hover:animate__rubberBand"
-                      >
-                        Voir le projet
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+              {/* Contenu texte */}
+              <div className="w-full md:w-3/5 p-4 sm:p-5 rounded-lg bg-white/80 border border-white/80 shadow-xs">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-1 sm:mb-2">
+                  {projet.titre}
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed sm:leading-normal">
+                  {projet.description}
+                </p>
+                <a
+                  href={projet.lien}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 sm:mt-4 inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm bg-primary text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
+                >
+                  Voir le projet
+                  <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </AnimatePresence>
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-16 flex justify-center items-center gap-2 animate__animated animate__fadeInUp animate__delay-1s">
-            <button
-              onClick={() => handlePageChange(page - 1)}
-              disabled={page === 1}
-              className="px-4 py-2 rounded-full bg-gray-200 text-sm font-medium disabled:opacity-40 hover:bg-gray-300 transition hover:animate__animated hover:animate__shakeX"
-            >
-              Précédent
-            </button>
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                key={i}
-                onClick={() => handlePageChange(i + 1)}
-                className={`w-9 h-9 rounded-full text-sm font-medium ${
-                  i + 1 === page
-                    ? "bg-blue-600 text-white shadow-md scale-110 animate__animated animate__bounce"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:animate__animated hover:animate__pulse"
-                }`}
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <button
+                onClick={() => handlePageChange(page - 1)}
+                disabled={page === 1}
+                className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg border border-indigo-200 text-indigo-600 disabled:opacity-40 hover:bg-indigo-50 transition-colors"
               >
-                {i + 1}
-              </motion.button>
-            ))}
-            <button
-              onClick={() => handlePageChange(page + 1)}
-              disabled={page === totalPages}
-              className="px-4 py-2 rounded-full bg-gray-200 text-sm font-medium disabled:opacity-40 hover:bg-gray-300 transition hover:animate__animated hover:animate__shakeX"
-            >
-              Suivant
-            </button>
+                Précédent
+              </button>
+
+              <div className="flex gap-1">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handlePageChange(i + 1)}
+                    className={`w-7 h-7 sm:w-9 sm:h-9 text-xs sm:text-sm rounded-lg ${i + 1 === page ? 'bg-primary text-white' : 'text-indigo-600 hover:bg-indigo-50'}`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => handlePageChange(page + 1)}
+                disabled={page === totalPages}
+                className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-lg border border-indigo-200 text-indigo-600 disabled:opacity-40 hover:bg-indigo-50 transition-colors"
+              >
+                Suivant
+              </button>
+            </div>
           </div>
         )}
       </div>

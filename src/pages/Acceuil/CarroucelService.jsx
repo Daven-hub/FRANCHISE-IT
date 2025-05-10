@@ -24,12 +24,12 @@ export default function NosServices({ services }) {
   return (
     <div className="">
       <div className="text-center mb-12 md:mb-20 pt-12 md:pt-16">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6">
-        Expertise
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-primary mb-4 md:mb-6">
+          Expertise
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl md:max-w-3xl mx-auto">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto">
           Découvrez nos solutions sur mesure, conçues pour propulser votre
-          entreprise à un niveau supérieur. 
+          entreprise à un niveau supérieur.
         </p>
       </div>
       <Swiper
@@ -59,5 +59,6 @@ export default function NosServices({ services }) {
         ))}
       </Swiper>
     </div>
+
   );
 }
