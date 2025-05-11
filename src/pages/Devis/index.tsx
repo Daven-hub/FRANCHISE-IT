@@ -113,11 +113,11 @@ const Devis = () => {
         return <ProjectTypeStep formData={formData} updateFormData={updateFormData} nextStep={nextStep} />;
       case 2:
         return <ProjectDetailsStep formData={formData} updateFormData={updateFormData} handleChange={handleChange} />;
-      // case 3:
-      //   return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
-      case  3:
+      case 3:
+        return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
+      case  4:
         return <ContactStep formData={formData} handleChange={handleChange} />;
-      case 4:
+      case 5:
         return <SummaryStep formData={formData} />;
       default:
         return null;
