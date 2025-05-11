@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,7 +97,7 @@ const Navbar = () => {
             >
               Se connecter
             </a>
-            <a href='#contact' className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
+            <a href='#devis' className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
               Demander un devis
             </a>
           </div>

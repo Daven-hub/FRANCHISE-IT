@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Devis from "./Devis";
 
 const StatsGrid = () => {
   const totalCells = 7 * 4;
@@ -57,6 +58,7 @@ const Index = () => {
       <Services />
       <Projects />
       <StatsGrid />
+      <Devis/>
       <About />
       <Contact />
       <Footer />
