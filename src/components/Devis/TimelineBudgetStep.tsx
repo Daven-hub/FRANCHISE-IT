@@ -17,11 +17,9 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
     ];
 
     const optionsBudget = [
-        "Moins de 500€",
-        "500€ - 2000€",
-        "2000€ - 5000€",
-        "5000€ - 10000€",
-        "Plus de 10000€",
+        "Moins de 100 000 XAF",
+        "150 000 XAF - 200 000 XAF",
+        "250 000 XAF - 400 000",
         "À discuter",
     ];
 
