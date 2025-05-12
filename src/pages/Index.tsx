@@ -17,7 +17,6 @@ const StatsGrid = () => {
 
       <div
         className="absolute h-full w-full grid grid-cols-4 md:grid-cols-7 grid-rows-4 md:grid-rows-4 z-10"
-        style={{ width: '100%', height: '100%' }}
       >
         {Array.from({ length: totalCells }).map((_, i) => (
           <div
