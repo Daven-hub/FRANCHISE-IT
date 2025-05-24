@@ -1,4 +1,4 @@
-
+import { FC } from 'react';
 import { Code, Globe, Server, Camera, Shield, Database } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -8,6 +8,58 @@ interface ServiceCardProps {
   title: string;
   description: string;
 }
+
+interface DesignLogoProps {
+  size?: number | string;           // ex: 24 ou "2rem"
+  strokeColor?: string;             // ex: "#000" ou "currentColor"
+  fillColor?: string;               // couleur principale (cercle par ex.)
+  showColors?: boolean;             // active/désactive les couleurs décoratives
+  withBorder?: boolean;             // ajoute un cadre autour du logo
+}
+
+const DesignLogo: FC<DesignLogoProps> = ({
+  size = 24,
+  strokeColor = "currentColor",
+  fillColor = "#f43f5e",
+  showColors = true,
+  withBorder = false,
+}) => (
+  <div
+    style={{
+      width: typeof size === 'number' ? `${size}px` : size,
+      height: typeof size === 'number' ? `${size}px` : size,
+      display: 'inline-block',
+      border: withBorder ? '1px solid #ccc' : 'none',
+      borderRadius: withBorder ? '6px' : '0',
+      padding: withBorder ? '4px' : '0',
+    }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={strokeColor}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width="100%"
+      height="100%"
+    >
+      {/* Stylized pencil */}
+      <path d="M14 3L21 10L10 21L3 21L3 14Z" />
+      
+      {/* Circle representing design color */}
+      {showColors && (
+        <circle cx="6.5" cy="6.5" r="2.5" fill={fillColor} />
+      )}
+
+      {/* Triangle representing creativity */}
+      {showColors && (
+        <path d="M17 7 L19 11 L15 11 Z" fill="#3b82f6" />
+      )}
+    </svg>
+  </div>
+);
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
@@ -48,7 +100,7 @@ const Services = () => {
       description: "Installation et maintenance de systèmes de vidéosurveillance pour sécuriser vos locaux et protéger vos biens."
     },
     {
-      icon: <Shield size={32} />,
+      icon: <DesignLogo size={32} />,
       title: "Design Graphique",
       description: "Franchise IT propose des services professionnels de design graphique qui aidentdévelopper une image de marque forte, cohérente et visuellement attrayante."
     },

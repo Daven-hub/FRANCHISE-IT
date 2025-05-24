@@ -38,12 +38,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Accueil', href: '#hero', id: 'hero' },
-    { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Projets', href: '#projects', id: 'projects' },
-    { name: 'Equipe', href: '#team', id: 'team' },
-    { name: 'A propos', href: '#about', id: 'about' },
-    { name: 'Contact', href: '#contact', id: 'contact' }
+    { name: 'Accueil', href: 'hero', id: 'hero' },
+    { name: 'A propos', href: 'about', id: 'about' },
+    { name: 'Services', href: 'services', id: 'services' },
+    { name: 'Projets', href: 'projects', id: 'projects' },
+    { name: 'Equipe', href: 'team', id: 'team' },
+    { name: 'Contact', href: 'contact', id: 'contact' }
   ];
 
   return (
@@ -74,16 +74,17 @@ const Navbar = () => {
             </div>
             <div className='hidden md:flex items-center space-x-5'>
               {navItems.map((item) => (
-                <a
+                <div
                   key={item.name}
-                  href={item.href}
+                  onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
+                  // href={item.href}
                   className={cn(
-                    "text-white/90 font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
+                    "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
                     activeLink === item.id && "text-white active"
                   )}
                 >
                   {item.name}
-                </a>
+                </div>
               ))}
             </div>
           </div>
@@ -108,21 +109,27 @@ const Navbar = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 border-t border-b border-white/10 py-4 px-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <a
+                <div
                   key={item.name}
-                  href={item.href}
+                  // href={item.href}
                   className={cn(
-                    "text-white font-medium hover:text-white/70 transition-colors",
+                    "text-white cursor-pointer font-medium hover:text-white/70 transition-colors",
                     activeLink === item.id && "text-accent"
                   )}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    const element = document.getElementById(item.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMenuOpen(false);
+                  }}
                 >
                   {item.name}
-                </a>
+                </div>
               ))}
-              <Button className="bg-white text-black hover:bg-white/90 w-full">
+              {/* <Button className="bg-white text-black hover:bg-white/90 w-full">
                 Demander un devis
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}

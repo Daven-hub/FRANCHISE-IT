@@ -16,7 +16,7 @@ const projectes = [
     id: "dev",
     category: "Business",
     title: "Chambre de Commerce Canada - Afrique",
-    description: "Transformation numérique complète pour une grande institution financière avec système d'authentification multi-facteurs et analyses en temps réel.",
+    description: "La Chambre de Commerce Canada Afrique se positionne comme un pont vers l'Afrique et une passerelle vers le Canada.",
     image: "/projet/ccca.png",
     technologies: ["React", "Node.js", "MySql", "AWS"],
     link: "https://cc-ca.ca/",
@@ -27,7 +27,7 @@ const projectes = [
     id: "dev",
     category: "Education",
     title: "Institut De formation Professionnel",
-    description: "Infrastructure IoT complète pour la gestion intelligente des ressources urbaines, incluant l'éclairage, la gestion des déchets et le trafic routier.",
+    description: "Grâce à une formation dispensée par des professionnels expérimentés, l'IFPF offre un environnement d'apprentissage dynamique qui allie théorie et pratique",
     image: "/projet/ifpf.png",
     technologies: ["NextJs", "PHP", "MySQL", "Serveur PHP"],
     link: "https://ifpfranchise.com/",
@@ -38,7 +38,7 @@ const projectes = [
     id: "logo",
     category: "spa",
     title: "Impulsions",
-    description: "Solution e-commerce complète avec intégration ERP, gestion de stocks en temps réel et expérience personnalisée pour plus de 1M d'utilisateurs.",
+    description: "Solution permettant la mise en avant les services de impulsion et nous vous aidons à révéler la meilleure version de vous-même et à retrouver une confiance inébranlable. ",
     image: "/projet/impulsion.png", 
     technologies: ["wordpress"],
     link: "https://impulsion-spa.com/",
@@ -49,7 +49,7 @@ const projectes = [
     id: "logo",
     category: "Business",
     title: "NGK - Entreprise",
-    description: "Plateforme sécurisée pour la gestion des dossiers médicaux, téléconsultations et suivi des patients en temps réel conformément aux normes RGPD et HDS.",
+    description: "un site vitrine pour NGK, un centre d'affaires spécialisé dans la représentation internationale et l’ingénierie d’affaires. L’objectif du site est de refléter l’ADN de l’entreprise",
     image: "/projet/ngk.png",
     technologies: ["php", "javascript","bootstrap"],
     link: "https://ngk-entreprises.com/",
@@ -60,7 +60,7 @@ const projectes = [
     id: "dev",
     category: "Bussiness",
     title: "Franchise Opportunité Canada",
-    description: "Plateforme sécurisée pour la gestion des dossiers médicaux, téléconsultations et suivi des patients en temps réel conformément aux normes RGPD et HDS.",
+    description: "Une plateforme dédiée à la mise en relation entre les entrepreneurs francophones et les opportunités de franchises au Canada.",
     image: "/projet/foc.png",
     technologies: ["HTML", "javascript", "Bootstrap"],
     link: "https://foc-cof.ca/",
@@ -71,7 +71,7 @@ const projectes = [
     id: "dev",
     category: "Coiffure",
     title: "Salon Faro PASSO",
-    description: "Plateforme sécurisée pour la gestion des dossiers médicaux, téléconsultations et suivi des patients en temps réel conformément aux normes RGPD et HDS.",
+    description: "platforme pour Faro Passo, un salon de coiffure moderne qui allie élégance, expertise et bien-être.",
     image: "/projet/faro.png",
     technologies: ["HTML", "javascript", "MySQL"],
     link: "https://salonfaropasso.ca/",
@@ -82,7 +82,7 @@ const projectes = [
     id: "dev",
     category: "Business",
     title: "Institut Africain de Biothique",
-    description: "Plateforme sécurisée pour la gestion des dossiers médicaux, téléconsultations et suivi des patients en temps réel conformément aux normes RGPD et HDS.",
+    description: "le site vitrine, une initiative académique et intellectuelle majeure dédiée à la réflexion critique sur les avancées biomédicales en Afrique.",
     image: "/projet/iaab.png",
     technologies: ["wordpress"],
     link: "https://iab-aib.org/",
@@ -93,7 +93,7 @@ const projectes = [
     id: "dev",
     category: "Business",
     title: "Gecaf",
-    description: "Plateforme sécurisée pour la gestion des dossiers médicaux, téléconsultations et suivi des patients en temps réel conformément aux normes RGPD et HDS.",
+    description: "plateforme sécurisée de mise en relation entre les entrepreneurs d’Afrique et ceux du Canada qui favorise les synergies économiques et partenariats durables entre les deux continents",
     image: "/projet/gecaf.png",
     technologies: ["VueJs", "nodeJs", "MongoDB"],
     link: "https://gecaf.ca/",
@@ -112,8 +112,8 @@ const Project = () => {
     : projectes.filter(project => project.id === activeTab);
 
   return (
-    <section id="projects" className="section-padding px-[0%] md:px-[5%] bg-black">
-      <div className="w-full mx-auto px-4">
+    <section id="projects" className="section-padding px-[4.5%] md:px-[5%] bg-black">
+      <div className="w-full mx-auto px-0">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ const Project = () => {
           ))}
         </div>
       </div>
-      <div className="mx-auto w-full mt-8 flex items-center gap-2">
+      <div className="mx-auto w-full md:w-[35%] lg:w-[20%] text-sm glass-effect bg-white/10 border border-white mt-8 flex justify-center py-3 cursor-pointer font-title rounded-[7px] items-center gap-2">
           Voir plus <ArrowRight />
         </div>
     </section>

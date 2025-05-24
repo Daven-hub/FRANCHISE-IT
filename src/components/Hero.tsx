@@ -45,33 +45,33 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute right-[25%] -top-[20%] hidden lg:block">
-            <div className="absolute animate-float">
+          <div className="absolute right-[26%] -top-[20%] hidden lg:block">
+            <div className="absolute duration-1000 delay-1000 animate-float">
               <div className="relative">
-                <div className="w-[400px] h-[400px] border-4 border-white/20 rounded-full absolute top-0 left-0"></div>
+                <div className="w-[400px] h-[400px] border-4 border-white/10 rounded-full absolute top-0 left-0"></div>
                 <div className="w-[300px] h-[300px] glass-effect rounded-full absolute top-[50px] left-[50px]"></div>
-                <div className="w-[200px] h-[200px] border-4 border-white/30 rounded-full absolute top-[100px] left-[100px]"></div>
-                <div className="w-[100px] h-[100px] bg-white/10 backdrop-blur-md rounded-full absolute top-[150px] left-[150px]"></div>
+                <div className="w-[200px] h-[200px] border-4 border-white/20 rounded-full absolute top-[100px] left-[100px]"></div>
+                <div className="w-[100px] h-[100px] bg-white/5 backdrop-blur-md rounded-full absolute top-[150px] left-[150px]"></div>
               </div>
             </div>
           </div>
-          <div className="absolute right-[45%] bottom-[69%] hidden lg:block">
-            <div className="absolute right-[40.2%] top-1/2 -translate-y-1/2 animate-float">
+          <div className="absolute right-[44%] bottom-[70%] hidden lg:block">
+            <div className="absolute right-[40.2%] duration-1000 top-1/2 -translate-y-1/2 animate-float">
               <div className="relative">
-                <div className="w-[300px] h-[300px] border-4 border-white/20 rounded-full absolute top-0 left-0"></div>
+                <div className="w-[300px] h-[300px] border-4 border-white/10 rounded-full absolute top-0 left-0"></div>
                 <div className="w-[200px] h-[200px] glass-effect rounded-full absolute top-[50px] left-[50px]"></div>
-                <div className="w-[100px] h-[100px] border-4 border-white/30 rounded-full absolute top-[100px] left-[100px]"></div>
-                <div className="w-[50px] h-[50px] bg-white/10 backdrop-blur-md rounded-full absolute top-[125px] left-[125px]"></div>
+                <div className="w-[100px] h-[100px] border-4 border-white/20 rounded-full absolute top-[100px] left-[100px]"></div>
+                <div className="w-[50px] h-[50px] bg-white/5 backdrop-blur-md rounded-full absolute top-[125px] left-[125px]"></div>
               </div>
             </div>
           </div>
           <div className="absolute right-[25%] bottom-[40%] hidden lg:block">
-            <div className="absolute right-1/2 top-1/2 -translate-y-1/2 animate-float">
+            <div className="absolute right-1/2 top-1/2 duration-1000 -translate-y-1/2 animate-float">
               <div className="relative">
-                <div className="w-[400px] h-[400px] border-4 border-white/20 rounded-full absolute top-0 left-0"></div>
+                <div className="w-[400px] h-[400px] border-4 border-white/10 rounded-full absolute top-0 left-0"></div>
                 <div className="w-[300px] h-[300px] glass-effect rounded-full absolute top-[50px] left-[50px]"></div>
-                <div className="w-[200px] h-[200px] border-4 border-white/30 rounded-full absolute top-[100px] left-[100px]"></div>
-                <div className="w-[100px] h-[100px] bg-white/10 backdrop-blur-md rounded-full absolute top-[150px] left-[150px]"></div>
+                <div className="w-[200px] h-[200px] border-4 border-white/20 rounded-full absolute top-[100px] left-[100px]"></div>
+                <div className="w-[100px] h-[100px] bg-white/5 backdrop-blur-md rounded-full absolute top-[150px] left-[150px]"></div>
               </div>
             </div>
           </div>
@@ -84,3 +84,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// 46782915: studio201
