@@ -43,25 +43,59 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Phone size={24} className="text-accent" />,
-      title: "Téléphone",
-      value: "+1 (450) 933-3335 / +237 695 432 799  "
+      libele: "bloc",
+      item: [
+        {
+          pays: "Canada",
+          paysItem: [
+            {
+              icon: <Phone size={24} className="text-accent" />,
+              title: "Téléphone",
+              value: "+1 (450) 933-3335"
+            },
+            {
+              icon: <MapPin size={24} className="text-accent" />,
+              title: "Adresse",
+              value: "400 - 257 rue Sherbrooke Est, Montréal, H2X 1E3, QC, Canada"
+            }
+          ]
+        },
+        {
+          pays: "Cameroun",
+          paysItem: [
+            {
+              icon: <Phone size={24} className="text-accent" />,
+              title: "Téléphone",
+              value: "+237 695 432 799"
+            },
+            {
+              icon: <MapPin size={24} className="text-accent" />,
+              title: "Adresse",
+              value: "Expess union, façe carrefour maçon à Bonamoussadi, Douala, Cameroun"
+            }
+          ]
+        }
+      ]
     },
     {
-      icon: <Mail size={24} className="text-accent" />,
-      title: "Email",
-      value: "info@franchise-it-tech.com"
-    },
-    {
-      icon: <MapPin size={24} className="text-accent" />,
-      title: "Adresse",
-      value: `Canada: 257 rue Sherbrooke Ets, Montréal, H2X 1E3, QC.
-    Cameroun: Face Express Union Carrefour Maçon, Douala`
+      libele: "nonr",
+      item: [
+       {
+        pays:"",
+        paysItem:[
+          {
+            icon: <Mail size={24} className="text-accent" />,
+            title: "Email",
+            value: "info@franchise-it-tech.com"
+          }
+        ]
+       }
+      ]
     }
   ];
 
   return (
-    <section id="contact" className="section-padding px-[7%] relative">
+    <section id="contact" className="section-padding px-[3.5%] md:px-[7%] relative">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
@@ -94,11 +128,11 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="glass-effect border-white/10 p-8 card-hover rounded-xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
+          <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
+              <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center">
                 <Send size={22} className="mr-3 text-accent" />
                 Envoyez-nous un message
               </h3>
@@ -178,26 +212,45 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-4">
-            <Card className="glass-effect border-white/10 p-8 card-hover rounded-xl relative overflow-hidden">
+            <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl relative overflow-hidden">
               <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-5">Informations de contact</h3>
                 <div className="space-y-1.5">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center group hover-scale">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center mr-3 glass-effect group-hover:accent-glow transition-all">
-                        {info.icon}
+                    info.libele === "bloc" ?
+                      <div key={index} className="grid grid-cols-1 md:grid-cols-2 py-1 gap-4 border-b md:border-b-0 border-primary/40">
+                        {info.item.map((x,index)=>
+                        <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r border-primary/30 last-of-type:border-none">
+                          <h4 className="font-bold font-title mb-1.5">{x.pays}</h4>
+                          {x.paysItem.map((y,indd)=>
+                            <div key={indd} className="flex gap-1.5 py-1 items-center group hover-scale">
+                              <div className="w-10 h-10 rounded-full flex items-center justify-center glass-effect group-hover:accent-glow transition-all">
+                                {y.icon}
+                              </div>
+                              <div className="w-[calc(100%-2.75rem)]">
+                                {/* <h4 className="font-medium text-lg">{info.title}</h4> */}
+                                <p className="text-muted-foreground group-hover:text-white transition-colors">{y.value}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        )}
+                      </div> :
+                      <div key={index} className="flex w-full md:w-fit whitespace-nowrap mt-3 mx-auto items-center group hover-scale">
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center glass-effect group-hover:accent-glow transition-all">
+                          {info.item[0].paysItem[0].icon}
+                        </div>
+                        <div className="w-[calc(100%-2.8rem)]">
+                          {/* <h4 className="font-medium text-lg">{info.title}</h4> */}
+                          <p className="text-muted-foreground group-hover:text-white transition-colors">{info.item[0].paysItem[0].value}</p>
+                        </div>
                       </div>
-                      <div>
-                        {/* <h4 className="font-medium text-lg">{info.title}</h4> */}
-                        <p className="text-muted-foreground group-hover:text-white transition-colors">{info.value}</p>
-                      </div>
-                    </div>
                   ))}
                 </div>
               </div>
             </Card>
-            <Card className="glass-effect border-white/10 p-8 h-[250px] card-hover relative overflow-hidden rounded-xl">
+            <Card className="glass-effect border-white/10 p-7 h-[200px] card-hover relative overflow-hidden rounded-xl">
               <div className="absolute inset-0 opacity-70">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8318530645074!2d9.782703874615393!3d4.054689846919875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10610d200f44d801%3A0x25997d06703d165c!2sFRANCHISE%20IT!5e0!3m2!1sfr!2scm!4v1746799556273!5m2!1sfr!2scm"

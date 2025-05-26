@@ -14,11 +14,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding px-[6%] bg-black relative overflow-hidden">
+    <section id="about" className="section-padding px-[4%] md:px-[6%] bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-20"></div>
       
-      <div className="w-full mx-auto px-4 relative z-10">
+      <div className="w-full md:mx-auto px-2 md:px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ const About = () => {
             className="lg:w-1/2"
           >
             <div className="relative">
-              <div className="absolute -top-6 -left-6 w-64 h-64 bg-accent/10 rounded-full blur-3xl z-0"></div>
+              <div className="absolute -top-6 -left-6 w-66 h-66 bg-accent/10 rounded-full blur-3xl z-0"></div>
               <img 
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" 
                 alt="Notre équipe informatique" 
@@ -59,19 +59,19 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="lg:w-1/2"
+            className="w-full lg:w-1/2"
           >
-            <h3 className="text-2xl font-bold mb-5 text-white">Une expertise technologique au service de votre transformation digitale</h3>
-            <p className="text-lg text-white/70 mb-6">
+            <h3 className="text-2xl font-bold mb-3 text-white">Une expertise technologique au service de votre transformation digitale</h3>
+            <p className="text-[1rem] md:text-lg text-white/70 mb-2.5">
               Depuis plus de 10 ans, notre équipe d'experts IT fournit des solutions technologiques 
               innovantes et fiables à des entreprises et particuliers. Notre mission est d'accélérer la transformation 
               numérique de nos clients avec des technologies de pointe et une expertise métier approfondie.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div className="grid text-[.9rem] md:text-lg grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
               {advantages.map((advantage, index) => (
-                <div key={index} className="flex items-center">
-                  <CheckCircle className="text-primary mr-2" size={20} />
+                <div key={index} className="inline items-center">
+                  <CheckCircle className="inline align-middle text-primary mr-2.5" size={20} />
                   <span className="text-white">{advantage}</span>
                 </div>
               ))}

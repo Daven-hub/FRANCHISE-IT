@@ -89,18 +89,18 @@ const Footer = () => {
         
         <div className="border-t border-white/10 pt-6 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/70 text-sm">
+            <p className="text-white/70 text-xs md:text-sm">
               © {currentYear} Franchise IT. Tous droits réservés.
             </p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
+                  <a href="#" className="text-white/70 text-xs md:text-sm hover:text-white transition-colors">
                     Politique de confidentialité
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
+                  <a href="#" className="text-white/70 hover:text-white text-xs md:text-sm transition-colors">
                     Conditions d'utilisation
                   </a>
                 </li>

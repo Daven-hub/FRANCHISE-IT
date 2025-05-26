@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-// import Team from "@/components/Team";
-// import Partners from "@/components/Partners";
+import Team from "@/components/Team";
+import Partners from "@/components/Partners";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -18,7 +18,6 @@ const StatsGrid = () => {
 
       <div
         className="absolute h-full w-full grid grid-cols-4 md:grid-cols-7 grid-rows-4 md:grid-rows-4 z-10"
-        style={{ width: '100%', height: '100%' }}
       >
         {Array.from({ length: totalCells }).map((_, i) => (
           <div
@@ -30,9 +29,9 @@ const StatsGrid = () => {
       </div>
    
       <div className="relative grid w-full grid-cols-1 md:grid-cols-3 m z-10 gap-4 md:gap-8">
-        <StatBlock value="+30" label="Clients Satisfait" />
-        <StatBlock value="+40" label="Projets Réalisés" />
-        <StatBlock value="+10" label="Années d'expériences" />
+        <StatBlock value="+27" label="Clients Satisfait" />
+        <StatBlock value="+31" label="Projets Réalisés" />
+        <StatBlock value="+06" label="Projets en cours" />
       </div>
     </div>
   );
@@ -55,11 +54,13 @@ const Index = () => {
 
       <Navbar />
       <Hero />
+      <About />
       <Services />
       <Projects />
       <StatsGrid />
+      <Team />
       <Devis/>
-      <About />
+      {/* <Partners /> */}
       <Contact />
       <Footer />
     </div>
