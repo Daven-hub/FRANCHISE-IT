@@ -1,4 +1,4 @@
-import { useState } from "react"; 
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -9,8 +9,7 @@ import ContactStep from "@/components/Devis/ContactStep";
 import SummaryStep from "@/components/Devis/SummaryStep";
 import Stepper from "@/components/Devis/Stepper";
 import { ChevronLeft, ChevronRight, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
+import devis from '../../../public/devi.png'
 
 export type FormData = {
   projectType: string;
@@ -114,7 +113,7 @@ const Devis = () => {
         return <ProjectDetailsStep formData={formData} updateFormData={updateFormData} handleChange={handleChange} />;
       case 3:
         return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
-      case  4:
+      case 4:
         return <ContactStep formData={formData} handleChange={handleChange} />;
       case 5:
         return <SummaryStep formData={formData} />;
@@ -124,74 +123,73 @@ const Devis = () => {
   };
 
   return (
-    <>
-      <section id="devis" className="section-padding relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
-          <img 
-            src="/devis.jpg" 
-            alt="Technology background" 
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <Card className="">
-            <div className="relative z-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-center mb-10"
-              >
-                <h2 className="heading-lg font-title">Demande de devis</h2>
-                <p className="text-muted-foreground mt-2">
-                  Remplissez ce formulaire pour recevoir une estimation personnalisée
-                </p>
-              </motion.div>
+    <section id="devis" className="section-padding relative">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+        <img
+          src={devis}
+          alt="Technology background"
+          className="w-full h-full object-cover opacity-20"
+        />
+      </div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Card className="p-4 sm:p-6 lg:p-8">
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-6 sm:mb-10"
+            >
+              <h2 className="heading-lg font-title">Demande de devis</h2>
+              <p className="text-muted-foreground mt-2 text-sm sm:text-base">
+                Remplissez ce formulaire pour recevoir une estimation personnalisée
+              </p>
+            </motion.div>
 
-              <Stepper currentStep={step} />
+            <Stepper currentStep={step} />
 
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-8">
-                  {renderStep()}
+            <form onSubmit={handleSubmit}>
+              <div className="space-y-6 sm:space-y-8">
+                {renderStep()}
 
-                  <div className="flex justify-between pt-6">
-                    {step > 1 ? (
-                      <button
-                        type="button"
-                        onClick={prevStep}
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all"
-                      >
-                        <ChevronLeft size={18} /> Précédent
-                      </button>
-                    ) : (
-                      <div></div>
-                    )}
+                <div className="flex flex-col sm:flex-row justify-between gap-4 pt-6">
+                  {step > 1 ? (
+                    <button
+                      type="button"
+                      onClick={prevStep}
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
+                    >
+                      <ChevronLeft size={18} /> Précédent
+                    </button>
+                  ) : (
+                    <div></div>
+                  )}
 
-                    {step < 6 ? (
-                      <button
-                        type="button"
-                        onClick={nextStep}
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 text-white ml-auto transition-all"
-                        disabled={step === 1 && !formData.projectType}
-                      >
-                        Suivant <ChevronRight size={18} />
-                      </button>
-                    ) : (
-                      <button
-                        type="submit"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 text-white ml-auto transition-all"
-                      >
-                        Envoyer la demande <Send size={18} />
-                      </button>
-                    )}
-                  </div>
+                  {step < 5 ? (
+                    <button
+                      type="button"
+                      onClick={nextStep}
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      disabled={step === 1 && !formData.projectType}
+                    >
+                      Suivant <ChevronRight size={18} />
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                    >
+                      Envoyer la demande <Send size={18} />
+                    </button>
+                  )}
                 </div>
-              </form>
-            </div>
-          </Card>
-        </div>
-      </section>
-    </>
+              </div>
+            </form>
+          </div>
+        </Card>
+      </div>
+    </section>
   );
 };
 
