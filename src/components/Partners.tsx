@@ -5,13 +5,12 @@ import { motion } from "framer-motion";
 const Partners = () => {
   const partners = [
     { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
-    { name: "AWS", logo: "https://cdn-icons-png.flaticon.com/512/5968/5968242.png" },
-    { name: "Google Cloud", logo: "https://cdn-icons-png.flaticon.com/512/2991/2991148.png" },
-    { name: "Oracle", logo: "https://cdn-icons-png.flaticon.com/512/5969/5969170.png" },
-    { name: "IBM", logo: "https://cdn-icons-png.flaticon.com/512/882/882704.png" },
-    { name: "Cisco", logo: "https://cdn-icons-png.flaticon.com/512/882/882730.png" },
-    { name: "SAP", logo: "https://cdn-icons-png.flaticon.com/512/5968/5968410.png" },
-    { name: "Intel", logo: "https://cdn-icons-png.flaticon.com/512/882/882693.png" }
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
+    { name: "Microsoft", logo: "https://cdn-icons-png.flaticon.com/512/732/732221.png" },
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);

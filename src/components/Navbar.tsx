@@ -38,11 +38,11 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Accueil', href: 'hero', id: 'hero' },
-    { name: 'A propos', href: 'about', id: 'about' },
+    { name: 'Accueil', href: '/', id: 'hero' },
+    { name: 'A propos', href: 'a-propos', id: 'a-propos' },
     { name: 'Services', href: 'services', id: 'services' },
     { name: 'Projets', href: 'projects', id: 'projects' },
-    { name: 'Equipe', href: 'team', id: 'team' },
+    { name: 'Equipe', href: 'equipes', id: 'team' },
     { name: 'Contact', href: 'contact', id: 'contact' }
   ];
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                   aria-label="Menu"
                   className="text-white hover:bg-white/10"
                 >
-                  {isMenuOpen ? <X size={32}/> : <Menu size={32}/>}
+                  {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
                 </Button>
               </div>
 
@@ -74,17 +74,29 @@ const Navbar = () => {
             </div>
             <div className='hidden md:flex items-center space-x-5'>
               {navItems.map((item) => (
-                <div
-                  key={item.name}
-                  onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
-                  // href={item.href}
-                  className={cn(
-                    "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
-                    activeLink === item.id && "text-white active"
-                  )}
-                >
-                  {item.name}
-                </div>
+                item.href !== "equipes" && item.href !=="/" ?
+                  <a
+                    key={item.name}
+                    // onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
+                    href={"/#"+item.href}
+                    className={cn(
+                      "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
+                      activeLink === item.id && "text-white active"
+                    )}
+                  >
+                    {item.name}
+                  </a> :
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    // href={item.href}
+                    className={cn(
+                      "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
+                      activeLink === item.id && "text-white active"
+                    )}
+                  >
+                    {item.name}
+                  </a>
               ))}
             </div>
           </div>
