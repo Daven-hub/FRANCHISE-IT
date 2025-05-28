@@ -5,7 +5,7 @@ interface StepperProps {
   steps?: number[];
 }
 
-const Stepper = ({ currentStep, steps = [1, 2, 3, 4, 5] }: StepperProps) => {
+const Stepper = ({ currentStep, steps = [1, 2, 3, 4, 5, 6] }: StepperProps) => {
   return (
     <div className="relative w-full mb-8">
       {/* Conteneur des étapes avec espacement égal */}

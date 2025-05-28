@@ -166,7 +166,7 @@ const Devis = () => {
                     <div></div>
                   )}
 
-                  {step < 5 ? (
+                  {step < 6 ? (
                     <button
                       type="button"
                       onClick={nextStep}
