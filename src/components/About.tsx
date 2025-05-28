@@ -1,5 +1,5 @@
 
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding px-[4%] md:px-[6%] bg-black relative overflow-hidden">
+    <section id="a-propos" className="section-padding px-[4%] md:px-[6%] bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-20"></div>
       
