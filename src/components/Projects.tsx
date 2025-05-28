@@ -99,6 +99,17 @@ const projectes = [
     link: "https://gecaf.ca/",
     results: "Temps d'attente réduit de 40% pour les patients",
     icons: [<Lock key="lock" />, <Database key="db" />],
+  },
+  {
+    id: "dev",
+    category: "Business",
+    title: "Universalis Trio",
+    description: "plateforme sécurisée qui vous accompagne pour toutes vos démarches douanières et le transport sécurisé de vos marchandises",
+    image: "/projet/universalis.png",
+    technologies: ["ReactJs", "nodeJs", "SqlLite"],
+    link: "http://universalistrio.com/",
+    results: "Temps d'attente réduit de 40% pour les patients",
+    icons: [<Lock key="lock" />, <Database key="db" />],
   }
 ];
 
