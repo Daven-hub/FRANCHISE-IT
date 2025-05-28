@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Phone, Mail, MapPin, Send, User, AtSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { sendContactForm } from "@/services/ContactService";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -22,23 +22,32 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    try {
+      await sendContactForm(formData);
+      
+      toast({
+        title: "Message envoyé",
+        description: "Nous vous contacterons dans les plus brefs délais.",
+      });
 
-    // In a real application, you would send the data to a server here
-    toast({
-      title: "Message envoyé",
-      description: "Nous vous contacterons dans les plus brefs délais.",
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: error instanceof Error ? error.message : "Une erreur est survenue lors de l'envoi du message.",
+        variant: "destructive"
+      });
+    }
   };
 
   const contactInfo = [

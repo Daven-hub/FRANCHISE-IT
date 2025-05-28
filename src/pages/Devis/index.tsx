@@ -9,7 +9,8 @@ import ContactStep from "@/components/Devis/ContactStep";
 import SummaryStep from "@/components/Devis/SummaryStep";
 import Stepper from "@/components/Devis/Stepper";
 import { ChevronLeft, ChevronRight, Send } from "lucide-react";
-import devis from '../../../public/devi.png'
+import devis from '../../../public/devi.png';
+import { sendDevisForm } from "@/services/DevisService";
 
 export type FormData = {
   projectType: string;
@@ -34,6 +35,7 @@ export type FormData = {
 const Devis = () => {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false); 
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
     subType: "",
@@ -74,35 +76,48 @@ const Devis = () => {
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => prev - 1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Devis soumis:', formData);
+    setIsSubmitting(true);
 
-    toast({
-      title: "Demande de devis envoyée",
-      description: "Nous vous contacterons avec une proposition sous 48h.",
-    });
+    try {
+      await sendDevisForm(formData); 
+      
+      toast({
+        title: "Demande de devis envoyée",
+        description: "Nous vous contacterons avec une proposition sous 48h.",
+      });
 
-    setStep(1);
-    setFormData({
-      projectType: "",
-      subType: "",
-      serviceType: "",
-      platform: "",
-      purpose: "",
-      description: "",
-      camerasCount: "",
-      location: "",
-      cloudRecording: false,
-      hasDomain: "",
-      hasBranding: "",
-      timeline: "",
-      budget: "",
-      name: "",
-      email: "",
-      phone: "",
-      company: ""
-    });
+      
+      setStep(1);
+      setFormData({
+        projectType: "",
+        subType: "",
+        serviceType: "",
+        platform: "",
+        purpose: "",
+        description: "",
+        camerasCount: "",
+        location: "",
+        cloudRecording: false,
+        hasDomain: "",
+        hasBranding: "",
+        timeline: "",
+        budget: "",
+        name: "",
+        email: "",
+        phone: "",
+        company: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: error instanceof Error ? error.message : "Une erreur est survenue lors de l'envoi du devis.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -159,6 +174,7 @@ const Devis = () => {
                       type="button"
                       onClick={prevStep}
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
+                      disabled={isSubmitting} // Désactive pendant la soumission
                     >
                       <ChevronLeft size={18} /> Précédent
                     </button>
@@ -171,7 +187,7 @@ const Devis = () => {
                       type="button"
                       onClick={nextStep}
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
-                      disabled={step === 1 && !formData.projectType}
+                      disabled={(step === 1 && !formData.projectType) || isSubmitting} // Désactive pendant la soumission
                     >
                       Suivant <ChevronRight size={18} />
                     </button>
@@ -179,8 +195,15 @@ const Devis = () => {
                     <button
                       type="submit"
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      disabled={isSubmitting} // Désactive pendant la soumission
                     >
-                      Envoyer la demande <Send size={18} />
+                      {isSubmitting ? (
+                        "Envoi en cours..."
+                      ) : (
+                        <>
+                          Envoyer la demande <Send size={18} />
+                        </>
+                      )}
                     </button>
                   )}
                 </div>
