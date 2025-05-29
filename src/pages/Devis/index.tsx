@@ -9,7 +9,7 @@ import ContactStep from "@/components/Devis/ContactStep";
 import SummaryStep from "@/components/Devis/SummaryStep";
 import Stepper from "@/components/Devis/Stepper";
 import { ChevronLeft, ChevronRight, Send } from "lucide-react";
-import devis from '../../../public/devi.png';
+import devis from '../../../public/dev.png';
 import { sendDevisForm } from "@/services/DevisService";
 
 export type FormData = {
