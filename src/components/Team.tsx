@@ -19,7 +19,7 @@ const Team = () => {
       id: 1,
       name: "Maxime Tsafack",
       role: "CTO & Co-Founder",
-      bio: "Software Engineer,DevOps Path Learner avec plus de 10 ans d'expérience dans la gestion de projets IT.",
+      bio: "Software Engineer en voie de spécialisation DevOps, avec une expertise solide en gestion de projets IT et une passion pour l'automatisation et l'efficacité technologique.",
       image: "/team/maxime.JPG",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
@@ -28,7 +28,7 @@ const Team = () => {
       id: 8,
       name: "Jeremy Dubois",
       role: "Co-Founder",
-      bio: "Software Engineer,DevOps Path Learner avec plus de 10 ans d'expérience dans la gestion de projets IT.",
+      bio: "Software Engineer en transition vers le DevOps, spécialisé dans la gestion de projets IT.",
       image: "/team/jeremy.jpg",
       linkedin: "#",
       email: "info@franchise-it-tech.com"

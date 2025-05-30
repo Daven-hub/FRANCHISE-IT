@@ -64,11 +64,11 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
           </div>
         )}
         
-        {/* <div className="p-4 rounded-lg border border-white/10 bg-white/5">
+        <div className="p-4 rounded-lg border border-white/10 bg-white/5">
           <h4 className="font-medium mb-2">Délai et Budget</h4>
           <p>Délai: {formData.timeline || "Non spécifié"}</p>
           <p>Budget: {formData.budget || "Non spécifié"}</p>
-        </div> */}
+        </div>
         
         <div className="p-4 rounded-lg border border-white/10 bg-white/5">
           <h4 className="font-medium mb-2">Coordonnées</h4>

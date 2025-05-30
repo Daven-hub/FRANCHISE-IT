@@ -1,4 +1,4 @@
-import { useState } from "react"; 
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -9,8 +9,8 @@ import ContactStep from "@/components/Devis/ContactStep";
 import SummaryStep from "@/components/Devis/SummaryStep";
 import Stepper from "@/components/Devis/Stepper";
 import { ChevronLeft, ChevronRight, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
+import devis from '../../../public/dev.png';
+import { sendDevisForm } from "@/services/DevisService";
 
 export type FormData = {
   projectType: string;
@@ -35,6 +35,7 @@ export type FormData = {
 const Devis = () => {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false); 
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
     subType: "",
@@ -75,36 +76,48 @@ const Devis = () => {
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => prev - 1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Devis soumis:', formData);
+    setIsSubmitting(true);
 
-    toast({
-      title: "Demande de devis envoyée",
-      description: "Nous vous contacterons avec une proposition sous 48h.",
-    });
+    try {
+      await sendDevisForm(formData); 
+      
+      toast({
+        title: "Demande de devis envoyée",
+        description: "Nous vous contacterons avec une proposition sous 48h.",
+      });
 
-    // Réinitialiser le formulaire
-    setStep(1);
-    setFormData({
-      projectType: "",
-      subType: "",
-      serviceType: "",
-      platform: "",
-      purpose: "",
-      description: "",
-      camerasCount: "",
-      location: "",
-      cloudRecording: false,
-      hasDomain: "",
-      hasBranding: "",
-      timeline: "",
-      budget: "",
-      name: "",
-      email: "",
-      phone: "",
-      company: ""
-    });
+      
+      setStep(1);
+      setFormData({
+        projectType: "",
+        subType: "",
+        serviceType: "",
+        platform: "",
+        purpose: "",
+        description: "",
+        camerasCount: "",
+        location: "",
+        cloudRecording: false,
+        hasDomain: "",
+        hasBranding: "",
+        timeline: "",
+        budget: "",
+        name: "",
+        email: "",
+        phone: "",
+        company: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: error instanceof Error ? error.message : "Une erreur est survenue lors de l'envoi du devis.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -115,7 +128,7 @@ const Devis = () => {
         return <ProjectDetailsStep formData={formData} updateFormData={updateFormData} handleChange={handleChange} />;
       case 3:
         return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
-      case  4:
+      case 4:
         return <ContactStep formData={formData} handleChange={handleChange} />;
       case 5:
         return <SummaryStep formData={formData} />;
@@ -125,110 +138,81 @@ const Devis = () => {
   };
 
   return (
-    <>
-      {/* <section
-        id="hero"
-        className="relative w-full h-[500px] md:h-[calc(100vh-68px)] flex flex-col justify-center overflow-hidden"
-      >
-        <div className="absolute inset-0 flex justify-end">
-          <img src="/devis.jpg" className="w-[50%] h-full object-cover" alt="Hero Background" />
-        </div>
-
-        <div className="absolute top-0 left-0 w-full h-full grid grid-cols-8 md:grid-cols-12 grid-rows-8 md:grid-rows-6 gap-0 pointer-events-none">
-          {Array.from({ length: 72 }).map((_, i) => (
-            <div key={i} className="border border-gray-800/45" />
-          ))}
-        </div>
-
-        <div className="px-[4.5%] md:px-[6%] w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-5 w-full animate-fade-in">
-              <h1 className="text-2xl font-title md:text-4xl lg:text-6xl tracking-wide font-bold text-start leading-tight text-white">
-                Obtenez un <span className="text-gradient bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">devis personnalisé</span> dès maintenant
-              </h1>
-              <p className="text-sm md:text-lg font-medium text-white md:text-muted-foreground">
-                Décrivez-nous votre projet et recevez une estimation en moins de 48h.
+    <section id="devis" className="section-padding relative">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+        <img
+          src={devis}
+          alt="Technology background"
+          className="w-full h-full object-cover opacity-20"
+        />
+      </div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Card className="p-4 sm:p-6 lg:p-8">
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-6 sm:mb-10"
+            >
+              <h2 className="heading-lg font-title">Demande de devis</h2>
+              <p className="text-muted-foreground mt-2 text-sm sm:text-base">
+                Remplissez ce formulaire pour recevoir une estimation personnalisée
               </p>
-              <div className="grid font-title grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                <Button
-                  className="glass-effect !text-black !bg-white hover:bg-white/10 border border-white/20 px-8 py-6 text-sm md:text-[1rem] group"
-                  onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  Faire une demande
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
+            </motion.div>
 
-      <section id="devis" className="section-padding relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
-          <img 
-            src="/devis.jpg" 
-            alt="Technology background" 
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <Card className="">
-            <div className="relative z-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-center mb-10"
-              >
-                <h2 className="heading-lg font-title">Demande de devis</h2>
-                <p className="text-muted-foreground mt-2">
-                  Remplissez ce formulaire pour recevoir une estimation personnalisée
-                </p>
-              </motion.div>
+            <Stepper currentStep={step} />
 
-              <Stepper currentStep={step} />
+            <form onSubmit={handleSubmit}>
+              <div className="space-y-6 sm:space-y-8">
+                {renderStep()}
 
-              <form onSubmit={handleSubmit}>
-                <div className="space-y-8">
-                  {renderStep()}
+                <div className="flex flex-col sm:flex-row justify-between gap-4 pt-6">
+                  {step > 1 ? (
+                    <button
+                      type="button"
+                      onClick={prevStep}
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
+                      disabled={isSubmitting} // Désactive pendant la soumission
+                    >
+                      <ChevronLeft size={18} /> Précédent
+                    </button>
+                  ) : (
+                    <div></div>
+                  )}
 
-                  <div className="flex justify-between pt-6">
-                    {step > 1 ? (
-                      <button
-                        type="button"
-                        onClick={prevStep}
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all"
-                      >
-                        <ChevronLeft size={18} /> Précédent
-                      </button>
-                    ) : (
-                      <div></div>
-                    )}
-
-                    {step < 5 ? (
-                      <button
-                        type="button"
-                        onClick={nextStep}
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 text-white ml-auto transition-all"
-                        disabled={step === 1 && !formData.projectType}
-                      >
-                        Suivant <ChevronRight size={18} />
-                      </button>
-                    ) : (
-                      <button
-                        type="submit"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-accent hover:bg-accent/90 text-white ml-auto transition-all"
-                      >
-                        Envoyer la demande <Send size={18} />
-                      </button>
-                    )}
-                  </div>
+                  {step < 6 ? (
+                    <button
+                      type="button"
+                      onClick={nextStep}
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      disabled={(step === 1 && !formData.projectType) || isSubmitting} // Désactive pendant la soumission
+                    >
+                      Suivant <ChevronRight size={18} />
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      disabled={isSubmitting} // Désactive pendant la soumission
+                    >
+                      {isSubmitting ? (
+                        "Envoi en cours..."
+                      ) : (
+                        <>
+                          Envoyer la demande <Send size={18} />
+                        </>
+                      )}
+                    </button>
+                  )}
                 </div>
-              </form>
-            </div>
-          </Card>
-        </div>
-      </section>
-    </>
+              </div>
+            </form>
+          </div>
+        </Card>
+      </div>
+    </section>
   );
 };
 

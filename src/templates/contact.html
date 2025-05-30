@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau message de contact</title>
+</head>
+
+<body style="margin:0;padding:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background-color:#0f172a;color:#f8fafc;">
+
+    <table width="100%" cellspacing="0" cellpadding="0"
+        style="max-width:600px;margin:0 auto;background-color:#1e293b;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.5);overflow:hidden;">
+
+
+        <tr>
+            <td style="padding:24px 32px;text-align:center;background-color:#0f172a;">
+                <h1 style="margin:0;font-size:22px;color:#7e61f4;">📩 Nouveau message reçu</h1>
+                <p style="margin:4px 0 0;font-size:14px;color:#94a3b8;">FRANCHISE IT - Notification contact</p>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="padding:32px;background-color:#1e293b;">
+                <p style="margin:0 0 16px;color:#e2e8f0;">Bonjour,</p>
+                <p style="margin:0 0 24px;color:#e2e8f0;">Un visiteur a rempli le formulaire de contact sur votre site :
+                </p>
+
+
+                <table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;color:#f1f5f9;">
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;width:100px;">Nom :</td>
+                        <td style="padding:8px 0;">{client_name}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Email :</td>
+                        <td style="padding:8px 0;">{client_email}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Téléphone :</td>
+                        <td style="padding:8px 0;">{client_phone}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Date :</td>
+                        <td style="padding:8px 0;">{date_envoye}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;vertical-align:top;">Message :</td>
+                        <td style="padding:8px 0;">
+                            <div
+                                style="background-color:#0f172a;border-left:4px solid #7e61f4;padding:12px 16px;margin-top:4px;border-radius:8px;color:#f8fafc;">
+                                {message_content}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div style="text-align:center;margin-top:32px;">
+                    <a href="mailto:{client_email}"
+                        style="display:inline-block;padding:12px 24px;background-color:#7e61f4;color:#ffffff;text-decoration:none;border-radius:8px;font-weight:bold;font-size:14px;box-shadow:0 0 10px #7e61f4;">
+                        ✉️ Répondre
+                    </a>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="padding:24px 32px;text-align:center;background-color:#0f172a;font-size:12px;color:#64748b;">
+                <p style="margin:0 0 6px;">© 2025 FRANCHISE IT. Tous droits réservés.</p>
+                <p style="margin:0;">
+                    Canada : 400 - 257 rue Sherbrooke Est, Montréal, QC H2X 1E3<br>
+                    Cameroun : Express Union, face Carrefour Maçon, Bonamoussadi, Douala
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
