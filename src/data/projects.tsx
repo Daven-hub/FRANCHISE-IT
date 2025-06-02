@@ -149,7 +149,7 @@ export const projectes = [
     category: "Bussiness",
     title: "Franchise Opportunité Canada",
     description: "Une plateforme dédiée à la mise en relation entre les entrepreneurs francophones et les opportunités de franchises au Canada.",
-    image: "/logo/ccca.png",
+    image: "/logo/foc.jpg",
     technologies: ["HTML", "javascript", "Bootstrap"],
     link: "https://foc-cof.ca/",
     results: "Temps d'attente réduit de 40% pour les patients",
