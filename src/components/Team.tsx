@@ -91,7 +91,8 @@ const Team = () => {
 
   // : architecture modulaire, principes SOLID, tests automatisés, CI/CD, et approche agile.
   return (     
-      <section id="team" className="section-padding px-[6%] bg-[#031322]/40">
+      <section id="team" className="section-padding px-[6%] ">
+        {/* j'ai retirer bg-[#031322]/40  */}
         <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,9 +110,10 @@ const Team = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 ">
             {team.map((member) => (
-              <Card key={member.id} className="glass-effect border-white/10 card-hover group team-member-card">
+              <Card key={member.id} className="glass-effect border-white/10 card-hover group team-member-card bg-[#031322]/50">
+                {/* j'ai ajouter bg-[#031322]/50 */}
                 <div className="relative overflow-hidden aspect-square">
                   <img
                     src={member.image}
@@ -142,7 +144,7 @@ const Team = () => {
                   </div>
                 </div>
 
-                <CardContent className="p-5 text-center">
+                <CardContent className="p-5 text-center ">
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                   <p className="text-sm text-primary/70 font-medium mb-2">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.bio}</p>
