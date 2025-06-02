@@ -63,7 +63,8 @@ const DesignLogo: FC<DesignLogoProps> = ({
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <Card className="glass-effect cursor-pointer  border-white/10 card-hover overflow-hidden">
+    <Card className="glass-effect cursor-pointer  border-white/10 card-hover overflow-hidden bg-[#031322]/50 hover:border-primary">
+      {/* pour ajouter ici bg-[#031322]/50 */}
       <CardContent className="px-[6%] md:px-12 py-14">
         <div className="flex flex-col items-start">
           <div className="w-16 h-16 glass-effect rounded-lg flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors">
@@ -112,7 +113,8 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding px-[4%] md:px-[7%] bg-[#031322]/50">
+    <section id="services" className="section-padding px-[4%] md:px-[7%] "> 
+    {/* j'ai retirer  bg-[#031322]/50 */}
       <div className="w-full">
         {/* <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Nos Services</h2>
