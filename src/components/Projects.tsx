@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger 
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
 } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -14,10 +14,10 @@ const Project = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const filteredProjects = activeTab === "all" 
-    ? projectes 
+  const filteredProjects = activeTab === "all"
+    ? projectes.filter(project => project.id === "dev")
     : projectes.filter(project => project.id === activeTab);
-
+  
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -37,7 +37,7 @@ const Project = () => {
   return (
     <section id="projects" className="section-padding px-[4.5%] md:px-[5%] bg-black">
       <div className="w-full mx-auto px-0">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -52,7 +52,7 @@ const Project = () => {
             Découvrez notre portfolio de solutions technologiques innovantes qui ont transformé les entreprises et les organisations.
           </p>
         </motion.div>
-        
+      
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,9 +80,9 @@ const Project = () => {
             </TabsList>
           </Tabs>
         </motion.div>
-        
+
         {activeTab === "logo" ? (
-          
+
           <motion.div
             variants={container}
             initial="hidden"
@@ -91,7 +91,7 @@ const Project = () => {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
           >
             {filteredProjects.map((project, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 variants={item}
                 className="relative group"
@@ -99,18 +99,18 @@ const Project = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="aspect-square bg-white/5 rounded-xl border border-white/10 p-6 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50 group-hover:bg-white/10 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className={`object-contain w-full h-full transition-transform duration-500 ${hoveredIndex === index ? 'scale-110' : 'scale-100'}`}
                   />
                 </div>
-                
-                
-                <motion.div 
+
+
+                <motion.div
                   className="absolute inset-0 flex items-end p-4 pointer-events-none"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
+                  animate={{
                     opacity: hoveredIndex === index ? 1 : 0,
                     y: hoveredIndex === index ? 0 : 20
                   }}
@@ -121,8 +121,8 @@ const Project = () => {
                     <p className="text-white/70 text-xs truncate">{project.description}</p>
                   </div>
                 </motion.div>
-                
-                
+
+
                 <div className="absolute top-3 right-3 z-20">
                   <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur-sm border-none text-xs">
                     {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
@@ -132,10 +132,10 @@ const Project = () => {
             ))}
           </motion.div>
         ) : (
-         
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {filteredProjects.map((project, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ const Project = () => {
               >
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 hover:scale-105"
                     style={{ backgroundImage: `url(${project.image})` }}
                   ></div>
@@ -172,8 +172,8 @@ const Project = () => {
                       </Badge>
                     ))}
                   </div>
-                  <a 
-                    href={project.link}  
+                  <a
+                    href={project.link}
                     target="_blank"
                     className="inline-flex items-center text-white hover:text-primary transition-colors text-sm"
                   >
@@ -185,7 +185,7 @@ const Project = () => {
           </div>
         )}
       </div>
-      
+
       <div className="mx-auto w-full md:w-[35%] lg:w-[20%] text-sm glass-effect bg-white/10 border border-white mt-8 flex justify-center py-3 cursor-pointer font-title rounded-[7px] items-center gap-2 hover:bg-white/20 transition-colors">
         Voir plus <ArrowRight />
       </div>
