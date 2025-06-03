@@ -165,7 +165,7 @@ const Project = () => {
                 <div className="p-6">
                   <h3 className="text-white text-xl font-medium mb-2">{project.title}</h3>
                   <p className="text-white/70 mb-4">{project.description}</p>
-                  <div className=" flex justify-between">
+                  <div className="flex flex-col md:flex-row justify-between">
                     <div className="flex flex-wrap gap-1.5 mb-4">
                       {project.technologies?.map((tech) => (
                         <Badge key={tech} className="bg-white/10 text-white hover:bg-white/20">
