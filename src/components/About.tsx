@@ -63,9 +63,8 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-3 text-white">Une expertise technologique au service de votre transformation digitale</h3>
             <p className="text-[1rem] md:text-lg text-white/70 mb-2.5">
-              Depuis plus de 10 ans, notre équipe d'experts IT fournit des solutions technologiques 
-              innovantes et fiables à des entreprises et particuliers. Notre mission est d'accélérer la transformation 
-              numérique de nos clients avec des technologies de pointe et une expertise métier approfondie.
+            Nous accompagnons les entreprises et particuliers dans leur transformation numérique grâce à des solutions IT innovantes, fiables et sur mesure.
+Notre expertise métier et notre approche orientée résultats font de vos projets une réussite.
             </p>
             
             <div className="grid text-[.9rem] md:text-lg grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
