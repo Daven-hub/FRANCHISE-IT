@@ -24,10 +24,10 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       await sendContactForm(formData);
-      
+
       toast({
         title: "Message envoyé",
         description: "Nous vous contacterons dans les plus brefs délais.",
@@ -40,7 +40,7 @@ const Contact = () => {
         phone: '',
         message: ''
       });
-      
+
     } catch (error) {
       toast({
         title: "Erreur",
@@ -89,16 +89,16 @@ const Contact = () => {
     {
       libele: "nonr",
       item: [
-       {
-        pays:"",
-        paysItem:[
-          {
-            icon: <Mail size={24} className="text-accent" />,
-            title: "Email",
-            value: "info@franchise-it-tech.com"
-          }
-        ]
-       }
+        {
+          pays: "",
+          paysItem: [
+            {
+              icon: <Mail size={24} className="text-accent" />,
+              title: "Email",
+              value: "info@franchise-it-tech.com"
+            }
+          ]
+        }
       ]
     }
   ];
@@ -229,21 +229,21 @@ const Contact = () => {
                   {contactInfo.map((info, index) => (
                     info.libele === "bloc" ?
                       <div key={index} className="grid grid-cols-1 md:grid-cols-2 py-1 gap-4 border-b md:border-b-0 border-primary/40">
-                        {info.item.map((x,index)=>
-                        <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r border-primary/30 last-of-type:border-none">
-                          <h4 className="font-bold font-title mb-1.5">{x.pays}</h4>
-                          {x.paysItem.map((y,indd)=>
-                            <div key={indd} className="flex gap-1.5 py-1 items-center group hover-scale">
-                              <div className="w-10 h-10 rounded-full flex items-center justify-center glass-effect group-hover:accent-glow transition-all">
-                                {y.icon}
+                        {info.item.map((x, index) =>
+                          <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r border-primary/30 last-of-type:border-none">
+                            <h4 className="font-bold font-title mb-1.5">{x.pays}</h4>
+                            {x.paysItem.map((y, indd) =>
+                              <div key={indd} className="flex gap-1.5 py-1 items-center group hover-scale">
+                                <div className="w-10 h-10 rounded-full flex items-center justify-center glass-effect group-hover:accent-glow transition-all">
+                                  {y.icon}
+                                </div>
+                                <div className="w-[calc(100%-2.75rem)]">
+                                  {/* <h4 className="font-medium text-lg">{info.title}</h4> */}
+                                  <p className="text-muted-foreground group-hover:text-white transition-colors">{y.value}</p>
+                                </div>
                               </div>
-                              <div className="w-[calc(100%-2.75rem)]">
-                                {/* <h4 className="font-medium text-lg">{info.title}</h4> */}
-                                <p className="text-muted-foreground group-hover:text-white transition-colors">{y.value}</p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                            )}
+                          </div>
                         )}
                       </div> :
                       <div key={index} className="flex w-full md:w-fit whitespace-nowrap mt-3 mx-auto items-center group hover-scale">

@@ -35,7 +35,7 @@ export type FormData = {
 const Devis = () => {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
     subType: "",
@@ -81,14 +81,14 @@ const Devis = () => {
     setIsSubmitting(true);
 
     try {
-      await sendDevisForm(formData); 
-      
+      await sendDevisForm(formData);
+
       toast({
         title: "Demande de devis envoyée",
         description: "Nous vous contacterons avec une proposition sous 48h.",
       });
 
-      
+
       setStep(1);
       setFormData({
         projectType: "",
@@ -142,12 +142,12 @@ const Devis = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
-          src={devis}
+          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop"
           alt="Technology background"
           className="w-full h-full object-cover opacity-20"
         />
       </div>
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="p-4 sm:p-6 lg:p-8">
           <div className="relative z-10">
@@ -156,6 +156,9 @@ const Devis = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-6 sm:mb-10"
             >
+              <div className="inline-block px-6 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10">
+                Devis
+              </div>
               <h2 className="heading-lg font-title">Demande de devis</h2>
               <p className="text-muted-foreground mt-2 text-sm sm:text-base">
                 Remplissez ce formulaire pour recevoir une estimation personnalisée
