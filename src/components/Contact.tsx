@@ -33,7 +33,6 @@ const Contact = () => {
         description: "Nous vous contacterons dans les plus brefs délais.",
       });
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -49,6 +48,7 @@ const Contact = () => {
       });
     }
   };
+
 
   const contactInfo = [
     {
@@ -156,7 +156,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
+
                     placeholder="Votre nom"
                     className="glass-effect border-white/20 bg-white/5 focus:border-accent/50 focus:accent-glow"
                   />
@@ -173,7 +173,7 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
+
                       placeholder="votre@email.com"
                       className="glass-effect border-white/20 bg-white/5 focus:border-accent/50"
                     />
@@ -203,7 +203,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
+
                     placeholder="Comment pouvons-nous vous aider ?"
                     className="glass-effect border-white/20 bg-white/5 min-h-[150px] focus:border-accent/50"
                   />

@@ -145,7 +145,7 @@ const Project = () => {
               >
                 <div className="relative h-48 overflow-hidden">
                   {/* Dégradé avec z-index */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-[9]"></div>
 
                   {/* Image de fond */}
                   <div
@@ -154,7 +154,7 @@ const Project = () => {
                   ></div>
 
                   {/* Icônes */}
-                  <div className="absolute bottom-4 left-4 z-10 flex space-x-2">
+                  <div className="absolute bottom-4 left-4 z-[9] flex space-x-2">
                     {project.icons?.map((icon, i) => (
                       <div
                         key={i}
