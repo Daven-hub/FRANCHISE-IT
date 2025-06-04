@@ -81,7 +81,7 @@ const Devis = () => {
       const newValues = currentValues.includes(value)
         ? currentValues.filter(v => v !== value)
         : [...currentValues, value];
-
+      
       return {
         ...prev,
         [field]: newValues
@@ -141,11 +141,11 @@ const Devis = () => {
       case 1:
         return <ProjectTypeStep formData={formData} updateFormData={updateFormData} nextStep={nextStep} />;
       case 2:
-        return <ProjectDetailsStep
-          formData={formData}
-          updateFormData={updateFormData}
-          handleChange={handleChange}
-          handleMultiSelect={handleMultiSelect}
+        return <ProjectDetailsStep 
+          formData={formData} 
+          updateFormData={updateFormData} 
+          handleChange={handleChange} 
+          handleMultiSelect={handleMultiSelect} 
         />;
       case 3:
         return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
