@@ -16,7 +16,6 @@
         <tr>
             <td style="padding:24px 32px;text-align:center;background-color:#0f172a;">
                 <h1 style="margin:0;font-size:22px;color:#7e61f4;">📋 DEVIS PROFESSIONNEL</h1>
-                <p style="margin:4px 0 0;font-size:14px;color:#94a3b8;">FRANCHISE IT - Référence: {devis_number}</p>
             </td>
         </tr>
 
@@ -27,52 +26,71 @@
                     <tr>
                         <td width="50%" style="vertical-align:top;">
                             <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Client</h2>
-                            <p style="margin:0 0 8px;color:#e2e8f0;"><strong>{client_name}</strong></p>
-                            <p style="margin:0 0 8px;color:#e2e8f0;">{client_company}</p>
-                            <p style="margin:0 0 8px;color:#e2e8f0;">{client_email}</p>
-                            <p style="margin:0 0 8px;color:#e2e8f0;">{client_phone}</p>
+                            <p style="margin:0 0 8px;color:#e2e8f0;"><strong>{{name}}</strong></p>
+                            <p style="margin:0 0 8px;color:#e2e8f0;">{{company}}</p>
+                            <p style="margin:0 0 8px;color:#e2e8f0;">{{email}}</p>
+                            <p style="margin:0 0 8px;color:#e2e8f0;">{{phone}}</p>
                         </td>
                         <td width="50%" style="vertical-align:top;">
                             <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Devis</h2>
-                            <p style="margin:0 0 8px;color:#e2e8f0;"><strong>Date:</strong> {devis_date}</p>
-                            <p style="margin:0 0 8px;color:#e2e8f0;"><strong>Réf:</strong> {devis_number}</p>
+                            <p style="margin:0 0 8px;color:#e2e8f0;"><strong>Date:</strong> {{devis_date}}</p>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
 
-        <!-- Détails du projet -->
+        
         <tr>
             <td style="padding:0 32px;background-color:#1e293b;">
-                <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Détails du Projet</h2>
+                <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Détails du Service IT</h2>
                 <table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;color:#f1f5f9;">
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;width:40%;">Type de projet:</td>
-                        <td style="padding:8px 0;">{project_type}</td>
+                        <td style="padding:8px 0;">{{projectType}}</td>
                     </tr>
                     <tr>
-                        <td style="font-weight:bold;padding:8px 0;">Sous-type:</td>
-                        <td style="padding:8px 0;">{project_subtype}</td>
+                        <td style="font-weight:bold;padding:8px 0;">Sous-types:</td>
+                        <td style="padding:8px 0;">{{subType}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;">Type de service:</td>
-                        <td style="padding:8px 0;">{service_type}</td>
+                        <td style="padding:8px 0;">{{serviceType}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;">Plateforme:</td>
-                        <td style="padding:8px 0;">{platform}</td>
+                        <td style="padding:8px 0;">{{platform}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;">Objectif:</td>
-                        <td style="padding:8px 0;">{purpose}</td>
+                        <td style="padding:8px 0;">{{purpose}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Nombre de caméras:</td>
+                        <td style="padding:8px 0;">{{camerasCount}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Localisation(s):</td>
+                        <td style="padding:8px 0;">{{location}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Enregistrement cloud:</td>
+                        <td style="padding:8px 0;">{{cloudRecording}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Nom de domaine:</td>
+                        <td style="padding:8px 0;">{{hasDomain}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;padding:8px 0;">Identité visuelle:</td>
+                        <td style="padding:8px 0;">{{hasBranding}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;vertical-align:top;">Description:</td>
                         <td style="padding:8px 0;">
                             <div
                                 style="background-color:#0f172a;border-left:4px solid #7e61f4;padding:12px 16px;margin-top:4px;border-radius:8px;color:#f8fafc;">
-                                {description}
+                                {{description}}
                             </div>
                         </td>
                     </tr>
@@ -80,51 +98,24 @@
             </td>
         </tr>
 
-        <!-- Spécifications techniques -->
-        <tr>
-            <td style="padding:32px 32px 0;background-color:#1e293b;">
-                <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Spécifications Techniques</h2>
-                <table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;color:#f1f5f9;">
-                    <tr>
-                        <td style="font-weight:bold;padding:8px 0;width:40%;">Nombre de caméras:</td>
-                        <td style="padding:8px 0;">{cameras_count}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold;padding:8px 0;">Localisation:</td>
-                        <td style="padding:8px 0;">{location}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold;padding:8px 0;">Enregistrement cloud:</td>
-                        <td style="padding:8px 0;">{cloud_recording}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold;padding:8px 0;">Domaine existant:</td>
-                        <td style="padding:8px 0;">{has_domain}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold;padding:8px 0;">Identité visuelle:</td>
-                        <td style="padding:8px 0;">{has_branding}</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <!-- Délais et budget -->
+        
         <tr>
             <td style="padding:32px 32px 0;background-color:#1e293b;">
                 <h2 style="margin:0 0 16px;font-size:18px;color:#7e61f4;">Délais & Budget</h2>
                 <table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;color:#f1f5f9;">
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;width:40%;">Délai souhaité:</td>
-                        <td style="padding:8px 0;">{timeline}</td>
+                        <td style="padding:8px 0;">{{timeline}}</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;padding:8px 0;">Budget estimé:</td>
-                        <td style="padding:8px 0;">{budget}</td>
+                        <td style="padding:8px 0;">{{budget}}</td>
                     </tr>
                 </table>
             </td>
         </tr>
+
+       
         <tr>
             <td style="padding:32px;text-align:center;background-color:#1e293b;">
                 <p style="margin:0 0 24px;color:#e2e8f0;">Nous restons à votre disposition pour toute information
@@ -133,7 +124,7 @@
             </td>
         </tr>
 
-        <!-- Pied de page -->
+        
         <tr>
             <td style="padding:24px 32px;text-align:center;background-color:#0f172a;font-size:12px;color:#64748b;">
                 <p style="margin:0 0 6px;">© 2025 FRANCHISE IT. Tous droits réservés.</p>
@@ -145,5 +136,4 @@
         </tr>
     </table>
 </body>
-
 </html>

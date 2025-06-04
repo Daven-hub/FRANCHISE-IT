@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Locate, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface TeamMember {
@@ -7,6 +7,7 @@ interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  loc?:string;
   image: string;
   linkedin?: string;
   email?: string;
@@ -18,7 +19,8 @@ const Team = () => {
       id: 1,
       name: "Maxime Tsafack",
       role: "CTO & Co-Founder",
-      bio: "Software Engineer en voie de spécialisation DevOps, avec une expertise solide en gestion de projets IT et une passion pour l'automatisation et l'efficacité technologique.",
+      bio: "Software Engineer, Expert en gestion de projets IT",
+      loc:"Canada - Cameroun",
       image: "/team/maxime.JPG",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
@@ -27,7 +29,8 @@ const Team = () => {
       id: 8,
       name: "Jeremy Dubois",
       role: "Co-Founder",
-      bio: "Software Engineer en transition vers le DevOps, spécialisé dans la gestion de projets IT.",
+      bio: "Scrum Master",
+      loc:"Canada",
       image: "/team/jeremy.jpg",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
@@ -37,6 +40,7 @@ const Team = () => {
       name: "Lionel Fotso",
       role: "Développeur Fullstack",
       bio: "Experte en architecture de solutions et développement backend avec une passion pour les technologies cloud.",
+      loc:"",
       image: "/team/lionel.png",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
@@ -45,6 +49,7 @@ const Team = () => {
       id: 3,
       name: "Richard Hemba",
       role: "Développeur Fullstack",
+      loc:"",
       bio: "Passionné par les bonnes pratiques pour transformer des idées en produits concrets.",
       image: "/team/richard.png",
       linkedin: "#",
@@ -56,6 +61,7 @@ const Team = () => {
       role: "Graphic Designer",
       bio: "Créateur d'expériences utilisateur intuitives et d'interfaces modernes pour applications web, mobile et autres.",
       image: "/team/jeth.jpg",
+      loc:"",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
     },
@@ -65,6 +71,7 @@ const Team = () => {
       role: "Responsable marketing",
       bio: "Stratégie, acquisition & fidélisation | J’aide les marques à se démarquer et à croître durablement.",
       image: "/team/shavita.jpg",
+      loc:"",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
     },
@@ -72,8 +79,9 @@ const Team = () => {
       id: 6,
       name: "Roger BENCHA",
       role: "Consultant FreeLance",
-      bio: "Basé à Paris, et spécialisé en développement d'applications FullStack ainsi qu'en conception UI/UX. ",
+      bio: "Expert en développement d'applications FullStack ainsi qu'en conception UI/UX. ",
       image: "/team/roger.jpeg",
+      loc:"Paris, France",
       linkedin: "#",
       email: "info@franchise-it-tech.com"
     },
@@ -81,6 +89,7 @@ const Team = () => {
       id: 7,
       name: "Cédric TIAKO,",
       role: "Consultant Senior",
+      loc:"",
       bio: "Expert en Solution maintenables et orientées utilisateur, en suivant les bonnes pratiques de développement",
       image: "/team/pers.jpg",
       linkedin: "#",
@@ -147,6 +156,7 @@ const Team = () => {
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                   <p className="text-sm text-primary/70 font-medium mb-2">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.bio}</p>
+                  {member.loc!=="" && <span className="text-[.75rem] mt-1.5 flex items-center mx-auto w-fit"><Locate className="inline mr-1 w-4 h-4 text-primary/70 align-middle" /> {member.loc}</span>}
                 </CardContent>
               </Card>
             ))}

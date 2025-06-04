@@ -113,7 +113,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding px-[4%] md:px-[7%] "> 
+    <section id="services" className="section-padding px-[5%] md:px-[6%] "> 
     {/* j'ai retirer  bg-[#031322]/50 */}
       <div className="w-full">
         {/* <div className="text-center max-w-3xl mx-auto mb-10">

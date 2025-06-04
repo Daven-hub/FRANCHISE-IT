@@ -14,7 +14,8 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    date_envoye: new Date().toISOString()
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,7 +39,8 @@ const Contact = () => {
         name: '',
         email: '',
         phone: '',
-        message: ''
+        message: '',
+        date_envoye: ''
       });
 
     } catch (error) {
@@ -104,7 +106,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding px-[3.5%] md:px-[7%] relative">
+    <section id="contact" className="section-padding px-[5%] md:px-[6%] relative">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
@@ -120,7 +122,7 @@ const Contact = () => {
         <div className="absolute -right-[10%] bottom-[20%] w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px]"></div>
       </div>
 
-      <div className="w-full relative z-10">
+      <div className="w-full relative z-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,10 +139,10 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
-            <div className="relative z-10">
+            <div className="relative z-0">
               <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center">
                 <Send size={22} className="mr-3 text-accent" />
                 Envoyez-nous un message
@@ -148,7 +150,7 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 flex items-center">
+                  <label htmlFor="name" className="text-sm font-medium mb-2 flex items-center">
                     <User size={16} className="mr-2 text-accent/80" /> Nom complet
                   </label>
                   <Input
@@ -164,7 +166,7 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 flex items-center">
+                    <label htmlFor="email" className="text-sm font-medium mb-2 flex items-center">
                       <AtSign size={16} className="mr-2 text-accent/80" /> Email
                     </label>
                     <Input
@@ -180,7 +182,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2 flex items-center">
+                    <label htmlFor="phone" className="text-sm font-medium mb-2 flex items-center">
                       <Phone size={16} className="mr-2 text-accent/80" /> Téléphone
                     </label>
                     <Input
@@ -195,7 +197,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 flex items-center">
+                  <label htmlFor="message" className="text-sm font-medium mb-2 flex items-center">
                     <Mail size={16} className="mr-2 text-accent/80" /> Message
                   </label>
                   <Textarea
@@ -221,16 +223,16 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-4">
-            <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl relative overflow-hidden">
+            <Card className="glass-effect border-white/10 px-4 md:px-7 pt-6 pb-4 card-hover rounded-xl relative overflow-hidden">
               <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
-              <div className="relative z-10">
+              <div className="relative">
                 <h3 className="text-2xl font-bold mb-5">Informations de contact</h3>
                 <div className="space-y-1.5">
                   {contactInfo.map((info, index) => (
                     info.libele === "bloc" ?
                       <div key={index} className="grid grid-cols-1 md:grid-cols-2 py-1 gap-4 border-b md:border-b-0 border-primary/40">
                         {info.item.map((x, index) =>
-                          <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r border-primary/30 last-of-type:border-none">
+                          <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r md:pr-1 border-primary/30 last-of-type:border-none">
                             <h4 className="font-bold font-title mb-1.5">{x.pays}</h4>
                             {x.paysItem.map((y, indd) =>
                               <div key={indd} className="flex gap-1.5 py-1 items-center group hover-scale">

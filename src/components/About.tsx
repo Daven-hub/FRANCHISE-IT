@@ -14,11 +14,11 @@ const About = () => {
   ];
 
   return (
-    <section id="a-propos" className="section-padding px-[4%] md:px-[6%] bg-black relative overflow-hidden">
+    <section id="a-propos" className="section-padding px-[5%] md:px-[6%] bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-20"></div>
       
-      <div className="w-full md:mx-auto px-2 md:px-4 relative z-10">
+      <div className="w-full md:mx-auto relative">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const About = () => {
               <img 
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" 
                 alt="Notre équipe informatique" 
-                className="w-full h-auto rounded-2xl professional-shadow relative z-10"
+                className="w-full h-auto rounded-2xl professional-shadow relative z-[9]"
               />
               <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-primary rounded-2xl z-0"></div>
             </div>
@@ -63,9 +63,8 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold mb-3 text-white">Une expertise technologique au service de votre transformation digitale</h3>
             <p className="text-[1rem] md:text-lg text-white/70 mb-2.5">
-              Depuis plus de 10 ans, notre équipe d'experts IT fournit des solutions technologiques 
-              innovantes et fiables à des entreprises et particuliers. Notre mission est d'accélérer la transformation 
-              numérique de nos clients avec des technologies de pointe et une expertise métier approfondie.
+            Nous accompagnons les entreprises et particuliers dans leur transformation numérique grâce à des solutions IT innovantes, fiables et sur mesure.
+Notre expertise métier et notre approche orientée résultats font de vos projets une réussite.
             </p>
             
             <div className="grid text-[.9rem] md:text-lg grid-cols-1 sm:grid-cols-2 gap-3 mb-2">

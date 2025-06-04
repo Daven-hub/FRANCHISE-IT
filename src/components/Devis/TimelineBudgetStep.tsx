@@ -16,13 +16,6 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
         "Non déterminé",
     ];
 
-    const optionsBudget = [
-        "Moins de 100 000 XAF",
-        "150 000 XAF - 200 000 XAF",
-        "250 000 XAF - 400 000",
-        "À discuter",
-    ];
-
     return (
         <div className="space-y-6">
             <h3 className="text-xl font-bold">Délai et Budget</h3>
@@ -57,32 +50,20 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
                     </p>
                 </div>
 
-                {/* Budget estimé */}
+                {/* Budget manuel */}
                 <div className="space-y-2">
-                    <label className="block">Budget estimé</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {optionsBudget.map((option) => (
-                            <label
-                                key={option}
-                                className={`p-3 rounded-md border cursor-pointer transition ${formData.budget === option
-                                    ? "border-accent bg-accent/10 text-accent"
-                                    : "border-white/20 hover:border-accent/50"
-                                    }`}
-                            >
-                                <input
-                                    type="radio"
-                                    name="budget"
-                                    value={option}
-                                    checked={formData.budget === option}
-                                    onChange={handleChange}
-                                    className="sr-only"
-                                />
-                                {option}
-                            </label>
-                        ))}
-                    </div>
+                    <label className="block" htmlFor="budget">Budget estimé (en XAF)</label>
+                    <input
+                        type="text"
+                        name="budget"
+                        id="budget"
+                        placeholder="Ex: 250000"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full p-3 rounded-md border border-white/20 focus:border-accent focus:outline-none bg-transparent"
+                    />
                     <p className="text-sm text-muted-foreground">
-                        Cela nous aide à proposer la meilleure solution
+                        Entrez le budget que vous souhaitez consacrer à ce projet
                     </p>
                 </div>
             </div>

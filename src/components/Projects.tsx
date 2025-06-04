@@ -123,7 +123,7 @@ const Project = () => {
                 </motion.div>
 
 
-                <div className="absolute top-3 right-3 z-20">
+                <div className="absolute top-3 right-3 z-0">
                   <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur-sm border-none text-xs">
                     {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                   </Badge>
@@ -144,24 +144,35 @@ const Project = () => {
                 className="bg-[#031322]/50 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
+                  {/* Dégradé avec z-index */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+
+                  {/* Image de fond */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 hover:scale-105"
+                    className="absolute inset-0 bg-cover bg-center z-0"
                     style={{ backgroundImage: `url(${project.image})` }}
                   ></div>
-                  <div className="absolute bottom-4 left-4 z-20 flex space-x-2">
+
+                  {/* Icônes */}
+                  <div className="absolute bottom-4 left-4 z-10 flex space-x-2">
                     {project.icons?.map((icon, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-primary">
+                      <div
+                        key={i}
+                        className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-primary"
+                      >
                         {icon}
                       </div>
                     ))}
                   </div>
-                  <div className="absolute top-4 right-4 z-20">
+
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4 z-0">
                     <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur-sm border-none">
                       {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                     </Badge>
                   </div>
                 </div>
+
                 <div className="p-6">
                   <h3 className="text-white text-xl font-medium mb-2">{project.title}</h3>
                   <p className="text-white/70 mb-4">{project.description}</p>

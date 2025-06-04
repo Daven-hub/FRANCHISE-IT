@@ -16,7 +16,7 @@ const Hero = () => {
         ))}
       </div>
       
-      <div className="px-[4.5%] md:px-[6%] w-full z-10">
+      <div className="px-[4.5%] md:px-[6%] w-full z-[9]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5 w-full animate-fade-in">
             <h1 className="text-2xl font-title md:text-4xl lg:text-6xl tracking-wide font-bold text-start leading-tight">

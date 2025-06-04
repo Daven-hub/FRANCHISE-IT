@@ -9,7 +9,7 @@ export type ContactFormData = {
 
 export const sendContactForm = async (data: ContactFormData): Promise<void> => {
   try {
-    await axios.post('/api/contact', data);
+    await axios.post('https://franchise-it-tech.com/api/mail/mail_contact.php', data);
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data?.message || "Erreur lors de l'envoi du message.");

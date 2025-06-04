@@ -44,8 +44,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white pt-16 pb-6">
-      <div className="w-full px-[6%] md:px-[8%]">
-        <div className="flex flex-col md:flex-row gap-10 mb-12">
+      <div className="w-full px-[6%] md:px-[7%]">
+        <div className="flex flex-col md:flex-row gap-12 mb-12">
           <div className="w-full md:w-[32%]">
             <a href="#" className="text-2xl text-start font-bold font-montserrat mb-2 flex">
               <img src="/logo.png" className="w-[70%]" alt="" />
@@ -66,13 +66,13 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="w-full md:w-[67%] grid gap-10 grid-cols-1 md:grid-cols-3">
+          <div className="w-full md:w-[67%] grid gap-10 md:gap-14 grid-cols-1 md:grid-cols-3">
             {sections.map((section, index) => (
               <div key={index}>
                 <h4 className="font-bold font-title text-lg mb-4">{section.title}</h4>
-                <ul className="space-y-2">
+                <ul className="">
                   {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="border-b py-1.5 border-primary/30 border-dashed">
+                    <li key={linkIndex} className="border-b last-of-type:border-b-0 py-2.5 border-primary/30 border-dashed">
                       <a 
                         href={link.href} 
                         className="text-white/70 w-full hover:text-white transition-colors"
