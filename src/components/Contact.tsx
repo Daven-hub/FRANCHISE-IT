@@ -120,7 +120,7 @@ const Contact = () => {
         <div className="absolute -right-[10%] bottom-[20%] w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px]"></div>
       </div>
 
-      <div className="w-full relative z-10">
+      <div className="w-full relative z-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
-            <div className="relative z-10">
+            <div className="relative z-0">
               <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center">
                 <Send size={22} className="mr-3 text-accent" />
                 Envoyez-nous un message
@@ -221,16 +221,16 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-4">
-            <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl relative overflow-hidden">
+            <Card className="glass-effect border-white/10 px-4 md:px-7 pt-6 pb-4 card-hover rounded-xl relative overflow-hidden">
               <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
-              <div className="relative z-10">
+              <div className="relative">
                 <h3 className="text-2xl font-bold mb-5">Informations de contact</h3>
                 <div className="space-y-1.5">
                   {contactInfo.map((info, index) => (
                     info.libele === "bloc" ?
                       <div key={index} className="grid grid-cols-1 md:grid-cols-2 py-1 gap-4 border-b md:border-b-0 border-primary/40">
                         {info.item.map((x, index) =>
-                          <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r border-primary/30 last-of-type:border-none">
+                          <div key={index} className="flex flex-col gap-1.5 border-r-0 md:border-r md:pr-1 border-primary/30 last-of-type:border-none">
                             <h4 className="font-bold font-title mb-1.5">{x.pays}</h4>
                             {x.paysItem.map((y, indd) =>
                               <div key={indd} className="flex gap-1.5 py-1 items-center group hover-scale">

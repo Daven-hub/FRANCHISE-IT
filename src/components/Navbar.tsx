@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        'sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-white/100'
+        'sticky top-0 left-0 right-0 z-[10] transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-white/100'
       )}
     >
       <div className="w-full">
@@ -75,20 +75,20 @@ const Navbar = () => {
             <div className='hidden md:flex items-center space-x-5'>
               {navItems.map((item) => (
                 item.href !== "equipes" && item.href !=="/" ?
-                  <a
+                  <NavLink
                     key={item.name}
                     // onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
-                    href={"/#"+item.href}
+                    to={"/#"+item.href}
                     className={cn(
                       "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
                       activeLink === item.id && "text-white active"
                     )}
                   >
                     {item.name}
-                  </a> :
-                  <a
+                  </NavLink> :
+                  <NavLink
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     // href={item.href}
                     className={cn(
                       "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
@@ -96,23 +96,23 @@ const Navbar = () => {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
               ))}
             </div>
           </div>
           {/* Desktop menu */}
           <div className="flex items-center space-x-8">
-            <a
-              href='#'
+            <NavLink
+              to='#'
               className={cn(
                 "text-white/80 hidden font-medium hover:text-white text-[15px] Capitalize tracking-wider"
               )}
             >
               Se connecter
-            </a>
-            <a href='#devis' className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
+            </NavLink>
+            <NavLink to='/#devis' className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
               Demander un devis
-            </a>
+            </NavLink>
           </div>
         </div>
 

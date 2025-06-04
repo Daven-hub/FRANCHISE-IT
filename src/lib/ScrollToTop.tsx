@@ -1,4 +1,5 @@
 // ScrollToTop.tsx
+import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 // import { Loader } from "../pages/Layouts";
@@ -22,7 +23,7 @@ const ScrollToTop = () => {
   }, [pathname]);
 
   if (isLoading) {
-    // return <Loader />;
+    return <Loader />;
   }
 
   return null;

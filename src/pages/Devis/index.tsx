@@ -150,7 +150,7 @@ const Devis = () => {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="p-4 sm:p-6 lg:p-8">
-          <div className="relative z-10">
+          <div className="relative z-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

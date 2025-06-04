@@ -18,7 +18,7 @@ const About = () => {
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-20"></div>
       
-      <div className="w-full md:mx-auto relative z-10">
+      <div className="w-full md:mx-auto relative">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const About = () => {
               <img 
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" 
                 alt="Notre équipe informatique" 
-                className="w-full h-auto rounded-2xl professional-shadow relative z-10"
+                className="w-full h-auto rounded-2xl professional-shadow relative z-[9]"
               />
               <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-primary rounded-2xl z-0"></div>
             </div>
