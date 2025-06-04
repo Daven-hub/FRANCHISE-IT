@@ -17,7 +17,7 @@ const Project = () => {
   const filteredProjects = activeTab === "all"
     ? projectes.filter(project => project.id === "dev")
     : projectes.filter(project => project.id === activeTab);
-  
+
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -52,7 +52,7 @@ const Project = () => {
             Découvrez notre portfolio de solutions technologiques innovantes qui ont transformé les entreprises et les organisations.
           </p>
         </motion.div>
-      
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -165,20 +165,22 @@ const Project = () => {
                 <div className="p-6">
                   <h3 className="text-white text-xl font-medium mb-2">{project.title}</h3>
                   <p className="text-white/70 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.technologies?.map((tech) => (
-                      <Badge key={tech} className="bg-white/10 text-white hover:bg-white/20">
-                        {tech}
-                      </Badge>
-                    ))}
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.technologies?.map((tech) => (
+                        <Badge key={tech} className="bg-white/10 text-white hover:bg-white/20">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      className="inline-flex items-center text-white hover:text-primary transition-colors text-sm"
+                    >
+                      Voir le projet <ArrowUpRight className="ml-1 h-4 w-4" />
+                    </a>
                   </div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="inline-flex items-center text-white hover:text-primary transition-colors text-sm"
-                  >
-                    Voir le projet <ArrowUpRight className="ml-1 h-4 w-4" />
-                  </a>
                 </div>
               </motion.div>
             ))}
