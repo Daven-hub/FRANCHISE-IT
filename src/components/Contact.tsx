@@ -14,7 +14,8 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    date_envoye: new Date().toISOString()
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,7 +39,8 @@ const Contact = () => {
         name: '',
         email: '',
         phone: '',
-        message: ''
+        message: '',
+        date_envoye: ''
       });
 
     } catch (error) {

@@ -14,13 +14,13 @@ import { sendDevisForm } from "@/services/DevisService";
 
 export type FormData = {
   projectType: string;
-  subType: string;
-  serviceType: string;
-  platform: string;
+  subType: string[];
+  serviceType: string[];
+  platform: string[];
   purpose: string;
   description: string;
   camerasCount: string;
-  location: string;
+  location: string[];
   cloudRecording: boolean;
   hasDomain: string;
   hasBranding: string;
@@ -30,6 +30,7 @@ export type FormData = {
   email: string;
   phone: string;
   company: string;
+  devis_date: string
 };
 
 const Devis = () => {
@@ -38,13 +39,13 @@ const Devis = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
-    subType: "",
-    serviceType: "",
-    platform: "",
+    subType: [],
+    serviceType: [],
+    platform: [],
     purpose: "",
     description: "",
     camerasCount: "",
-    location: "",
+    location: [],
     cloudRecording: false,
     hasDomain: "",
     hasBranding: "",
@@ -53,7 +54,8 @@ const Devis = () => {
     name: "",
     email: "",
     phone: "",
-    company: ""
+    company: "",
+    devis_date: new Date().toISOString()
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -73,6 +75,20 @@ const Devis = () => {
     }));
   };
 
+  const handleMultiSelect = (field: keyof FormData, value: string) => {
+    setFormData(prev => {
+      const currentValues = prev[field] as string[] || [];
+      const newValues = currentValues.includes(value)
+        ? currentValues.filter(v => v !== value)
+        : [...currentValues, value];
+
+      return {
+        ...prev,
+        [field]: newValues
+      };
+    });
+  };
+
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => prev - 1);
 
@@ -88,17 +104,16 @@ const Devis = () => {
         description: "Nous vous contacterons avec une proposition sous 48h.",
       });
 
-
       setStep(1);
       setFormData({
         projectType: "",
-        subType: "",
-        serviceType: "",
-        platform: "",
+        subType: [],
+        serviceType: [],
+        platform: [],
         purpose: "",
         description: "",
         camerasCount: "",
-        location: "",
+        location: [],
         cloudRecording: false,
         hasDomain: "",
         hasBranding: "",
@@ -107,7 +122,8 @@ const Devis = () => {
         name: "",
         email: "",
         phone: "",
-        company: ""
+        company: "",
+        devis_date: ""
       });
     } catch (error) {
       toast({
@@ -125,7 +141,12 @@ const Devis = () => {
       case 1:
         return <ProjectTypeStep formData={formData} updateFormData={updateFormData} nextStep={nextStep} />;
       case 2:
-        return <ProjectDetailsStep formData={formData} updateFormData={updateFormData} handleChange={handleChange} />;
+        return <ProjectDetailsStep
+          formData={formData}
+          updateFormData={updateFormData}
+          handleChange={handleChange}
+          handleMultiSelect={handleMultiSelect}
+        />;
       case 3:
         return <TimelineBudgetStep formData={formData} handleChange={handleChange} />;
       case 4:
@@ -177,7 +198,7 @@ const Devis = () => {
                       type="button"
                       onClick={prevStep}
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
-                      disabled={isSubmitting} // Désactive pendant la soumission
+                      disabled={isSubmitting}
                     >
                       <ChevronLeft size={18} /> Précédent
                     </button>
@@ -190,7 +211,7 @@ const Devis = () => {
                       type="button"
                       onClick={nextStep}
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
-                      disabled={(step === 1 && !formData.projectType) || isSubmitting} // Désactive pendant la soumission
+                      disabled={(step === 1 && !formData.projectType) || isSubmitting}
                     >
                       Suivant <ChevronRight size={18} />
                     </button>
@@ -198,7 +219,7 @@ const Devis = () => {
                     <button
                       type="submit"
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
-                      disabled={isSubmitting} // Désactive pendant la soumission
+                      disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         "Envoi en cours..."

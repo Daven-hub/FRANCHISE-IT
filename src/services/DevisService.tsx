@@ -2,13 +2,13 @@ import axios from "axios";
 
 export type DevisFormData = {
     projectType: string;
-    subType: string;
-    serviceType: string;
-    platform: string;
+    subType: string[];
+    serviceType: string[];
+    platform: string[];
     purpose: string;
     description: string;
     camerasCount: string;
-    location: string;
+    location: string[];
     cloudRecording: boolean;
     hasDomain: string;
     hasBranding: string;

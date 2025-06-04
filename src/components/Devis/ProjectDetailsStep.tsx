@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FormData } from "@/pages/Devis";
+import { Check } from "lucide-react";
 
 interface ProjectDetailsStepProps {
   formData: FormData;
@@ -8,12 +9,14 @@ interface ProjectDetailsStepProps {
   handleChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => void;
+  handleMultiSelect: (field: keyof FormData, value: string) => void;
 }
 
 const ProjectDetailsStep = ({
   formData,
   updateFormData,
   handleChange,
+  handleMultiSelect,
 }: ProjectDetailsStepProps) => {
   if (formData.projectType === "Graphisme") {
     return (
@@ -22,20 +25,21 @@ const ProjectDetailsStep = ({
 
         <div className="space-y-4">
           <div>
-            <label className="block mb-2">Type de prestation</label>
+            <label className="block mb-2">Type de prestation (sélection multiple possible)</label>
             <div className="grid grid-cols-2 gap-3">
-              {["Logo", "Flyer", "Carte de visite", "Autre"].map((item) => (
+              {["Logo", "Flyer", "Carte de visite", "Affiche", "Bannière", "Autre"].map((item) => (
                 <button
                   key={item}
                   type="button"
-                  onClick={() => updateFormData("serviceType", item)}
-                  className={`p-4 rounded-md border transition-all ${
-                    formData.serviceType === item
+                  onClick={() => handleMultiSelect("serviceType", item)}
+                  className={`p-4 rounded-md border transition-all flex items-center justify-between ${
+                    formData.serviceType.includes(item)
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-white/20 hover:border-accent/50"
                   }`}
                 >
                   {item}
+                  {formData.serviceType.includes(item) && <Check size={16} />}
                 </button>
               ))}
             </div>
@@ -66,20 +70,21 @@ const ProjectDetailsStep = ({
 
         <div className="space-y-4">
           <div>
-            <label className="block mb-2">Type de site</label>
+            <label className="block mb-2">Type de site (sélection multiple possible)</label>
             <div className="grid grid-cols-2 gap-3">
-              {["Vitrine", "E-commerce", "Blog / Média", "Autre"].map((item) => (
+              {["Vitrine", "E-commerce", "Blog", "Portfolio", "Réseau social", "Autre"].map((item) => (
                 <button
                   key={item}
                   type="button"
-                  onClick={() => updateFormData("subType", item)}
-                  className={`p-4 rounded-md border transition-all ${
-                    formData.subType === item
+                  onClick={() => handleMultiSelect("subType", item)}
+                  className={`p-4 rounded-md border transition-all flex items-center justify-between ${
+                    formData.subType.includes(item)
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-white/20 hover:border-accent/50"
                   }`}
                 >
                   {item}
+                  {formData.subType.includes(item) && <Check size={16} />}
                 </button>
               ))}
             </div>
@@ -152,20 +157,21 @@ const ProjectDetailsStep = ({
 
         <div className="space-y-4">
           <div>
-            <label className="block mb-2">Plateforme cible</label>
+            <label className="block mb-2">Plateforme cible (sélection multiple possible)</label>
             <div className="grid grid-cols-3 gap-3">
-              {["Android", "iOS", "Les deux"].map((item) => (
+              {["Android", "iOS", "Web", "Desktop", "Autre"].map((item) => (
                 <button
                   key={item}
                   type="button"
-                  onClick={() => updateFormData("platform", item)}
-                  className={`p-4 rounded-md border transition-all ${
-                    formData.platform === item
+                  onClick={() => handleMultiSelect("platform", item)}
+                  className={`p-4 rounded-md border transition-all flex items-center justify-between ${
+                    formData.platform.includes(item)
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-white/20 hover:border-accent/50"
                   }`}
                 >
                   {item}
+                  {formData.platform.includes(item) && <Check size={16} />}
                 </button>
               ))}
             </div>
@@ -174,7 +180,7 @@ const ProjectDetailsStep = ({
           <div>
             <label className="block mb-2">Objectif de l'application</label>
             <div className="grid grid-cols-2 gap-3">
-              {["Usage public", "Usage interne (entreprise)"].map((item) => (
+              {["Usage public", "Usage interne (entreprise)", "Mixte", "Autre"].map((item) => (
                 <button
                   key={item}
                   type="button"
@@ -228,20 +234,21 @@ const ProjectDetailsStep = ({
           </div>
 
           <div>
-            <label className="block mb-2">Localisation</label>
+            <label className="block mb-2">Localisation (sélection multiple possible)</label>
             <div className="grid grid-cols-2 gap-3">
-              {["Intérieur", "Extérieur", "Les deux"].map((item) => (
+              {["Intérieur", "Extérieur", "Entrepôt", "Parking", "Bureau", "Autre"].map((item) => (
                 <button
                   key={item}
                   type="button"
-                  onClick={() => updateFormData("location", item)}
-                  className={`p-4 rounded-md border transition-all ${
-                    formData.location === item
+                  onClick={() => handleMultiSelect("location", item)}
+                  className={`p-4 rounded-md border transition-all flex items-center justify-between ${
+                    formData.location.includes(item)
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-white/20 hover:border-accent/50"
                   }`}
                 >
                   {item}
+                  {formData.location.includes(item) && <Check size={16} />}
                 </button>
               ))}
             </div>
@@ -277,7 +284,6 @@ const ProjectDetailsStep = ({
     );
   }
 
-  // Cas générique
   return (
     <div className="space-y-6">
       <h3 className="text-xl font-bold">Description du besoin</h3>

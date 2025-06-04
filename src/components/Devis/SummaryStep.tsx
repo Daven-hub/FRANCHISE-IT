@@ -23,7 +23,7 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
         {formData.projectType === "Graphisme" && (
           <div className="p-4 rounded-lg border border-white/10 bg-white/5">
             <h4 className="font-medium mb-2">Détails graphisme</h4>
-            <p>Prestation: {formData.serviceType}</p>
+            <p>Prestations: {formData.serviceType.join(", ") || "Non spécifié"}</p>
             <p className="mt-2 text-muted-foreground">{formData.description}</p>
           </div>
         )}
@@ -31,7 +31,7 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
         {formData.projectType === "Site Web" && (
           <div className="p-4 rounded-lg border border-white/10 bg-white/5">
             <h4 className="font-medium mb-2">Détails site web</h4>
-            <p>Type: {formData.subType}</p>
+            <p>Types: {formData.subType.join(", ") || "Non spécifié"}</p>
             <p>Nom de domaine: {formData.hasDomain || "Non spécifié"}</p>
             <p>Charte graphique: {formData.hasBranding || "Non spécifié"}</p>
             <p className="mt-2 text-muted-foreground">{formData.description}</p>
@@ -41,8 +41,8 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
         {formData.projectType === "Application Mobile" && (
           <div className="p-4 rounded-lg border border-white/10 bg-white/5">
             <h4 className="font-medium mb-2">Détails application</h4>
-            <p>Plateforme: {formData.platform}</p>
-            <p>Objectif: {formData.purpose}</p>
+            <p>Plateformes: {formData.platform.join(", ") || "Non spécifié"}</p>
+            <p>Objectif: {formData.purpose || "Non spécifié"}</p>
             <p className="mt-2 text-muted-foreground">{formData.description}</p>
           </div>
         )}
@@ -51,7 +51,7 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
           <div className="p-4 rounded-lg border border-white/10 bg-white/5">
             <h4 className="font-medium mb-2">Détails surveillance</h4>
             <p>Nombre de caméras: {formData.camerasCount || "Non spécifié"}</p>
-            <p>Localisation: {formData.location}</p>
+            <p>Localisations: {formData.location.join(", ") || "Non spécifié"}</p>
             <p>Enregistrement cloud: {formData.cloudRecording ? "Oui" : "Non"}</p>
             <p className="mt-2 text-muted-foreground">{formData.description}</p>
           </div>

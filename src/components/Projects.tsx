@@ -35,7 +35,7 @@ const Project = () => {
   };
 
   return (
-    <section id="projects" className="section-padding px-[5%] md:px-[6%] bg-black">
+    <section id="projects" className="section-padding px-[4.5%] md:px-[5%] bg-black">
       <div className="w-full mx-auto px-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -144,29 +144,40 @@ const Project = () => {
                 className="bg-[#031322]/50 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-0"></div>
+                  {/* Dégradé avec z-index */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+
+                  {/* Image de fond */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-500 hover:scale-105"
+                    className="absolute inset-0 bg-cover bg-center z-0"
                     style={{ backgroundImage: `url(${project.image})` }}
                   ></div>
-                  <div className="absolute bottom-4 left-4 flex space-x-2">
+
+                  {/* Icônes */}
+                  <div className="absolute bottom-4 left-4 z-10 flex space-x-2">
                     {project.icons?.map((icon, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-primary">
+                      <div
+                        key={i}
+                        className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-primary"
+                      >
                         {icon}
                       </div>
                     ))}
                   </div>
+
+                  {/* Badge */}
                   <div className="absolute top-4 right-4 z-0">
                     <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur-sm border-none">
                       {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                     </Badge>
                   </div>
                 </div>
+
                 <div className="p-6">
                   <h3 className="text-white text-xl font-medium mb-2">{project.title}</h3>
                   <p className="text-white/70 mb-4">{project.description}</p>
-                  <div className="flex flex-col items-center md:flex-row justify-between">
-                    <div className="flex flex-wrap text-xs gap-1.5">
+                  <div className="flex flex-col md:flex-row justify-between">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
                       {project.technologies?.map((tech) => (
                         <Badge key={tech} className="bg-white/10 text-white hover:bg-white/20">
                           {tech}
@@ -176,9 +187,9 @@ const Project = () => {
                     <a
                       href={project.link}
                       target="_blank"
-                      className="inline-flex align-middle items-center text-white hover:text-primary transition-colors text-xs"
+                      className="inline-flex items-center text-white hover:text-primary transition-colors text-sm"
                     >
-                      Voir le projet <ArrowUpRight className="ml- h-4 w-4" />
+                      Voir le projet <ArrowUpRight className="ml-1 h-4 w-4" />
                     </a>
                   </div>
                 </div>
