@@ -16,6 +16,7 @@ const Contact = () => {
     phone: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,6 +25,8 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    setLoading(true);
 
     try {
       await sendContactForm(formData);
@@ -46,6 +49,8 @@ const Contact = () => {
         description: error instanceof Error ? error.message : "Une erreur est survenue lors de l'envoi du message.",
         variant: "destructive"
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -213,7 +218,17 @@ const Contact = () => {
                   type="submit"
                   className="w-full py-6 transition-all border border-white/20 hover:bg-accent/20 hover:accent-glow"
                 >
-                  Envoyer le message
+                  {loading ? (
+                    <>
+                      <div className="flex items-center gap-3 text-primary">
+                        <span className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
+                        <span className="text-sm animate-pulse">Chargement...</span>
+                      </div>
+                    </>
+                  ) : (
+                    "Envoyer le message"
+                  )}
+
                   <Send size={18} className="ml-2" />
                 </Button>
               </form>
