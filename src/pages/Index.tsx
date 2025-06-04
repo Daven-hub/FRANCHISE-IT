@@ -9,12 +9,14 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Devis from "./Devis";
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 
 const StatsGrid = () => {
   const totalCells = 7 * 4;
 
   return (
-    <div className="relative px-[4%] md:px-[7%] w-full section-padding bg-[#031322]/30 overflow-hidden flex items-center justify-center">
+    <div className="relative px-[5%] md:px-[6%] w-full section-padding bg-[#031322]/30 overflow-hidden flex items-center justify-center">
 
       <div
         className="absolute h-full w-full grid grid-cols-4 md:grid-cols-7 grid-rows-4 md:grid-rows-4 z-10"
@@ -44,8 +46,19 @@ const StatBlock = ({ value, label }) => (
   </div>
 );
 const Index = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
   return (
     <>
+       {loading ? (
+        <Loader />
+      ) : (
+        <>
       <Hero />
       <About />
       <Services />
@@ -56,6 +69,8 @@ const Index = () => {
       {/* <Partners /> */}
       <Contact />
       {/* <Footer /> */}
+      </>
+      )}
     </>
   );
 };

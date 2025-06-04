@@ -104,7 +104,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding px-[3.5%] md:px-[7%] relative">
+    <section id="contact" className="section-padding px-[5%] md:px-[6%] relative">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
@@ -137,7 +137,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           <Card className="glass-effect border-white/10 px-4 md:px-7 py-7 card-hover rounded-xl overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none"></div>
             <div className="relative z-10">
@@ -148,7 +148,7 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 flex items-center">
+                  <label htmlFor="name" className="text-sm font-medium mb-2 flex items-center">
                     <User size={16} className="mr-2 text-accent/80" /> Nom complet
                   </label>
                   <Input
@@ -164,7 +164,7 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 flex items-center">
+                    <label htmlFor="email" className="text-sm font-medium mb-2 flex items-center">
                       <AtSign size={16} className="mr-2 text-accent/80" /> Email
                     </label>
                     <Input
@@ -180,7 +180,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2 flex items-center">
+                    <label htmlFor="phone" className="text-sm font-medium mb-2 flex items-center">
                       <Phone size={16} className="mr-2 text-accent/80" /> Téléphone
                     </label>
                     <Input
@@ -195,7 +195,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 flex items-center">
+                  <label htmlFor="message" className="text-sm font-medium mb-2 flex items-center">
                     <Mail size={16} className="mr-2 text-accent/80" /> Message
                   </label>
                   <Textarea
