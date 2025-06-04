@@ -23,7 +23,7 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
         {formData.projectType === "Graphisme" && (
           <div className="p-4 rounded-lg border border-white/10 bg-white/5">
             <h4 className="font-medium mb-2">Détails graphisme</h4>
-            <p>Prestations: {formData.serviceType.join(", ") || "Non spécifié"}</p>
+            <p>Prestations: {formData.serviceType || "Non spécifié"}</p>
             <p className="mt-2 text-muted-foreground">{formData.description}</p>
           </div>
         )}
