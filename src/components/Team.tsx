@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
