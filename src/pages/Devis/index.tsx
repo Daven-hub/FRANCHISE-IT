@@ -14,58 +14,63 @@ import { sendDevisForm } from "@/services/DevisService";
 
 export type FormData = {
   projectType: string;
-  subType: string[];
-  serviceType: string[];
-  platform: string[];
-  purpose: string;
+  serviceDetails: string[];
   description: string;
-  camerasCount: string;
-  location: string[];
-  cloudRecording: boolean;
-  hasDomain: string;
-  hasBranding: string;
-  timeline: string;
   budget: string;
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  devis_date: string
+  currency: string;
+  timeline: string;
+  customTimeline?: string;
+  contact: {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+  };
+  metadata: {
+    devis_date: string;
+  };
 };
 
-const Devis = () => {
+const Devis = ({ onClose }: { onClose?: () => void }) => {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
-    subType: [],
-    serviceType: [],
-    platform: [],
-    purpose: "",
+    serviceDetails: [],
     description: "",
-    camerasCount: "",
-    location: [],
-    cloudRecording: false,
-    hasDomain: "",
-    hasBranding: "",
-    timeline: "",
     budget: "",
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    devis_date: new Date().toISOString()
+    currency: "XAF",
+    timeline: "",
+    contact: {
+      name: "",
+      email: "",
+      phone: "",
+      company: ""
+    },
+    metadata: {
+      devis_date: new Date().toISOString(),
+    },
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
 
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    if (name in formData.contact) {
+      setFormData(prev => ({
+        ...prev,
+        contact: {
+          ...prev.contact,
+          [name]: type === 'checkbox' ? checked : value
+        }
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      }));
+    }
   };
 
   const updateFormData = (field: keyof FormData, value: any) => {
@@ -107,23 +112,20 @@ const Devis = () => {
       setStep(1);
       setFormData({
         projectType: "",
-        subType: [],
-        serviceType: [],
-        platform: [],
-        purpose: "",
+        serviceDetails: [],
         description: "",
-        camerasCount: "",
-        location: [],
-        cloudRecording: false,
-        hasDomain: "",
-        hasBranding: "",
-        timeline: "",
         budget: "",
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        devis_date: ""
+        currency: "XAF",
+        timeline: "",
+        contact: {
+          name: "",
+          email: "",
+          phone: "",
+          company: ""
+        },
+        metadata: {
+          devis_date: new Date().toISOString(),
+        },
       });
     } catch (error) {
       toast({
@@ -159,7 +161,7 @@ const Devis = () => {
   };
 
   return (
-    <section id="devis" className="section-padding relative">
+    <section id="" className=" relative">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
@@ -177,9 +179,9 @@ const Devis = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-6 sm:mb-10"
             >
-              <div className="inline-block px-6 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10">
+              {/* <div className="inline-block px-6 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10">
                 Devis
-              </div>
+              </div> */}
               <h2 className="heading-lg font-title">Demande de devis</h2>
               <p className="text-muted-foreground mt-2 text-sm sm:text-base">
                 Remplissez ce formulaire pour recevoir une estimation personnalisée

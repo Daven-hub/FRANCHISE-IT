@@ -2,32 +2,28 @@ import axios from "axios";
 
 export type DevisFormData = {
   projectType: string;
-  subType: string[];
-  serviceType: string[];
-  platform: string[];
-  purpose: string;
+  serviceDetails: string[];
   description: string;
-  camerasCount: string;
-  location: string[];
-  cloudRecording: boolean;
-  hasDomain: string;
-  hasBranding: string;
-  timeline: string;
   budget: string;
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
+  currency: string;
+  timeline: string;
+  customTimeline?: string;
+  contact: {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+  };
+  metadata: {
+    devis_date: string;
+  };
 };
 
 export const sendDevisForm = async (data: DevisFormData): Promise<void> => {
   try {
     const transformedData = {
       ...data,
-      subType: data.subType.join(', '),
-      serviceType: data.serviceType.join(', '),
-      platform: data.platform.join(', '),
-      location: data.location.join(', ')
+      serviceDetails: data.serviceDetails.join(', '),
     };
 
     const response = await axios.post(
@@ -38,7 +34,7 @@ export const sendDevisForm = async (data: DevisFormData): Promise<void> => {
     if (response.data.status === 'success') {
       return response.data
     }
-    
+
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data?.message || "Erreur lors de l'envoi du message.");

@@ -55,7 +55,7 @@ const Index = () => {
       <Projects />
       <StatsGrid />
       {/* <Team /> */}
-      <Devis/>
+      {/* <Devis/> */}
       {/* <Partners /> */}
       <Contact />
       {/* <Footer /> */}
