@@ -47,7 +47,7 @@ const Loader = () => {
         >
           {/* Franchise<span className="ml-1">IT</span> */}
           <div className="aspect-[26/4] w-full">
-            <img src="/public/logo.png" className="h-full w-full" alt="" />
+            <img src="/logo.png" className="h-full w-full" alt="" />
           </div>
         </motion.div>
         
