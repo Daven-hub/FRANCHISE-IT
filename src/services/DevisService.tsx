@@ -34,7 +34,7 @@ export const sendDevisForm = async (data: DevisFormData): Promise<void> => {
     if (response.data.status === 'success') {
       return response.data
     }
-    
+
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data?.message || "Erreur lors de l'envoi du message.");
