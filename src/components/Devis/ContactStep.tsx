@@ -21,7 +21,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
             <Input
               id="name"
               name="name"
-              value={formData.name}
+              value={formData.contact.name}
               onChange={handleChange}
               placeholder="Votre nom"
               className="pl-10"
@@ -36,7 +36,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
             <Input
               id="company"
               name="company"
-              value={formData.company}
+              value={formData.contact.company}
               onChange={handleChange}
               placeholder="Nom de votre entreprise"
               className="pl-10"
@@ -52,7 +52,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
               id="email"
               name="email"
               type="email"
-              value={formData.email}
+              value={formData.contact.email}
               onChange={handleChange}
               placeholder="votre@email.com"
               className="pl-10"
@@ -67,7 +67,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
             <Input
               id="phone"
               name="phone"
-              value={formData.phone}
+              value={formData.contact.phone}
               onChange={handleChange}
               placeholder="Votre numéro"
               className="pl-10"
