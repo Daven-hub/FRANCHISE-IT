@@ -58,7 +58,7 @@ const Navbar = () => {
       >
         <div className="w-full">
           <div className="flex justify-between">
-            <div className='flex pl-1 md:pl-[6%]  items-center gap-14'>
+            <div className='flex pl-1 md:pl-[6%] items-center gap-14'>
               <div className='flex items-center gap-1'>
                 <div className="md:hidden">
                   <Button
@@ -114,9 +114,9 @@ const Navbar = () => {
               >
                 Se connecter
               </NavLink>
-              <span onClick={() => setShowDevis(true)} className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
+              <button onClick={() => setShowDevis(true)} className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-xs md:text-sm" style={{ borderRadius: 0 }}>
                 Demander un devis
-              </span>
+              </button>
             </div>
           </div>
 

@@ -161,7 +161,7 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
   };
 
   return (
-    <section id="" className=" relative">
+    <section id="" className=" relative ">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
         <img
@@ -171,7 +171,7 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <Card className="p-4 sm:p-6 lg:p-8">
           <div className="relative z-0">
             <motion.div

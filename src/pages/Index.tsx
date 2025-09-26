@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -57,10 +56,10 @@ const Index = () => {
       {/* <Team /> */}
       {/* <Devis/> */}
       {/* <Partners /> */}
-      <Contact />
+      <Contact />    
       {/* <Footer /> */}
     </>
   );
-};
+};         
 
 export default Index;

@@ -21,7 +21,7 @@ export default function DevisModal({ isOpen, onClose, children }: DevisModalProp
             className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
             onClick={onClose}
           />
-          
+
           {/* Contenu de la modale */}
           <div className="fixed inset-0 z-50 flex justify-end">
             <motion.div

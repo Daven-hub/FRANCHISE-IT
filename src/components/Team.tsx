@@ -65,18 +65,18 @@ const Team = () => {
       linkedin: "#",
       email: "info@franchise-it-tech.com"
     },
+    // {
+    //   id: 5,
+    //   name: "Chavita Adang",
+    //   role: "Responsable marketing",
+    //   bio: "Stratégie, acquisition & fidélisation | J’aide les marques à se démarquer et à croître durablement.",
+    //   image: "/team/shavita.jpg",
+    //   loc:"",
+    //   linkedin: "#",
+    //   email: "info@franchise-it-tech.com"
+    // },
     {
       id: 5,
-      name: "Chavita Adang",
-      role: "Responsable marketing",
-      bio: "Stratégie, acquisition & fidélisation | J’aide les marques à se démarquer et à croître durablement.",
-      image: "/team/shavita.jpg",
-      loc:"",
-      linkedin: "#",
-      email: "info@franchise-it-tech.com"
-    },
-    {
-      id: 6,
       name: "Roger BENCHA",
       role: "Consultant FreeLance",
       bio: "Expert en développement d'applications FullStack ainsi qu'en conception UI/UX. ",
@@ -86,7 +86,7 @@ const Team = () => {
       email: "info@franchise-it-tech.com"
     },
     {
-      id: 7,
+      id: 6,
       name: "Cédric TIAKO,",
       role: "Consultant Senior",
       loc:"",
