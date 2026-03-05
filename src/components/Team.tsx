@@ -26,6 +26,16 @@ const Team = () => {
       email: "info@franchise-it-tech.com"
     },
     {
+      id: 7,
+      name: "Herve Njafang",
+      role: "Co-Founder",
+      bio: "Software Engineer | Aerospace Engineer I MBA",
+      loc:"Munich - Allemagne",
+      image: "/team/stephane.jpeg",
+      linkedin: "#",
+      email: "info@franchise-it-tech.com"
+    },
+    {
       id: 8,
       name: "Jeremy Dubois",
       role: "Co-Founder",

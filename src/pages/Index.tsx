@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Devis from "./Devis";
 import { useEffect, useState } from "react";
+import FormationSection from "@/components/FormationSection";
 
 
 const StatsGrid = () => {
@@ -51,6 +52,7 @@ const Index = () => {
       <Hero />
       <About />
       <Services />
+      <FormationSection/>
       <Projects />
       <StatsGrid />
       {/* <Team /> */}
