@@ -8,20 +8,21 @@ const Footer = () => {
     {
       title: "Services",
       links: [
-        { name: "Développement Web", href: "#" },
-        { name: "Applications Mobiles", href: "#" },
-        { name: "Référencement SEO", href: "#" },
-        { name: "Hébergement Web", href: "#" },
-        { name: "Caméras de Surveillance", href: "#" },
+        { name: "Développement Web", href: "#projects" },
+        { name: "Applications Mobiles", href: "#projects" },
+        { name: "Référencement SEO", href: "#projects" },
+        { name: "Hébergement Web", href: "#projects" },
+        { name: "Caméras de Surveillance", href: "#projects" },
       ]
     },
     {
       title: "Entreprise",
       links: [
         { name: "À propos", href: "#about" },
-        { name: "Notre équipe", href: "#" },
-        { name: "Carrières", href: "#" },
-        { name: "Blog", href: "#" },
+        { name: "Notre équipe", href: "equipes" },
+        { name: "Stages", href: "#stages" },
+        { name: "Formations", href: "#formation" },
+        { name: "Projets", href: "#projects" },
       ]
     },
     {
@@ -36,10 +37,8 @@ const Footer = () => {
   ];
   
   const socialMedia = [
-    { icon: <Facebook size={20} />, href: "#", label: "Facebook" },
-    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61561495617076", label: "Facebook" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/franchise-it-tech/posts/?feedView=all", label: "LinkedIn" },
   ];
 
   return (

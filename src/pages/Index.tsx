@@ -9,6 +9,9 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Devis from "./Devis";
 import { useEffect, useState } from "react";
+import FormationSection from "@/components/FormationSection";
+import StageSection from "@/components/StageSection";
+import FAQSection from "@/components/FAQSection";
 
 
 const StatsGrid = () => {
@@ -51,11 +54,14 @@ const Index = () => {
       <Hero />
       <About />
       <Services />
+      <FormationSection/>
       <Projects />
+      <StageSection/>
       <StatsGrid />
       {/* <Team /> */}
       {/* <Devis/> */}
       {/* <Partners /> */}
+      {/* <FAQSection/> */}
       <Contact />    
       {/* <Footer /> */}
     </>

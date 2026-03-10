@@ -1,3 +1,4 @@
+import SolutionsProfessionnelles from '@/components/FranchisePresentation'
 import Team from '@/components/Team'
 import { Button } from '@/components/ui/button'
 import React from 'react'
@@ -50,6 +51,8 @@ function Equipe() {
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       </div>
       <Team />
+      <SolutionsProfessionnelles/>
+
     </div>
   )
 }
