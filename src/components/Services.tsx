@@ -108,16 +108,16 @@ const Services = () => {
       title: "DevOps & Automatisation des Déploiements",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Mise en place de pipelines CI/CD, automatisation des builds, des tests et des déploiements afin d’accélérer la livraison des applications tout en garantissant stabilité et fiabilité des systèmes.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Mise en place GitHub Actions / GitLab CI</li>
             <li>Automatisation des déploiements</li>
             <li>Containerisation avec Docker</li>
             <li>Orchestration Kubernetes</li>
             <li>Monitoring et logs</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -126,16 +126,16 @@ const Services = () => {
       title: "Cybersécurité & DevSecOps",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Protection des infrastructures numériques et intégration de la sécurité directement dans le cycle de développement des applications.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Audit de sécurité des applications</li>
             <li>Tests de vulnérabilité</li>
             <li>Sécurisation des serveurs</li>
             <li>Mise en place DevSecOps</li>
             <li>Gestion des accès et identités</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -144,16 +144,16 @@ const Services = () => {
       title: "Cloud Computing & Infrastructure",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Conception, migration et gestion d’infrastructures cloud sécurisées et performantes pour les entreprises et institutions.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Migration vers le Cloud</li>
             <li>Architecture cloud</li>
             <li>Gestion serveurs Linux</li>
             <li>Sauvegardes et reprise après sinistre</li>
             <li>Haute disponibilité</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -162,16 +162,16 @@ const Services = () => {
       title: "Solutions Microsoft 365 & Digital Workplace",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Déploiement et gestion des environnements collaboratifs Microsoft 365 pour améliorer la productivité et la communication des équipes.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Déploiement Microsoft 365</li>
             <li>Administration des comptes et licences</li>
             <li>Configuration Teams, SharePoint, OneDrive</li>
             <li>Sécurité et gestion des accès</li>
             <li>Formation des équipes</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -180,15 +180,15 @@ const Services = () => {
       title: "Conseil Technologique & Innovation",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Accompagnement stratégique pour aider les entreprises à adopter les meilleures technologies et anticiper les évolutions du marché.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Architecture logicielle</li>
             <li>Choix technologiques</li>
             <li>Roadmap digitale</li>
             <li>Audit IT</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -197,15 +197,15 @@ const Services = () => {
       title: "Solutions Technologiques pour l’Aviation & l’Aérospatial",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Développement de solutions technologiques, logiciels et systèmes numériques pour le secteur aéronautique et spatial.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Analyse de données aéronautiques</li>
             <li>Simulation et modélisation</li>
             <li>Développement d’outils spécialisés</li>
             <li>Solutions IT pour l’aviation</li>
-          </ul>
+          </ul> */}
         </>
       )
     },
@@ -214,15 +214,15 @@ const Services = () => {
       title: "Production de Contenus & Communication Digitale",
       description: (
         <>
-          <p className="text-primary font-semibold">Description</p>
+          {/* <p className="text-primary font-semibold">Description</p> */}
           <p>Création de contenus stratégiques pour renforcer l’image de marque et la présence digitale des entreprises.</p>
-          <p className="text-primary font-semibold mt-2">Prestations</p>
+          {/* <p className="text-primary font-semibold mt-2">Prestations</p>
           <ul className="list-disc ml-5 mt-1 text-primary">
             <li>Stratégie de communication</li>
             <li>Gestion des réseaux sociaux</li>
             <li>Création de contenus</li>
             <li>Branding et storytelling</li>
-          </ul>
+          </ul> */}
         </>
       )
     }
