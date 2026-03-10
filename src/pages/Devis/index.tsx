@@ -8,7 +8,7 @@ import TimelineBudgetStep from "@/components/Devis/TimelineBudgetStep";
 import ContactStep from "@/components/Devis/ContactStep";
 import SummaryStep from "@/components/Devis/SummaryStep";
 import Stepper from "@/components/Devis/Stepper";
-import { ChevronLeft, ChevronRight, Send } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoveLeft, MoveRight, Send } from "lucide-react";
 import devis from '../../../public/dev.png';
 import { sendDevisForm } from "@/services/DevisService";
 
@@ -171,19 +171,15 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <Card className="p-4 sm:p-6 lg:p-8">
+        <Card className="max-w-4xl px-3.5 sm:px-6 lg:px-8 py-10">
           <div className="relative z-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-6 sm:mb-10"
             >
-              {/* <div className="inline-block px-6 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10">
-                Devis
-              </div> */}
-              <h2 className="heading-lg font-title">Demande de devis</h2>
-              <p className="text-muted-foreground mt-2 text-sm sm:text-base">
+              <h2 className="heading-lg text-xl md:text-4xl font-title">Demande de devis</h2>
+              <p className="text-muted-foreground mt-2 text-[0.92rem]">
                 Remplissez ce formulaire pour recevoir une estimation personnalisée
               </p>
             </motion.div>
@@ -194,28 +190,26 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
               <div className="space-y-6 sm:space-y-8">
                 {renderStep()}
 
-                <div className="flex flex-col sm:flex-row justify-between gap-4 pt-6">
-                  {step > 1 ? (
+                <div className="flex flex-col sm:flex-row justify-between gap-4">
+                  {step > 1 && (
                     <button
                       type="button"
                       onClick={prevStep}
                       className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
                       disabled={isSubmitting}
                     >
-                      <ChevronLeft size={18} /> Précédent
+                      <MoveLeft size={18} /> Précédent
                     </button>
-                  ) : (
-                    <div></div>
                   )}
 
                   {step < 6 ? (
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      className="flex text-sm items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
                       disabled={(step === 1 && !formData.projectType) || isSubmitting}
                     >
-                      Suivant <ChevronRight size={18} />
+                      Suivant <MoveRight size={18} />
                     </button>
                   ) : (
                     <button
@@ -237,7 +231,6 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
             </form>
           </div>
         </Card>
-      </div>
     </section>
   );
 };

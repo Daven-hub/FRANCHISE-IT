@@ -3,10 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Layout from "./pages/Layout";
-import Equipe from "./pages/Equipe";
-// import ScrollToTop from "./lib/ScrollToTop";
+import { lazy, Suspense } from "react";
+import Loader from "./components/Loader";
+
+const Index = lazy(() => import("./pages/Index"));
+const Layout = lazy(() => import("./pages/Layout"));
+const Equipe = lazy(() => import("./pages/Equipe"));
 
 const queryClient = new QueryClient();
 
@@ -15,18 +17,21 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}  >
-            <Route index element={<Index />} />
-            <Route path="equipes" element={<Equipe />} />
-          </Route>
-          {/* <Route path="/test" element={<TreeData />} /> */}
-          {/* <Route path="/equipes" element={<Team />} /> */}
-          {/* <Route path="/teste" element={<Test />} /> */}
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Layout />}  >
+              <Route index element={<Index />} />
+              <Route path="equipes" element={<Equipe />} />
+            </Route>
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

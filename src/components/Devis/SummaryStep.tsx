@@ -29,7 +29,7 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="text-center">
         <CheckCircle className="mx-auto h-12 w-12 text-accent mb-4" />
         <h3 className="text-xl font-bold">Récapitulatif</h3>
@@ -37,27 +37,27 @@ const SummaryStep = ({ formData }: SummaryStepProps) => {
       </div>
 
       <div className="space-y-4">
-        <div className="p-4 rounded-lg border border-white/10 bg-white/5">
-          <h4 className="font-medium mb-2">Type de projet</h4>
+        <div className="px-4 py-2.5 rounded-lg border border-white/10 bg-white/5">
+          <h4 className="font-medium text-sm mb-2">Type de projet</h4>
           <p>{formData.projectType}</p>
         </div>
 
         {formData.serviceDetails.length > 0 && (
-          <div className="p-4 rounded-lg border border-white/10 bg-white/5">
-            <h4 className="font-medium mb-2">Détails du projet</h4>
-            <p>Services: {formData.serviceDetails.join(", ") || "Non spécifié"}</p>
-            <p className="mt-2 text-muted-foreground">{formData.description}</p>
+          <div className="px-4 py-2.5 rounded-lg border border-white/10 bg-white/5">
+            <h4 className="font-medium text-sm mb-2">Détails du projet</h4>
+            <p className="">Services: {formData.serviceDetails.join(", ") || "Non spécifié"}</p>
+            <p className="text-muted-foreground">{formData.description}</p>
           </div>
         )}
 
-        <div className="p-4 rounded-lg border border-white/10 bg-white/5">
-          <h4 className="font-medium mb-2">Délai et Budget</h4>
-          <p>Délai: {formData.timeline === "custom" ? formData.customTimeline : formData.timeline}</p>
-          <p>Budget: {formData.budget ? formatCurrency(formData.budget) : "Non spécifié"}</p>
+        <div className="px-4 py-2.5 rounded-lg border border-white/10 bg-white/5">
+          <h4 className="font-medium text-sm mb-2">Délai et Budget</h4>
+          <p className="m-0">Délai: {formData.timeline === "custom" ? formData.customTimeline : formData.timeline}</p>
+          <p className="m-0">Budget: {formData.budget ? formatCurrency(formData.budget) : "Non spécifié"}</p>
         </div>
 
-        <div className="p-4 rounded-lg border border-white/10 bg-white/5">
-          <h4 className="font-medium mb-2">Coordonnées</h4>
+        <div className="px-4 py-2.5 rounded-lg border border-white/10 bg-white/5">
+          <h4 className="font-medium text-sm mb-2">Coordonnées</h4>
           <p>Nom: {formData.contact.name}</p>
           {formData.contact.company && <p>Entreprise: {formData.contact.company}</p>}
           <p>Email: {formData.contact.email}</p>

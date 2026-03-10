@@ -1,17 +1,14 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-import Team from "@/components/Team";
-import Partners from "@/components/Partners";
+// import Team from "@/components/Team";
+// import Partners from "@/components/Partners";
 import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Devis from "./Devis";
-import { useEffect, useState } from "react";
+// import Contact from "@/components/Contact";
+// import Footer from "@/components/Footer";
 import FormationSection from "@/components/FormationSection";
 import StageSection from "@/components/StageSection";
-import FAQSection from "@/components/FAQSection";
+// import FAQSection from "@/components/FAQSection";
 
 
 const StatsGrid = () => {
@@ -62,8 +59,7 @@ const Index = () => {
       {/* <Devis/> */}
       {/* <Partners /> */}
       {/* <FAQSection/> */}
-      <Contact />    
-      {/* <Footer /> */}
+      {/* <Contact />     */}
     </>
   );
 };         

@@ -18,10 +18,10 @@ const ProjectTypeStep = ({ formData, updateFormData, nextStep }: ProjectTypeStep
   ];
 
   return (
-    <div className="space-y-6">
-      <h3 className="text-xl font-bold">Type de projet</h3>
+    <div className="space-y-5">
+      <h3 className="text-2xl font-bold">Type de projet</h3>
+      <div className="space-y-1">
       <p className="text-muted-foreground">De quel type de projet avez-vous besoin ?</p>
-      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projectTypes.map((type) => (
           <button
@@ -40,6 +40,7 @@ const ProjectTypeStep = ({ formData, updateFormData, nextStep }: ProjectTypeStep
             {type}
           </button>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -71,14 +71,14 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
     }, [formData.currency]);
 
     return (
-        <div className="space-y-6">
-            <h3 className="text-xl font-bold">Délais et budget</h3>
+        <div className="space-y-5">
+            <h3 className="text-2xl font-bold">Délais et budget</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
                 {/* Délai */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                     <label className="block">Quel est votre délai souhaité ?</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         {timelineOptions.map((option) => (
                             <label
                                 key={option.key}
@@ -112,23 +112,23 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
                         />
                     )}
 
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                         Sélectionnez le délai qui vous convient le mieux ou entrez un délai personnalisé.
                     </p>
                 </div>
 
                 {/* Budget */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                     <div className="flex justify-between items-center">
                         <label className="block" htmlFor="budget">
                             Budget estimé
                         </label>
-                        <div className="relative w-32">
+                        <div className="relative w-fit">
                             <select
                                 name="currency"
                                 value={formData.currency}
                                 onChange={handleChange}
-                                className="w-full p-2 rounded-md border border-white/20 focus:border-accent focus:outline-none bg-white text-black dark:bg-gray-800 dark:text-white appearance-none pr-7"
+                                className="w-full py-1 px-2 text-sm rounded-md border border-white/20 focus:border-accent focus:outline-none bg-white text-black dark:bg-gray-800 dark:text-white appearance-none pr-5"
                             >
                                 {SUPPORTED_CURRENCIES.map((curr) => (
                                     <option key={curr.code} value={curr.code}>
@@ -158,7 +158,7 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
                             {currencySymbol}
                         </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                         Indiquez une estimation de votre budget pour ce projet.
                     </p>
                     {rawBudget && (

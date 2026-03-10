@@ -46,10 +46,10 @@ const ProjectDetailsStep = ({
   const serviceOptions = getServiceOptions();
 
   return (
-    <div className="space-y-6">
-      <h3 className="text-xl font-bold">{getStepTitle()}</h3>
+    <div className="space-y-5">
+      <h3 className="text-2xl font-bold">{getStepTitle()}</h3>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {serviceOptions.length > 0 && (
           <div>
             <label className="block mb-2">
@@ -82,7 +82,7 @@ const ProjectDetailsStep = ({
         )}
 
         <div>
-          <label htmlFor="description" className="block mb-2">
+          <label htmlFor="description" className="block mb-1">
             {formData.projectType === "Caméra de Surveillance"
               ? "Description du lieu/projet"
               : formData.projectType === "Application Mobile"
