@@ -1,11 +1,12 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import ThemeToggle from '@/components/ThemeToggle';
 import ScrollHah from '@/lib/ScrollHash';
 import ScrollToTop from '@/lib/ScrollToTop';
 import React from 'react'
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 
-function Layout() {
+function Layout({children}) {
   return (
     <div className="relative">
       <ScrollToTop />
@@ -17,8 +18,12 @@ function Layout() {
       </div> */}
 
       <Navbar />
-      <Outlet />
+      {/* <Outlet /> */}
+      {children}
       <Footer />
+      <div className='fixed z-[10] right-4 bottom-4'>
+        <ThemeToggle />
+      </div>
     </div>
   );
 }

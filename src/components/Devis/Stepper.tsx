@@ -21,7 +21,7 @@ const Stepper = ({ currentStep, steps = [1, 2, 3, 4, 5, 6] }: StepperProps) => {
               {currentStep > stepNumber ? <Check size={18} /> : stepNumber}
             </div>
             {/* Label */}
-            <span className={`text-xs mt-2 ${currentStep >= stepNumber ? "text-foreground" : "text-muted-foreground"}`}>
+            <span className={`text-xs max-md:hidden mt-2 ${currentStep >= stepNumber ? "text-white" : "text-white/60 dark:text-muted-foreground"}`}>
               Étape {stepNumber}
             </span>
           </div>

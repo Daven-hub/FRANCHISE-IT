@@ -19,9 +19,9 @@ const ProjectTypeStep = ({ formData, updateFormData, nextStep }: ProjectTypeStep
 
   return (
     <div className="space-y-5">
-      <h3 className="text-2xl font-bold">Type de projet</h3>
+      <h3 className="text-2xl text-white font-bold">Type de projet</h3>
       <div className="space-y-1">
-      <p className="text-muted-foreground">De quel type de projet avez-vous besoin ?</p>
+      <p className="text-white/70 dark:text-muted-foreground">De quel type de projet avez-vous besoin ?</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projectTypes.map((type) => (
           <button
@@ -31,7 +31,7 @@ const ProjectTypeStep = ({ formData, updateFormData, nextStep }: ProjectTypeStep
               updateFormData("projectType", type);
               nextStep();
             }}
-            className={`p-6 rounded-lg border transition-all flex items-center justify-center min-h-[100px] ${
+            className={`p-6 rounded-lg border transition-all text-white/80 flex items-center justify-center min-h-[100px] ${
               formData.projectType === type 
                 ? "border-accent bg-accent/10 text-accent" 
                 : "border-white/20 hover:border-accent/50 hover:bg-accent/5"

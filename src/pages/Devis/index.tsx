@@ -161,25 +161,25 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
   };
 
   return (
-    <section id="" className=" relative ">
+    <section id="" className="relative min-h-screen">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
-        <img
+        <div className="absolute inset-0 bg-gradient-to-b from-tech-dark via-tech-dark/95 to-tech-dark dark:to-tech-dark/75"></div>
+        {/* <img
           src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop"
           alt="Technology background"
           className="w-full h-full object-cover opacity-20"
-        />
+        /> */}
       </div>
 
-        <Card className="max-w-4xl px-3.5 sm:px-6 lg:px-8 py-10">
+        <Card className="max-w-4xl px-3.5 sm:px-6 lg:px-8 pt-10 pb-5">
           <div className="relative z-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-6 sm:mb-10"
             >
-              <h2 className="heading-lg text-xl md:text-4xl font-title">Demande de devis</h2>
-              <p className="text-muted-foreground mt-2 text-[0.92rem]">
+              <h2 className="heading-lg text-xl md:text-4xl text-white font-title">Demande de devis</h2>
+              <p className="text-white/70 dark:text-muted-foreground mt-2 text-[0.92rem]">
                 Remplissez ce formulaire pour recevoir une estimation personnalisée
               </p>
             </motion.div>
@@ -190,12 +190,12 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
               <div className="space-y-6 sm:space-y-8">
                 {renderStep()}
 
-                <div className="flex flex-col sm:flex-row justify-between gap-4">
+                <div className="flex flex-col-reverse sm:flex-row justify-between gap-4">
                   {step > 1 && (
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
+                      className="flex items-center text-white justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg border border-white/20 hover:border-accent/50 hover:bg-accent/10 transition-all w-full sm:w-auto"
                       disabled={isSubmitting}
                     >
                       <MoveLeft size={18} /> Précédent
@@ -206,7 +206,7 @@ const Devis = ({ onClose }: { onClose?: () => void }) => {
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="flex text-sm items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
+                      className="flex text-sm items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg bg-accent hover:bg-accent/90 text-white transition-all w-full sm:w-auto sm:ml-auto"
                       disabled={(step === 1 && !formData.projectType) || isSubmitting}
                     >
                       Suivant <MoveRight size={18} />

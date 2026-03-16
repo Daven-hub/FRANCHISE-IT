@@ -6,12 +6,14 @@ import { cn } from '@/lib/utils';
 import { Link, NavLink } from 'react-router-dom';
 import DevisModal from './Devis/DevisModal';
 import Devis from '@/pages/Devis';
+import { useTheme } from '@/context/ThemeContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('accueil');
   const [showDevis, setShowDevis] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +47,9 @@ const Navbar = () => {
     { name: 'A propos', href: 'a-propos', id: 'a-propos' },
     { name: 'Services', href: 'services', id: 'services' },
     { name: 'Projets', href: 'projects', id: 'projects' },
+    { name: 'Formations', href: 'formations', id: 'formations' },
     { name: 'Equipe', href: 'equipes', id: 'team' },
+    { name: 'Stages', href: 'stages', id: 'stages' },
     { name: 'Contact', href: 'contact', id: 'contact' }
   ];
 
@@ -53,37 +57,37 @@ const Navbar = () => {
     <>
       <nav
         className={cn(
-          'sticky w-full top-0 left-0 right-0 z-[50] transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-white/50'
+          'sticky w-full top-0 left-0 right-0 z-[50] bg-background transition-all duration-300 backdrop-blur-md border-b border-black dark:border-white'
         )}
       >
         <div className="w-full">
           <div className="flex justify-between">
-            <div className='flex pl-1 md:pl-[6%] items-center gap-14'>
+            <div className='flex pl-4 md:pl-[5%] items-center gap-20'>
               <div className='flex items-center gap-2'>
                 <div className="md:hidden">
                   <div
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Menu"
-                    className="text-white hover:bg-white/10"
+                    className="text-tech-dark dark:text-white hover:bg-white/10"
                   >
                     {isMenuOpen ? <X size={25} /> : <Menu size={25} />}
                   </div>
                 </div>
 
                 <a href="#" className="text-xl md:text-2xl font-bold flex gap-1 font-montserrat text-white">
-                  <img src="/logo.png" className='w-[160px] max-md:w-[130px]' alt="logo_franchise_it" />
+                  <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} className='w-[160px] max-md:w-[130px]' alt="logo_franchise_it" />
                 </a>
               </div>
-              <div className='hidden md:flex items-center space-x-5'>
+              <div className='hidden md:flex items-center space-x-2'>
                 {navItems.map((item) => (
                   item.href !== "equipes" && item.href !== "/" ?
                     <NavLink
                       key={item.name}
-                      // onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
                       to={"/#" + item.href}
                       className={cn(
-                        "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
-                        activeLink === item.id && "text-white active"
+                        "text-black/90 dark:text-white/90 cursor-pointer py-5 md:px-2.5 font-normal hover:text-black/50 dark:hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
+                        activeLink === item.id && "text-black dark:text-white active"
                       )}
                     >
                       {item.name}
@@ -93,8 +97,8 @@ const Navbar = () => {
                       to={item.href}
                       // href={item.href}
                       className={cn(
-                        "text-white/90 cursor-pointer font-normal hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
-                        activeLink === item.id && "text-white active"
+                        "text-black/90 dark:text-white/90 cursor-pointer py-5 md:px-2.5 font-normal hover:text-black/50 dark:hover:text-white/30 text-[15px] transition-all duration-300 Capitalize tracking-wider",
+                        activeLink === item.id && "text-black dark:text-white active"
                       )}
                     >
                       {item.name}
@@ -104,15 +108,7 @@ const Navbar = () => {
             </div>
             {/* Desktop menu */}
             <div className="flex items-center space-x-8">
-              <NavLink
-                to='#'
-                className={cn(
-                  "text-white/80 hidden font-medium hover:text-white text-[15px] Capitalize tracking-wider"
-                )}
-              >
-                Se connecter
-              </NavLink>
-              <button onClick={() => setShowDevis(true)} className="bg-white font-title w-fit px-3 md:px-9 text-black py-[1.5rem] flex items-center justify-center max-md:py-5 h-full font-semibold hover:bg-white/90 !rounded-0 text-[.65rem] md:text-sm" style={{ borderRadius: 0 }}>
+              <button onClick={() => setShowDevis(true)} className="bg-tech-dark dark:bg-white font-title w-fit px-3 md:px-8 text-white dark:text-black py-5 flex items-center justify-center max-md:py-5 h-full font-semibold transition-all duration-300 hover:bg-black/60 dark:hover:bg-white/90 !rounded-0 text-[.65rem] md:text-sm" style={{ borderRadius: 0 }}>
                 Demander un devis
               </button>
             </div>
@@ -120,14 +116,14 @@ const Navbar = () => {
 
           {/* Mobile menu panel */}
           {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 border-t border-b border-white/10 py-4 px-4 animate-fade-in">
-              <div className="flex flex-col space-y-4">
+            <div className="md:hidden absolute top-full h-[calc(100vh-55.61px)] left-0 right-0 bg-background border-t border-b border-black dark:border-white pb-4 px-4 animate-fade-in">
+              <div className="flex flex-col">
                 {navItems.map((item) =>
                   ['accueil','equipe'].includes(item.name.toLowerCase())  ? <NavLink
                     key={item.name}
                     to={item.href}
                     className={cn(
-                      "text-white cursor-pointer font-medium hover:text-white/70 transition-colors",
+                      "text-black dark:text-white py-4 border-b border-dashed border-black/30 dark:border-white/30 cursor-pointer font-medium hover:text-black/70 dark:hover:text-white/70 transition-colors",
                       activeLink === item.id && "text-accent"
                     )}
                     onClick={() => {
@@ -140,7 +136,7 @@ const Navbar = () => {
                       key={item.name}
                       // href={item.href}
                       className={cn(
-                        "text-white cursor-pointer font-medium hover:text-white/70 transition-colors",
+                        "text-black dark:text-white py-4 border-dashed border-b border-black/30 dark:border-white/30 cursor-pointer font-medium hover:text-black/70 dark:hover:text-white/70 transition-colors",
                         activeLink === item.id && "text-accent"
                       )}
                       onClick={() => {

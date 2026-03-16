@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 
 const Loader = () => {
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState("Initialisation");
+  const { theme } = useTheme();
   
   useEffect(() => {
     const loadingTexts = [
@@ -15,7 +17,7 @@ const Loader = () => {
     
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        const newProgress = prevProgress + 2;
+        const newProgress = prevProgress + 1;
         
         if (newProgress >= 100) {
           clearInterval(interval);
@@ -31,13 +33,13 @@ const Loader = () => {
         
         return newProgress;
       });
-    }, 38);
+    }, 35);
     
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="fixed px-[6%] top-0 left-0 inset-0 z-50 flex flex-col items-center justify-center bg-background">
+    <div className="fixed px-[7.5%] md:px-[6%] top-0 left-0 inset-0 z-50 flex flex-col items-center justify-center bg-background">
       <div className="relative w-full md:w-[20%] mb-0">
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
@@ -45,9 +47,8 @@ const Loader = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold w-full flex px-8 py-6 justify-center items-center text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
         >
-          {/* Franchise<span className="ml-1">IT</span> */}
           <div className="aspect-[26/4] w-full">
-            <img src="/logo.png" className="h-full w-full" alt="" />
+            <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} className="h-full w-full" alt="" />
           </div>
         </motion.div>
         
@@ -55,19 +56,19 @@ const Loader = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="absolute -top-0 -right-0 w-10 h-10 border-t-2 border-r-2 border-primary"
+          className="absolute -top-0 -right-0 w-10 h-10 border-t-2 border-r-2 border-tech-dark dark:border-primary"
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, delay: 0.5 }}
-          className="absolute -bottom-0 -left-0 w-10 h-10 border-b-2 border-l-2 border-primary"
+          className="absolute -bottom-0 -left-0 w-10 h-10 border-b-2 border-l-2 border-tech-dark dark:border-primary"
         />
       </div>
       
       <div className="w-full md:w-[20%] mt-1.5 h-2 bg-secondary rounded-full overflow-hidden mb-3">
         <motion.div 
-          className="h-full bg-primary"
+          className="h-full bg-tech-dark/90 dark:bg-primary"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.2 }}

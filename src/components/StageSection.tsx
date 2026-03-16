@@ -54,7 +54,7 @@ const StageSection = () => {
     ];
 
     return (
-        <section id="stages" className="section-padding px-[5%] md:px-[6%] bg-black relative overflow-hidden">
+        <section id="stages" className="section-padding px-[5%] bg-tech-dark dark:bg-black relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl opacity-30"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
@@ -67,16 +67,19 @@ const StageSection = () => {
                     viewport={{ once: true }}
                     className="text-center flex items-center flex-col gap-4 w-full mb-12"
                 >
-                    <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10">
+                    <div className="inline-flex items-center gap-2 px-6 py-1 bg-white/5 text-primary rounded-full text-xs font-medium border border-white/10">
                         <span>Programme Stages</span>
                     </div>
-                    <h2 className="heading-lg font-title text-white">
-                        Rejoignez notre programme de stages
-                    </h2>
-                    <p className="text-[1rem] w-full md:w-3/4 lg:w-3/5 text-white/70">
-                        Lancez votre carrière dans le numérique avec nos offres de stages
-                        immersifs et formateurs au cœur de l'innovation technologique.
-                    </p>
+
+                    <div className="space-y-1.5">
+                        <h2 className="md:heading-lg heading-md font-title text-white">
+                            Rejoignez notre programme de stages
+                        </h2>
+                        <p className="text-sm mx-auto md:text-lg w-full md:w-3/4 lg:w-3/5 text-white/70">
+                            Lancez votre carrière dans le numérique avec nos offres de stages
+                            immersifs et formateurs au cœur de l'innovation technologique.
+                        </p>
+                    </div>
                 </motion.div>
 
                 <motion.div
@@ -92,6 +95,7 @@ const StageSection = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                             whileHover={{ y: -10 }}
+                             viewport={{ once: true }}
                             className="relative group"
                         >
                             <div className="relative overflow-hidden rounded-2xl">
@@ -108,18 +112,18 @@ const StageSection = () => {
                     ))}
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row items-start gap-14">
+                <div className="flex w-full flex-col lg:flex-row items-start gap-14">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
-                        className="lg:w-1/2"
+                        className="w-full lg:w-1/2"
                     >
                         <div className="relative">
                             <div className="absolute -top-6 -left-6 w-66 h-66 bg-primary/10 rounded-full blur-3xl z-0"></div>
 
-                            <h3 className="text-2xl font-bold mb-4 text-white relative z-10">
+                            <h3 className="text-2xl font-bold mb-4 text-tech-dark dark:text-white relative z-10">
                                 <span className="text-primary">Pourquoi</span> faire votre stage chez nous ?
                             </h3>
                             <p className="text-white/70 mb-6 relative z-10">
@@ -134,6 +138,7 @@ const StageSection = () => {
                                         initial={{ opacity: 0, x: -10 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                                         viewport={{ once: true }}
                                         className="flex items-start gap-3 bg-white/5 backdrop-blur-sm p-3 rounded-xl border border-white/10"
                                     >
                                         <CheckCircle className="flex-shrink-0 text-primary" size={20} />
@@ -149,7 +154,7 @@ const StageSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
-                        className="lg:w-1/2"
+                        className="w-full lg:w-1/2"
                     >
                         <div className="relative">
                             <div className="absolute -bottom-6 -right-6 w-66 h-66 bg-accent/10 rounded-full blur-3xl z-0"></div>
@@ -169,6 +174,7 @@ const StageSection = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                                        viewport={{ once: true }}
                                         className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10 hover:border-primary/30 transition-all duration-300"
                                     >
                                         <div className="flex items-start gap-4">
@@ -188,9 +194,10 @@ const StageSection = () => {
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 transition={{ duration: 0.5, delay: 0.8 }}
+                                viewport={{ once: true }}
                                 className="mt-8 p-6 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 rounded-xl border border-white/10"
                             >
-                                <div className="flex items-center gap-4">
+                                <div className="flex max-md:flex-col text-center items-center gap-4">
                                     <HeartHandshake className="text-primary" size={32} />
                                     <div>
                                         <p className="text-white font-semibold">Prêt à relever le défi ?</p>

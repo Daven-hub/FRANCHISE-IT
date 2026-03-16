@@ -1,33 +1,30 @@
 
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate();
-
   return (
     <section id="hero" className="relative w-full h-[500px] md:h-[calc(100vh-68px)] flex flex-col justify-center overflow-hidden">
        <div className="absolute aspect-square w-full h-full">
-          <img src="/blag.jpg" className="w-full h-full object-cover" alt="logo" />
+          <img src="/blag.webp" loading="lazy" className="w-full h-full object-cover" alt="logo" />
        </div>
       <div className="absolute top-0 left-0 w-full inset-0 grid grid-cols-8 md:grid-cols-12 h-full grid-rows-8 md:grid-rows-6 gap-0 pointer-events-none">
         {Array.from({ length: 12*6 }).map((_, i) => (
-          <div key={i} className="border border-gray-800/45" />
+          <div key={i} className="border border-gray-500/15 dark:border-gray-800/15" />
         ))}
       </div>
       
       <div className="px-[4.5%] md:px-[6%] w-full z-[9]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5 w-full animate-fade-in">
-            <h1 className="text-2xl font-title md:text-4xl lg:text-6xl tracking-wide font-bold text-start leading-tight">
+            <h1 className="text-2xl text-white font-title md:text-4xl lg:text-6xl tracking-wide font-bold text-start leading-tight">
               Solutions IT <span className="text-gradient bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">innovantes</span> pour votre entreprise
             </h1>
-            <p className="text-sm md:text-lg font-medium text-white md:text-muted-foreground">
+            <p className="text-sm md:text-lg font-medium text-white md:dark:text-muted-foreground">
               Spécialistes des solutions informatiques, nous transformons vos idées en projets technologiques concrets. Propulsez votre activité dans l’ère numérique avec nos solutions sur mesure.
             </p>
             <div className="grid font-title grid-cols-1 md:grid-cols-2 gap-4 pt-4">
               <Button
-                className="glass-effect !text-black !bg-white hover:bg-white/10 border border-white/20 px-8 py-6 md:py-6 text-sm md:text-[1rem] group"
+                className="glass-effect !text-background bg-tech-dark dark:!bg-white hover:bg-white/10 border border-white/20 px-8 py-6 md:py-6 text-sm md:text-[1rem] group"
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Nos services
@@ -37,7 +34,7 @@ const Hero = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 tracking-wider text-white hover:bg-white/10 px-8 py-6 md:py-6 text-sm md:text-[1rem]"
+                className="border-white/20 tracking-wider text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10 px-8 py-6 md:py-6 text-sm md:text-[1rem]"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Contactez-nous
@@ -45,7 +42,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute right-[26%] -top-[20%] hidden lg:block">
+          {/* <div className="absolute right-[26%] -top-[20%] hidden lg:block">
             <div className="absolute duration-1000 delay-1000 animate-float">
               <div className="relative">
                 <div className="w-[400px] h-[400px] border-4 border-white/10 rounded-full absolute top-0 left-0"></div>
@@ -74,11 +71,11 @@ const Hero = () => {
                 <div className="w-[100px] h-[100px] bg-white/5 backdrop-blur-md rounded-full absolute top-[150px] left-[150px]"></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+      {/* <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-background/20 to-transparent"></div> */}
     </section>
   );
 };

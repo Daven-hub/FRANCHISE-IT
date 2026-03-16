@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, HelpCircle, Mail, MessageCircle, Phone } from "lucide-react";
+import { ChevronDown} from "lucide-react";
 import { useState } from "react";
 
 const FAQSection = () => {
@@ -37,9 +37,9 @@ const FAQSection = () => {
     };
 
     return (
-        <section id="faq" className="section-padding px-[5%] md:px-[6%] bg-black relative overflow-hidden">
+        <section id="faq" className="section-padding px-[5%] md:px-[6%] relative overflow-hidden">
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-black/80 z-10"></div>
+                <div className="absolute inset-0 bg-secondary dark:bg-black/80 z-10"></div>
                 <img
                     src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                     alt="Data center - Infrastructure IT"
@@ -57,28 +57,29 @@ const FAQSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-center flex items-center flex-col gap-4 w-full mb-12"
+                    className="text-center flex items-center flex-col gap-4 w-full mb-5"
                 >
-                    <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 backdrop-blur-sm text-primary rounded-full text-sm font-medium border border-white/10">
-                        <HelpCircle size={16} />
-                        <span>FAQ</span>
+                    <div className="inline-flex items-center gap-2 px-6 py-1 bg-black/5 dark:bg-white/5 backdrop-blur-sm text-primary rounded-full text-xs font-medium border border-white/10">
+                        <span>Faq</span>
                     </div>
-                    <h2 className="heading-lg font-title text-white">
-                        Questions <span className="text-primary">fréquentes</span>
-                    </h2>
-                    <p className="text-[1rem] w-full md:w-3/4 lg:w-3/5 text-white/70 backdrop-blur-sm p-2 rounded-lg">
-                        Retrouvez les réponses aux questions les plus courantes sur nos services
-                        et notre accompagnement.
-                    </p>
+                    <div className="text-center flex flex-col items-center">
+                        <h2 className="heading-lg font-title text-tech-dark dark:text-white">
+                            Questions <span className="text-primary">fréquentes</span>
+                        </h2>
+                        <p className="text-[1rem] w-full text-lg text-tech-dark/80 dark:text-white/70 backdrop-blur-sm p-2 rounded-lg">
+                            Retrouvez les réponses aux questions les plus courantes sur nos services
+                            et notre accompagnement.
+                        </p>
+                    </div>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex flex-col justify-center lg:flex-row gap-8">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
                         viewport={{ once: true }}
-                        className="lg:w-2/3"
+                        className="w-full"
                     >
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
@@ -86,14 +87,15 @@ const FAQSection = () => {
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                                    className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden hover:border-primary/30 transition-all duration-300"
+                                    transition={{ duration: 0.2, delay: 0.2 + index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="bg-black/10 dark:bg-white/5 backdrop-blur-md rounded-xl border border-tech-dark/10 dark:border-white/10 overflow-hidden hover:border-primary/30 transition-all duration-300"
                                 >
                                     <button
                                         onClick={() => toggleFAQ(index)}
                                         className="w-full px-6 py-4 flex items-center justify-between text-left"
                                     >
-                                        <span className="text-white font-medium text-base md:text-lg pr-8">
+                                        <span className="text-tech-dark dark:text-white font-medium text-sm md:text-lg pr-8">
                                             {faq.question}
                                         </span>
                                         <ChevronDown
@@ -109,10 +111,11 @@ const FAQSection = () => {
                                             height: openIndex === index ? 'auto' : 0,
                                             opacity: openIndex === index ? 1 : 0
                                         }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{ duration: 0.05 }}
+                                        viewport={{ once: true }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-6 pb-4 text-white/70 border-t border-white/10 pt-3">
+                                        <div className="px-6 pb-4 font-normal text-tech-dark/85 dark:text-white/70 border-t border-black/10 dark:border-white/10 pt-3">
                                             {faq.answer}
                                         </div>
                                     </motion.div>
@@ -120,67 +123,7 @@ const FAQSection = () => {
                             ))}
                         </div>
                     </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        viewport={{ once: true }}
-                        className="lg:w-1/3"
-                    >
-                        <div className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-6 sticky top-24">
-                            <h3 className="text-xl font-bold text-white mb-4">
-                                Vous ne trouvez pas votre réponse ?
-                            </h3>
-                            <p className="text-white/60 text-sm mb-6">
-                                Notre équipe est disponible pour répondre à toutes vos questions
-                                et vous accompagner dans vos projets.
-                            </p>
-
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
-                                    <div className="bg-primary/20 p-2 rounded-lg">
-                                        <Mail size={18} className="text-primary" />
-                                    </div>
-                                    <div>
-                                        <p className="text-white text-sm font-medium">Email</p>
-                                        <p className="text-white/50 text-xs">contact@votresite.com</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
-                                    <div className="bg-primary/20 p-2 rounded-lg">
-                                        <Phone size={18} className="text-primary" />
-                                    </div>
-                                    <div>
-                                        <p className="text-white text-sm font-medium">Téléphone</p>
-                                        <p className="text-white/50 text-xs">+225 00 00 00 00</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
-                                    <div className="bg-primary/20 p-2 rounded-lg">
-                                        <MessageCircle size={18} className="text-primary" />
-                                    </div>
-                                    <div>
-                                        <p className="text-white text-sm font-medium">Chat en direct</p>
-                                        <p className="text-white/50 text-xs">Réponse sous 5 min</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button className="w-full mt-6 bg-primary hover:bg-accent text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
-                                Contactez-nous
-                            </button>
-
-                            <p className="text-center text-white/40 text-xs mt-4">
-                                Disponibles 24/7 pour vous répondre
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-
-               
+                </div>           
             </div>
         </section>
     );

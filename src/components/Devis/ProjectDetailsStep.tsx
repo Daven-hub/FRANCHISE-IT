@@ -47,12 +47,12 @@ const ProjectDetailsStep = ({
 
   return (
     <div className="space-y-5">
-      <h3 className="text-2xl font-bold">{getStepTitle()}</h3>
+      <h3 className="text-2xl text-white font-bold">{getStepTitle()}</h3>
 
       <div className="space-y-6">
         {serviceOptions.length > 0 && (
           <div>
-            <label className="block mb-2">
+            <label className="block text-white/70 mb-2">
               {formData.projectType === "Caméra de Surveillance" 
                 ? "Type de montage" 
                 : formData.projectType === "Application Mobile"
@@ -67,7 +67,7 @@ const ProjectDetailsStep = ({
                   key={item}
                   type="button"
                   onClick={() => handleMultiSelect("serviceDetails", item)}
-                  className={`p-4 rounded-md border transition-all flex items-center justify-between ${
+                  className={`p-4 rounded-md border text-white transition-all flex items-center justify-between ${
                     formData.serviceDetails.includes(item)
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-white/20 hover:border-accent/50"
@@ -82,7 +82,7 @@ const ProjectDetailsStep = ({
         )}
 
         <div>
-          <label htmlFor="description" className="block mb-1">
+          <label htmlFor="description" className="block text-white/70 mb-1">
             {formData.projectType === "Caméra de Surveillance"
               ? "Description du lieu/projet"
               : formData.projectType === "Application Mobile"
@@ -94,6 +94,7 @@ const ProjectDetailsStep = ({
           <Textarea
             id="description"
             name="description"
+            rows={6}
             value={formData.description}
             onChange={handleChange}
             placeholder={
@@ -105,7 +106,7 @@ const ProjectDetailsStep = ({
                 ? "Décrivez le contenu ou les fonctionnalités souhaitées..."
                 : "Décrivez brièvement ce que vous souhaitez concevoir..."
             }
-            className="min-h-[120px]"
+            className="p-4"
           />
         </div>
       </div>

@@ -257,7 +257,7 @@ export const projectes = [
   },
   {
     id: "logo",
-    category: "Bussiness",
+    category: "Business",
     title: "Franchise Opportunité Canada",
     description: "Une plateforme dédiée à la mise en relation entre les entrepreneurs francophones et les opportunités de franchises au Canada.",
     image: "/logo/foc.jpg",
@@ -268,7 +268,7 @@ export const projectes = [
   },
   {
     id: "logo",
-    category: "Bussiness",
+    category: "Business",
     title: "JICAC",
     description: "",
     image: "/logo/jicac.png",
@@ -279,7 +279,7 @@ export const projectes = [
   },
   {
     id: "logo",
-    category: "Bussiness",
+    category: "Business",
     title: "JICAG",
     description: "",
     image: "/logo/jicag.png",
@@ -290,7 +290,7 @@ export const projectes = [
   },
   {
     id: "logo",
-    category: "Bussiness",
+    category: "Business",
     title: "Les Leadership Entrepreneur School",
     description: "",
     image: "/logo/les.png",
@@ -301,7 +301,7 @@ export const projectes = [
   },
   {
     id: "logo",
-    category: "Bussiness",
+    category: "Business",
     title: "Les Leadership Entrepreneur School",
     description: "",
     image: "/logo/asso.png",

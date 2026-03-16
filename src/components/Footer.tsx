@@ -1,4 +1,5 @@
 
+import { useTheme } from "@/context/ThemeContext";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
@@ -35,6 +36,8 @@ const Footer = () => {
       ]
     }
   ];
+
+  const { theme } = useTheme();
   
   const socialMedia = [
     { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61561495617076", label: "Facebook" },
@@ -42,14 +45,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black text-white pt-16 pb-6">
+    <footer className="text-white pt-16 pb-6">
       <div className="w-full px-[6%] md:px-[7%]">
         <div className="flex flex-col md:flex-row gap-12 mb-12">
           <div className="w-full md:w-[32%]">
             <a href="#" className="text-2xl text-start font-bold font-montserrat mb-2 flex">
-              <img src="/logo.png" className="w-[70%]" alt="" />
+              <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} className="w-[70%]" alt="" />
             </a>
-            <p className="text-white/70 mb-6 w-full">
+            <p className="text-tech-dark/80 dark:text-white/70 mb-6 w-full">
             Chez Franchise IT, notre équipe d’experts se consacre à fournir des solutions innovantes de haute qualité pour aider vos clients à atteindre leurs objectifs commerciaux dans l’espace numérique.
             </p>
             <div className="flex space-x-4">
@@ -57,7 +60,7 @@ const Footer = () => {
                 <a 
                   key={index} 
                   href={social.href}
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  className="w-10 h-10 bg-tech-dark/10 dark:bg-white/10 text-tech-dark dark:text-white rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -68,13 +71,13 @@ const Footer = () => {
           <div className="w-full md:w-[67%] grid gap-10 md:gap-14 grid-cols-1 md:grid-cols-3">
             {sections.map((section, index) => (
               <div key={index}>
-                <h4 className="font-bold font-title text-lg mb-4">{section.title}</h4>
+                <h4 className="font-bold underline underline-offset-4 text-tech-dark dark:text-white font-title text-lg mb-3.5">{section.title}</h4>
                 <ul className="">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex} className="border-b last-of-type:border-b-0 py-2.5 border-primary/30 border-dashed">
                       <a 
                         href={link.href} 
-                        className="text-white/70 w-full hover:text-white transition-colors"
+                        className="text-tech-dark/90 dark:text-white/70 w-full hover:text-tech-blue dark:hover:text-white transition-colors"
                       >
                         {link.name}
                       </a>
@@ -86,20 +89,20 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-white/10 pt-6 mt-12">
+        <div className="border-t border-tech-dark/10 dark:border-white/10 pt-6 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/70 text-xs md:text-sm">
+            <p className="text-tech-dark/60 dark:text-white/70 text-xs md:text-sm">
               © {currentYear} Franchise IT. Tous droits réservés.
             </p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#" className="text-white/70 text-xs md:text-sm hover:text-white transition-colors">
+                  <a href="#" className="text-tech-dark/60 dark:text-white/70 text-xs md:text-sm dark:hover:text-white transition-colors">
                     Politique de confidentialité
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/70 hover:text-white text-xs md:text-sm transition-colors">
+                  <a href="#" className="text-tech-dark/60 dark:text-white/70 dark:hover:text-white text-xs md:text-sm transition-colors">
                     Conditions d'utilisation
                   </a>
                 </li>

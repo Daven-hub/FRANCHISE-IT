@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const Index = lazy(() => import("./pages/Index"));
 const Layout = lazy(() => import("./pages/Layout"));
@@ -13,6 +14,7 @@ const Equipe = lazy(() => import("./pages/Equipe"));
 const queryClient = new QueryClient();
 
 const App = () => (
+  <ThemeProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -25,16 +27,17 @@ const App = () => (
       >
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<Layout />}  >
-              <Route index element={<Index />} />
+            {/* <Route path="/" element={<Layout />}  > */}
+              <Route path="/" element={<Index />} />
               <Route path="equipes" element={<Equipe />} />
-            </Route>
+            {/* </Route> */}
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;

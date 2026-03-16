@@ -10,12 +10,12 @@ interface ContactStepProps {
 const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-bold">Vos coordonnées</h3>
+      <h3 className="text-2xl text-white font-bold">Vos coordonnées</h3>
       {/* <p className="text-muted-foreground">Nous utiliserons ces informations pour vous contacter avec votre devis.</p> */}
       
       <div className="grid grid-cols-1 gap-3">
         <div className="relative">
-          <label htmlFor="name" className="block text-sm mb-0.5">Nom complet</label>
+          <label htmlFor="name" className="block text-sm text-white/70 mb-1">Nom complet</label>
           <div className="relative">
             <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -30,7 +30,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
         </div>
         
         <div className="relative">
-          <label htmlFor="company" className="block text-sm mb-0.5">Entreprise (optionnel)</label>
+          <label htmlFor="company" className="block text-sm text-white/70 mb-1">Entreprise (optionnel)</label>
           <div className="relative">
             <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -45,7 +45,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
         </div>
         
         <div className="relative">
-          <label htmlFor="email" className="block text-sm mb-0.5">Email</label>
+          <label htmlFor="email" className="block text-sm text-white/70 mb-1">Email</label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -61,7 +61,7 @@ const ContactStep = ({ formData, handleChange }: ContactStepProps) => {
         </div>
         
         <div className="relative">
-          <label htmlFor="phone" className="block text-sm mb-0.5">Téléphone</label>
+          <label htmlFor="phone" className="block text-sm text-white/70 mb-1">Téléphone</label>
           <div className="relative">
             <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input

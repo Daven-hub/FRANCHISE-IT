@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle Inscription Étudiant</title>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif;">
+
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f4f4f4">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="margin: 20px auto; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                    
+                    <!-- HEADER -->
+                    <tr>
+                        <td bgcolor="#0073e6" style="color: white; text-align: center; padding: 15px; font-size: 20px; font-weight: bold; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                            Nouvelle Inscription Étudiant
+                        </td>
+                    </tr>
+
+                    <!-- CONTENU -->
+                    <tr>
+                        <td style="padding: 20px 10px; color: #333; line-height: 1.5;">
+                            <p>Bonjour,</p>
+                            <p style="font-size: 1rem;">Un nouvel étudiant s'est inscrit via le formulaire en ligne. Voici ses informations :</p>
+
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="10" border="0" bgcolor="#f9f9f9" style="border-radius: 5px;">
+                                <tr><td><strong>👤 Session :</strong> {{session}}</td></tr>
+                                <tr><td><strong>👤 Nom :</strong> {{name}}</td></tr>
+                                <tr><td><strong>👤 Telephon :</strong> {{phone}}</td></tr>
+                                <tr><td><strong>🎂 Date de naissance :</strong> {{dateOfBirth}}</td></tr>
+                                <tr><td><strong>⚤ Sexe :</strong> {{gender}}</td></tr>
+                                <tr><td><strong>⚤ Diplome supérieur :</strong> {{educationLevel}}</td></tr>
+                                <tr><td><strong>📚 Formation :</strong> {{formation}}</td></tr>
+                                <tr><td><strong>📆 Session :</strong> {{session}}</td></tr>
+                                <tr><td><strong>📧 Email :</strong> <a href="mailto:{{email}}" style="color: #0073e6;">{{email}}</a></td></tr>
+                                <tr><td><strong>🎓 Diplôme :</strong> {{diploma}}</td></tr>
+                                <tr><td><strong>🎓 Description :</strong> {{motivation}}</td></tr>
+                            </table>
+
+                            <p>Merci de prendre en compte cette nouvelle inscription et de procéder aux vérifications nécessaires.</p>
+
+                            <p>Cordialement,</p>
+                            <p><strong>L'équipe des Admissions</strong><br>Institut de Formation Professionnelle Franchise (IFPF)</p>
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td bgcolor="#f4f4f4" style="text-align: center; padding: 15px; font-size: 12px; color: #777; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                            &copy; 2025 IFPFranchise | Tous droits réservés
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -72,17 +72,17 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
 
     return (
         <div className="space-y-5">
-            <h3 className="text-2xl font-bold">Délais et budget</h3>
+            <h3 className="text-2xl text-white font-bold">Délais et budget</h3>
 
             <div className="grid grid-cols-1 gap-6">
                 {/* Délai */}
                 <div className="space-y-1">
-                    <label className="block">Quel est votre délai souhaité ?</label>
+                    <label className="block text-white/70">Quel est votre délai souhaité ?</label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                         {timelineOptions.map((option) => (
                             <label
                                 key={option.key}
-                                className={`p-3 rounded-md border cursor-pointer transition ${
+                                className={`p-3 rounded-md border text-white cursor-pointer transition ${
                                     formData.timeline === option.value
                                         ? "border-accent bg-accent/10 text-accent"
                                         : "border-white/20 hover:border-accent/50"
@@ -120,7 +120,7 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
                 {/* Budget */}
                 <div className="space-y-1">
                     <div className="flex justify-between items-center">
-                        <label className="block" htmlFor="budget">
+                        <label className="block text-white/70" htmlFor="budget">
                             Budget estimé
                         </label>
                         <div className="relative w-fit">
@@ -152,7 +152,7 @@ const TimelineBudgetStep = ({ formData, handleChange }: TimelineBudgetStepProps)
                             placeholder="Ex: 500 000"
                             value={rawBudget}
                             onChange={handleBudgetChange}
-                            className="w-full p-3 rounded-md border border-white/20 focus:border-accent focus:outline-none bg-transparent pl-3 pr-10"
+                            className="w-full p-3 rounded-md border text-white/90 border-white/20 focus:border-accent focus:outline-none bg-transparent pl-3 pr-10"
                         />
                         <span className="absolute right-3 top-3 text-muted-foreground">
                             {currencySymbol}
