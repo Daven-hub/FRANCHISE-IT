@@ -48,7 +48,7 @@ const Loader = () => {
           className="text-4xl font-bold w-full flex px-8 py-6 justify-center items-center text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
         >
           <div className="aspect-[26/4] w-full">
-            <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} className="h-full w-full" alt="" />
+            <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} loading="eager" className="h-full w-full" alt="" />
           </div>
         </motion.div>
         

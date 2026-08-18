@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import ThemeToggle from '@/components/ThemeToggle';
 import ScrollHah from '@/lib/ScrollHash';
 import ScrollToTop from '@/lib/ScrollToTop';
-import React from 'react'
 // import { Outlet } from 'react-router-dom';
 
 function Layout({children}) {

@@ -8,7 +8,7 @@ function Equipe() {
       <div className='flex flex-col'>
         <div className="w-full relative h-[250px] md:h-[400px] flex flex-col justify-center overflow-hidden">
           <div className="absolute aspect-square w-full h-full">
-            <img src="/banni.jpg" className="w-full h-full object-cover object-right" alt="logo" />
+            <img src="/banni.jpg" loading='eager' className="w-full h-full object-cover object-right" alt="logo" />
           </div>
           <div className="absolute top-0 left-0 w-full inset-0 grid grid-cols-8 md:grid-cols-12 h-full grid-rows-8 md:grid-rows-6 gap-0 pointer-events-none">
             {Array.from({ length: 12 * 6 }).map((_, i) => (

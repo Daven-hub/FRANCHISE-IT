@@ -51,7 +51,7 @@ const FAQSection = () => {
             <div className="absolute top-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-40 z-0"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl opacity-30 z-0"></div>
 
-            <div className="w-full md:mx-auto relative z-10">
+            <div className="w-full md:max-w-4xl md:mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -63,10 +63,10 @@ const FAQSection = () => {
                         <span>Faq</span>
                     </div>
                     <div className="text-center flex flex-col items-center">
-                        <h2 className="heading-lg font-title text-tech-dark dark:text-white">
+                        <h2 className="heading-md md:heading-lg font-title text-tech-dark dark:text-white">
                             Questions <span className="text-primary">fréquentes</span>
                         </h2>
-                        <p className="text-[1rem] w-full text-lg text-tech-dark/80 dark:text-white/70 backdrop-blur-sm p-2 rounded-lg">
+                        <p className="text-md w-full md:text-lg text-tech-dark/80 dark:text-white/70 backdrop-blur-sm p-2 rounded-lg">
                             Retrouvez les réponses aux questions les plus courantes sur nos services
                             et notre accompagnement.
                         </p>
@@ -93,7 +93,7 @@ const FAQSection = () => {
                                 >
                                     <button
                                         onClick={() => toggleFAQ(index)}
-                                        className="w-full px-6 py-4 flex items-center justify-between text-left"
+                                        className="w-full px-4 md:px-5 py-3 flex items-center justify-between text-left"
                                     >
                                         <span className="text-tech-dark dark:text-white font-medium text-sm md:text-lg pr-8">
                                             {faq.question}
@@ -111,11 +111,11 @@ const FAQSection = () => {
                                             height: openIndex === index ? 'auto' : 0,
                                             opacity: openIndex === index ? 1 : 0
                                         }}
-                                        transition={{ duration: 0.05 }}
+                                        transition={{ duration: 0.04 }}
                                         viewport={{ once: true }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-6 pb-4 font-normal text-tech-dark/85 dark:text-white/70 border-t border-black/10 dark:border-white/10 pt-3">
+                                        <div className="px-4 pb-4 max-md:!leading-[1.6] text-sm md:text-[1rem] font-normal text-tech-dark/85 dark:text-white/70 border-t border-black/10 dark:border-white/10 pt-3">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

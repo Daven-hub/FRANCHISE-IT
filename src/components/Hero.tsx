@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative w-full h-[500px] md:h-[calc(100vh-68px)] flex flex-col justify-center overflow-hidden">
        <div className="absolute aspect-square w-full h-full">
-          <img src="/blag.webp" loading="lazy" className="w-full h-full object-cover" alt="logo" />
+          <img src="/blag.webp" loading="eager" className="w-full h-full object-cover" alt="logo" />
        </div>
       <div className="absolute top-0 left-0 w-full inset-0 grid grid-cols-8 md:grid-cols-12 h-full grid-rows-8 md:grid-rows-6 gap-0 pointer-events-none">
         {Array.from({ length: 12*6 }).map((_, i) => (

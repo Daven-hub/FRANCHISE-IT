@@ -28,7 +28,7 @@ const Partners = () => {
   }, []);
 
   return (
-    <section id="partners" className="section-padding bg-card/30 relative">
+    <section id="partners" className="section-padding bg-tech-dark relative">
       {/* Background accent element */}
       <div className="absolute top-0 right-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
         <div className="absolute left-[10%] top-[40%] w-[300px] h-[300px] rounded-full bg-accent/20 blur-[100px]"></div>
@@ -59,7 +59,7 @@ const Partners = () => {
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              className="w-[200px] h-[100px] glass-effect border-white/10 rounded-lg flex items-center justify-center px-6 py-4 flex-shrink-0 hover:border-accent/40 hover:accent-glow transition-all duration-300"
+              className="w-[200px] h-[100px] glass-effect border-white/10 rounded-lg flex items-center justify-center px-4 py-4 flex-shrink-0 hover:border-accent/40 hover:accent-glow transition-all duration-300"
             >
               <img 
                 src={partner.logo} 

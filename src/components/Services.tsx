@@ -55,7 +55,7 @@ const DesignLogo: FC<DesignLogoProps> = ({
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <Card className="glass-effect cursor-pointer border-white/10 card-hover overflow-hidden bg-tech-dark dark:bg-[#031322]/50 hover:border-primary hover:scale-105 transition-transform duration-300">
+    <Card className="glass-effect cursor-pointer rounded-[6px] border-white/10 card-hover overflow-hidden bg-tech-dark dark:bg-[#031322]/50 hover:border-primary hover:scale-105 transition-transform duration-300">
       <CardContent className="px-[6%] md:px-8 py-8">
         <div className="flex flex-col items-start">
           <div className="w-16 h-16 text-primary glass-effect rounded-lg flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors">
@@ -167,13 +167,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-secondary px-[5%]">
+    <section id="services" className="section-padding bg-background px-[5%]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center flex items-center flex-col gap-4 w-full mb-5 md:mb-7"
+          className="text-center flex items-center flex-col gap-3.5 w-full mb-5 md:mb-7"
         >
           <div className="inline-block w-fit px-6 py-1 bg-black/5 dark:bg-white/5 text-primary rounded-full text-xs font-medium border border-white/10">
             Nos Services

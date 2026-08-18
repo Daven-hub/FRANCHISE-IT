@@ -1,12 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import DevisModal from './Devis/DevisModal';
 import Devis from '@/pages/Devis';
 import { useTheme } from '@/context/ThemeContext';
+import Marquee from 'react-fast-marquee';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,15 +46,41 @@ const Navbar = () => {
     { name: 'Accueil', href: '/', id: 'hero' },
     { name: 'A propos', href: 'a-propos', id: 'a-propos' },
     { name: 'Services', href: 'services', id: 'services' },
-    { name: 'Projets', href: 'projects', id: 'projects' },
-    { name: 'Formations', href: 'formations', id: 'formations' },
-    { name: 'Equipe', href: 'equipes', id: 'team' },
+    { name: 'Projets', href: '/projects', id: 'projects' },
+    { name: 'Formations', href: '/formations', id: 'formations' },
+    { name: 'Equipe', href: '/equipes', id: 'team' },
     { name: 'Stages', href: 'stages', id: 'stages' },
     { name: 'Contact', href: 'contact', id: 'contact' }
   ];
 
+  const linked = [
+    '/', '/equipes', '/projects', '/formations'
+  ]
+
+  const annonceData = [
+    {
+      title: "Annonces",
+      description: "Franchise IT lance les formations professionnelles à partir de 6 Mai"
+    },
+    {
+      title: "Exclusivité",
+      description: "Une reduction de 30% est offerte aux 10 premiers inscrits pour l'une de nos formations"
+    }
+  ]
+
   return (
     <>
+      <div className='py-0 border-b border-black bg-white dark:border-white'>
+        <Marquee direction="left" speed={15} pauseOnHover autoFill gradientWidth={0} gradient={false}>
+          <div className="flex items-center gap-5">
+            {annonceData.map((x, index) =>
+              <div key={index} className="flex gap-2 text-sm last-of-type:mr-5 text-tech-dark justify-center items-center">
+                <mark className='bg-accent font-semibold text-white px-4 py-1'>{x.title}</mark> {x.description}
+              </div>
+            )}
+          </div>
+        </Marquee>
+      </div>
       <nav
         className={cn(
           'sticky w-full top-0 left-0 right-0 z-[50] bg-background transition-all duration-300 backdrop-blur-md border-b border-black dark:border-white'
@@ -74,13 +100,13 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <a href="#" className="text-xl md:text-2xl font-bold flex gap-1 font-montserrat text-white">
-                  <img src={theme==='dark'?"/logo.png":"/dark_logo.png"} className='w-[160px] max-md:w-[130px]' alt="logo_franchise_it" />
+                <a href="/" className="text-xl md:text-2xl font-bold flex gap-1 font-montserrat text-white">
+                  <img src={theme === 'dark' ? "/logo.png" : "/dark_logo.png"} className='w-[160px] max-md:w-[130px]' alt="logo_franchise_it" />
                 </a>
               </div>
               <div className='hidden md:flex items-center space-x-2'>
                 {navItems.map((item) => (
-                  item.href !== "equipes" && item.href !== "/" ?
+                  !linked?.includes(item.href) ?
                     <NavLink
                       key={item.name}
                       onClick={() => document.getElementById(item.href)?.scrollIntoView({ behavior: 'smooth' })}
@@ -119,7 +145,7 @@ const Navbar = () => {
             <div className="md:hidden absolute top-full h-[calc(100vh-55.61px)] left-0 right-0 bg-background border-t border-b border-black dark:border-white pb-4 px-4 animate-fade-in">
               <div className="flex flex-col">
                 {navItems.map((item) =>
-                  ['accueil','equipe'].includes(item.name.toLowerCase())  ? <NavLink
+                  linked?.includes(item.href.toLowerCase()) ? <NavLink
                     key={item.name}
                     to={item.href}
                     className={cn(
@@ -132,7 +158,7 @@ const Navbar = () => {
                   >
                     {item.name}
                   </NavLink> :
-                  <div
+                    <div
                       key={item.name}
                       // href={item.href}
                       className={cn(
@@ -148,7 +174,7 @@ const Navbar = () => {
                       }}
                     >
                       {item.name}
-                  </div>
+                    </div>
 
                 )}
                 {/* <Button className="bg-white text-black hover:bg-white/90 w-full">

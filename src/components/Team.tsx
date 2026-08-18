@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Linkedin, Locate, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import "react-photo-album/styles.css";
-import PhotoAlbum from 'react-photo-album';
 import { useState } from "react";
 
 interface TeamMember {
@@ -128,20 +127,20 @@ const Team = () => {
     }));
 
     const CustomPhoto = ({ member }) => {
-    const [loaded, setLoaded] = useState(false)
-    return (
-      <Card key={member.id} className="glass-effect w-full h-full border-white/10 card-hover group team-member-card bg-[#031322]/50">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover aspect-[9/8] transition-transform duration-500 group-hover:scale-105"
-                />
-            </Card>
-    )
-  }
+      const [loaded, setLoaded] = useState(false)
+      return (
+        <Card key={member.id} className="glass-effect w-full h-full border-white/10 card-hover group team-member-card bg-[#031322]/50">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover aspect-[9/8] transition-transform duration-500 group-hover:scale-105"
+                  />
+              </Card>
+      )
+    }
 
   return (
-    <section id="team" className="section-padding px-[5%] md:px-[6%] ">
+    <section id="team" className="section-padding px-[5%]">
       {/* j'ai retirer bg-[#031322]/40  */}
       <div className="w-full">
         <motion.div
@@ -162,7 +161,7 @@ const Team = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {team.map((member) => (
             <Card key={member.id} className="glass-effect group relative overflow-hidden rounded-[4px] card-hover group team-member-card bg-[#031322]/50">
               <div className="relative overflow-hidden md:aspect-square">

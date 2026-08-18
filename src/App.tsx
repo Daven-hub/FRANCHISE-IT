@@ -8,7 +8,9 @@ import Loader from "./components/Loader";
 import { ThemeProvider } from "./context/ThemeContext";
 
 const Index = lazy(() => import("./pages/Index"));
-const Layout = lazy(() => import("./pages/Layout"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Formations = lazy(() => import("./pages/Formations"));
+const DetailFormation = lazy(() => import("./pages/DetailFormation"));
 const Equipe = lazy(() => import("./pages/Equipe"));
 
 const queryClient = new QueryClient();
@@ -29,6 +31,9 @@ const App = () => (
           <Routes>
             {/* <Route path="/" element={<Layout />}  > */}
               <Route path="/" element={<Index />} />
+              <Route path="projects" element={<Portfolio />} />
+              <Route path="formations" element={<Formations />} />
+              <Route path="formations/details/:id" element={<DetailFormation />} />
               <Route path="equipes" element={<Equipe />} />
             {/* </Route> */}
             {/* <Route path="*" element={<NotFound />} /> */}

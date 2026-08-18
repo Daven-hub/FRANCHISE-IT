@@ -1,21 +1,19 @@
 import Services from "@/components/Services";
-import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-// import * as Icons from "lucide-react";
 import FAQSection from "@/components/FAQSection";
-import { lazy } from "react";
 import Layout from "./Layout";
 import StageSection from "@/components/StageSection";
-import FormationSection from "@/components/FormationSection";
+// import FormationSection from "@/components/FormationSection";
 import Marquee from "react-fast-marquee";
-// import FAQSection from "@/components/FAQSection";
-const Hero = lazy(() => import("@/components/Hero"));
+import Hero from "@/components/Hero";
 import { SiKubernetes, SiNginx ,SiTypescript, SiSpring , SiJavascript ,SiPostgresql,SiRedis , SiMongodb ,SiMysql, SiAnsible, SiVuedotjs, SiExpress  } from "react-icons/si";
 import { DiDjango } from "react-icons/di";
 import { RiNextjsLine } from "react-icons/ri";
 import { FaReact,FaJava  , FaGithub ,FaGitlab  ,FaGitAlt, FaDocker, FaPython, FaAws, FaNodeJs, FaAngular, FaPhp, FaLaravel, FaJenkins } from "react-icons/fa";
-
+import ProjectHomePage from "@/components/ProjectHomePage";
+import { useTheme } from "@/context/ThemeContext";
+import { NavLink } from "react-router-dom";
 
 
 const StatsGrid = () => {
@@ -52,95 +50,7 @@ const StatBlock = ({ value, label }) => (
   </div>
 );
 
-const logos = [
-  {
-    link: '/logo/ANG.png',
-    url: ''
-  },
-  {
-    link: '/logo/asso.png',
-    url: ''
-  },
-  {
-    link: '/logo/ccca.png',
-    url: ''
-  },
-  {
-    link: '/logo/centre.jpg',
-    url: ''
-  },
-  {
-    link: '/logo/chambre.jpg',
-    url: ''
-  },
-  {
-    link: '/logo/ifpf.png',
-    url: ''
-  },
-  {
-    link: '/logo/impulsion.jpg',
-    url: ''
-  },
-  {
-    link: '/logo/ngk.jpg',
-    url: ''
-  },
-  {
-    link: '/logo/nfp.png',
-    url: ''
-  },
-  {
-    link: '/logo/foc.jpg',
-    url: ''
-  },
-  {
-    link: '/logo/fcc.png',
-    url: ''
-  },
-  {
-    link: '/logo/jicac.png',
-    url: ''
-  }
-]
 
-// const techs = [
-//   { "name": "JavaScript", "icon": "FileCode", "category": "language" },
-//   { "name": "TypeScript", "icon": "FileCode2", "category": "language" },
-//   { "name": "Python", "icon": "Terminal", "category": "language" },
-//   { "name": "Java", "icon": "Coffee", "category": "language" },
-//   { "name": "C++", "icon": "Code", "category": "language" },
-
-//   { "name": "React", "icon": "Atom", "category": "frontend" },
-//   { "name": "Next.js", "icon": "Globe", "category": "frontend" },
-//   { "name": "Vue", "icon": "Triangle", "category": "frontend" },
-//   { "name": "Angular", "icon": "Hexagon", "category": "frontend" },
-//   { "name": "Svelte", "icon": "Zap", "category": "frontend" },
-
-//   { "name": "Node.js", "icon": "Server", "category": "backend" },
-//   { "name": "Express", "icon": "Route", "category": "backend" },
-//   { "name": "Django", "icon": "Layers", "category": "backend" },
-//   { "name": "Laravel", "icon": "Box", "category": "backend" },
-//   { "name": "Spring", "icon": "Leaf", "category": "backend" },
-
-//   { "name": "MySQL", "icon": "Database", "category": "database" },
-//   { "name": "PostgreSQL", "icon": "DatabaseBackup", "category": "database" },
-//   { "name": "MongoDB", "icon": "Cylinder", "category": "database" },
-//   { "name": "Redis", "icon": "HardDrive", "category": "database" },
-
-//   { "name": "Docker", "icon": "Package", "category": "devops" },
-//   { "name": "Kubernetes", "icon": "Boxes", "category": "devops" },
-//   { "name": "Git", "icon": "GitBranch", "category": "devops" },
-//   { "name": "GitHub", "icon": "Github", "category": "devops" },
-//   { "name": "GitLab", "icon": "GitMerge", "category": "devops" },
-
-//   { "name": "AWS", "icon": "Cloud", "category": "cloud" },
-//   { "name": "Azure", "icon": "CloudCog", "category": "cloud" },
-//   { "name": "Google Cloud", "icon": "CloudLightning", "category": "cloud" },
-
-//   { "name": "Linux", "icon": "TerminalSquare", "category": "system" },
-//   { "name": "Bash", "icon": "Terminal", "category": "system" },
-//   { "name": "Nginx", "icon": "ServerCog", "category": "system" }
-// ]
 const techs = [
   FaReact,
   FaDocker,
@@ -174,31 +84,33 @@ const techs = [
 
 const Index = () => {
 
+  const {theme}=useTheme()
+
   return (
     <Layout>
       <Hero />
-      <div className="section-padding w-full relative px-[5%] grid grid-cols-1 max-md:gap-5 md:grid-cols-3 bg-primary/10">
+      <div className="section-padding w-full relative px-[5%] grid grid-cols-1 max-md:gap-5 md:grid-cols-3 bg-background">
         <div className="col-span-1 flex flex-col justify-center items-center pr-1">
-          <h1 className="font-title heading-md md:heading-lg"> Notre stack au service de solutions performantes.</h1>
+          <h1 className="font-title text-xl max-md:font-bold md:heading-lg"> Notre stack au service des solutions performantes.</h1>
         </div>
-        <div className="col-span-1 flex flex-col gap-5 w-full md:col-span-2">
-          <Marquee direction="right" speed={15} pauseOnHover gradientWidth={40} gradient={true}>
+        <div className="col-span-1 flex flex-col gap-4 w-full md:col-span-2">
+          <Marquee direction="right" speed={15} pauseOnHover autoFill gradientWidth={15} gradientColor={theme==='dark' ? 'black' : 'white'} gradient={true}>
             <div className="flex items-center gap-5">
               {techs.map((Icon,index) => {
                 return (
-                  <div key={index} className="flex bg-tech-dark last-of-type:mr-5 text-white dark:bg-accent p-5 flex-col justify-center items-center">
-                    <Icon size={40} />
+                  <div key={index} className="flex bg-tech-dark last-of-type:mr-5 text-white dark:bg-accent p-4 flex-col justify-center items-center">
+                    <Icon size={40} strokeWidth={0.5} />
                   </div>
                 );
               })}
             </div>
           </Marquee>
-          <Marquee direction="left" speed={15} pauseOnHover gradientWidth={40} gradient={true}>
+          <Marquee direction="left" speed={15} pauseOnHover autoFill gradientWidth={15} gradientColor={theme==='dark' ? 'black' : 'white'} gradient={true}>
             <div className="flex items-center gap-5">
               {techs.map((Icon,index) => {
                 return (
-                  <div key={index} className="flex bg-tech-dark last-of-type:mr-5 text-white dark:bg-accent p-5 flex-col justify-center items-center">
-                    <Icon size={40} />
+                  <div key={index} className="flex bg-tech-dark last-of-type:mr-5 text-white dark:bg-accent p-4 flex-col justify-center items-center">
+                    <Icon size={40} strokeWidth={0.5}/>
                   </div>
                 );
               })}
@@ -218,13 +130,26 @@ const Index = () => {
       </div> */}
       <About />
       <Services />
-      <FormationSection />
-      <Projects />
+
+      {/**barre bleue*/}
+      <div className="px-[5%]">
+          <div className="bg-primary p-8 w-full section-padding rounded-md flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Exclusivité</h2>
+              <p className="text-white/90 max-w-3xl text-base md:text-[1rem]">Nous développons des programmes de formation personnalisés pour renforcer les compétences de vos équipes dans les technologies modernes et les méthodologies innovantes.</p>
+            </div>
+            <NavLink to={'/formations'} className="bg-white text-primary font-semibold px-6 py-3 rounded hover:bg-white/90 transition-colors whitespace-nowrap">
+              En savoir plus
+            </NavLink>
+          </div>
+      </div>
+      {/* <FormationSection /> */}
+      <ProjectHomePage />
+      {/* <Partners /> */}
       <StageSection />
       <FAQSection />
       <StatsGrid />
       {/* <Devis/> */}
-      {/* <Partners /> */}
       <Contact />
     </Layout>
   );
